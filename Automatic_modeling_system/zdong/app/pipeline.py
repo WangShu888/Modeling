@@ -393,6 +393,51 @@ class IntentTransformer:
             )
 
         selector, patch = _extract_model_patch_from_prompt(prompt)
+
+        # 识别屋顶类型
+        roof = None
+        roof_type = None
+        if "双坡屋顶" in prompt or "gable roof" in prompt.lower():
+            roof_type = "gable"
+        elif "单坡屋顶" in prompt or "shed roof" in prompt.lower():
+            roof_type = "shed"
+        elif "平屋顶" in prompt or "flat roof" in prompt.lower():
+            roof_type = "flat"
+
+        if roof_type:
+            # 识别坡度
+            roof_slope = self._extract_float(prompt, r"坡度(\d+)度|屋顶坡度(\d+)")
+            if roof_slope is None:
+                roof_slope = 30.0  # 默认30度
+                assumptions.append(
+                    Assumption(
+                        field="roof.roof_slope_deg",
+                        value=roof_slope,
+                        source="roof_default",
+                        confidence=0.7,
+                    )
+                )
+
+            # 识别悬挑
+            roof_overhang = self._extract_float(prompt, r"悬挑(\d+\.?\d*)米|屋檐(\d+\.?\d*)米")
+            if roof_overhang is None:
+                roof_overhang = 0.6  # 默认悬挑0.6米
+
+            roof = RoofInfo(
+                roof_type=roof_type,
+                roof_slope_deg=roof_slope,
+                roof_overhang_m=roof_overhang,
+                roof_height_m=None,  # 自动计算
+            )
+            completion_trace.append(
+                CompletionTraceItem(
+                    field="roof",
+                    value=roof.dict(),
+                    source="prompt_extraction",
+                    source_type="text_prompt",
+                )
+            )
+
         style = StyleInfo(
             facade="follow_drawing" if source_mode == "cad_to_bim" else "generated_default",
             material_palette=["concrete", "glass", "aluminum"]
@@ -438,6 +483,7 @@ class IntentTransformer:
             completion_trace=completion_trace,
             element_selector=selector,
             model_patch=patch,
+            roof=roof,
         )
 
     def _infer_building_type(self, prompt: str, fallback: str | None) -> str:
@@ -815,6 +861,12 @@ class BimEngine:
                 )
             )
 
+        # 为顶层添加屋顶元素
+        if intent.roof and intent.roof.roof_type and storeys:
+            top_storey = storeys[-1]  # 最后一层是顶层
+            roof_elements = self._make_roof_elements(intent, top_storey, source_layouts)
+            top_storey.elements.extend(roof_elements)
+
         element_index: dict[str, int] = {}
         for storey in storeys:
             for element in storey.elements:
@@ -992,13 +1044,31 @@ class BimEngine:
                 if source_fragment_ids
                 else f"{next(iter(grouped['asset_names']), storey_key)}:{source_storey_key}"
             )
-            min_x, min_y, max_x, max_y = self._entity_bounds(
+            # Calculate bounds for positioning origin (all entities) and slab footprint (walls only)
+            all_min_x, all_min_y, all_max_x, all_max_y = self._entity_bounds(
                 wall_entities + window_entities + door_entities + room_entities
             )
-            if min_x is None or min_y is None or max_x is None or max_y is None:
+            if all_min_x is None or all_min_y is None or all_max_x is None or all_max_y is None:
                 continue
-            width = max((max_x - min_x) * scale, 1.0)
-            depth = max((max_y - min_y) * scale, 1.0)
+
+            # Calculate slab footprint from wall entities only to avoid exceeding wall boundaries
+            wall_min_x, wall_min_y, wall_max_x, wall_max_y = self._entity_bounds(wall_entities)
+            wall_center_x = None
+            wall_center_y = None
+            if wall_min_x is not None and wall_min_y is not None and wall_max_x is not None and wall_max_y is not None:
+                # Use wall bounds for slab to ensure it doesn't exceed wall outer edges
+                width = max((wall_max_x - wall_min_x) * scale, 1.0)
+                depth = max((wall_max_y - wall_min_y) * scale, 1.0)
+                # Calculate wall center for slab positioning
+                wall_center_x = (wall_min_x + wall_max_x) / 2.0
+                wall_center_y = (wall_min_y + wall_max_y) / 2.0
+            else:
+                # Fallback to all entities if wall bounds not available
+                width = max((all_max_x - all_min_x) * scale, 1.0)
+                depth = max((all_max_y - all_min_y) * scale, 1.0)
+
+            # Use all entities for origin positioning to ensure doors/windows are included
+            min_x, min_y, max_x, max_y = all_min_x, all_min_y, all_max_x, all_max_y
             layouts.append(
                 {
                     "storey_key": storey_key,
@@ -1009,6 +1079,8 @@ class BimEngine:
                     "origin_y": min_y,
                     "footprint_width": width,
                     "footprint_depth": depth,
+                    "wall_center_x": wall_center_x,
+                    "wall_center_y": wall_center_y,
                     "bounds_min_x_m": 0.0,
                     "bounds_min_y_m": 0.0,
                     "bounds_max_x_m": round(width, 3),
@@ -1218,6 +1290,8 @@ class BimEngine:
             origin_y=origin_y,
             fallback_width=footprint_width,
             fallback_depth=footprint_depth,
+            wall_center_x=layout.get("wall_center_x"),
+            wall_center_y=layout.get("wall_center_y"),
             source_storey_key=source_storey_key,
             source_fragment_id=source_fragment_id,
         )
@@ -1317,16 +1391,29 @@ class BimEngine:
         origin_y: float,
         fallback_width: float,
         fallback_depth: float,
+        wall_center_x: float | None,
+        wall_center_y: float | None,
         source_storey_key: str,
         source_fragment_id: str,
     ) -> dict[str, int | float | str]:
         # Use the pre-calculated floor dimensions from layout
         # fallback_width and fallback_depth already represent the floor footprint
-        # Position the slab at the center of the floor coordinate system
         width = fallback_width
         depth = fallback_depth
-        local_x = width / 2.0
-        local_y = depth / 2.0
+
+        # Position the slab at the center of wall outer edges
+        # (not the center of floor coordinate system)
+        if wall_center_x is not None and wall_center_y is not None:
+            # Convert wall center from global coordinates to local floor coordinates
+            local_x, local_y = self._local_xy(wall_center_x, wall_center_y, scale, origin_x, origin_y)
+            print(f"[DEBUG] Slab position from wall center: ({local_x:.3f}, {local_y:.3f})")
+            print(f"[DEBUG] Wall center global: ({wall_center_x:.3f}, {wall_center_y:.3f})")
+        else:
+            # Fallback to floor center if wall center is not available
+            local_x = width / 2.0
+            local_y = depth / 2.0
+            print(f"[DEBUG] Slab position from floor center: ({local_x:.3f}, {local_y:.3f})")
+            print(f"[DEBUG] WARNING: wall_center is None!")
 
         return {
             "thickness_mm": 120,

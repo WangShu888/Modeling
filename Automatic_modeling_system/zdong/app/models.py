@@ -289,6 +289,14 @@ class StyleInfo(BaseModel):
     material_palette: list[str] = Field(default_factory=list)
 
 
+class RoofInfo(BaseModel):
+    """屋顶配置信息"""
+    roof_type: str | None = None  # "gable" | "hip" | "flat" | None
+    roof_slope_deg: float | None = None  # 屋顶坡度（度）
+    roof_overhang_m: float | None = None  # 屋顶悬挑（米）
+    roof_height_m: float | None = None  # 屋顶高度（米）
+
+
 class ElementSelector(BaseModel):
     ifc_type: str
     properties: dict[str, Any]
@@ -336,6 +344,7 @@ class DesignIntent(BaseModel):
     completion_trace: list[CompletionTraceItem] = Field(default_factory=list)
     element_selector: ElementSelector | None = None
     model_patch: ModelPatch | None = None
+    roof: RoofInfo | None = None
     metadata: dict[str, Any] = Field(default_factory=dict)
 
 
