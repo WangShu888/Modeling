@@ -1,0 +1,112 @@
+{
+  "status": "warning",
+  "issues": [
+    {
+      "severity": "warning",
+      "message": "A large closed polyline was inferred as a possible site boundary and should be confirmed.",
+      "target": "47D"
+    },
+    {
+      "severity": "warning",
+      "message": "Proxy entities did not expose usable geometry; synthesized fallback wall/door/window candidates from available non-proxy lines and drawing footprint.",
+      "target": "二层平面图（不带家具）.dxf"
+    },
+    {
+      "severity": "warning",
+      "message": "ACAD_PROXY_ENTITY virtual_entities() returned no usable geometry in this drawing.",
+      "target": "二层平面图（不带家具）.dxf"
+    },
+    {
+      "severity": "warning",
+      "message": "A large closed polyline was inferred as a possible site boundary and should be confirmed.",
+      "target": "431"
+    },
+    {
+      "severity": "warning",
+      "message": "Proxy entities did not expose usable geometry; synthesized fallback wall/door/window candidates from available non-proxy lines and drawing footprint.",
+      "target": "一层平面图（不带家具）.dxf"
+    },
+    {
+      "severity": "warning",
+      "message": "图纸解析未识别到房间边界，空间生成结果需要人工复核。",
+      "target": "parsed_drawing.space_candidates_detected"
+    },
+    {
+      "severity": "warning",
+      "message": "模型缺少关键构件类型 IfcDoor。",
+      "target": "IfcDoor"
+    }
+  ],
+  "affected_elements": [],
+  "fix_suggestions": [
+    "补全缺失字段后重新触发建模流程。"
+  ],
+  "metadata": {
+    "validation_engine": "semantic_pre_export_validator",
+    "ifc_exporter": "ifcopenshell_exporter",
+    "ifc_schema": "IFC4",
+    "formal_backend_ready": false,
+    "gate_trace": {
+      "validation_status": "warning",
+      "severity_counts": {
+        "info": 0,
+        "warning": 7,
+        "error": 0,
+        "fatal": 0
+      },
+      "blocking_issues": [],
+      "formal_blocking_issues": [],
+      "count_reconciliation": {
+        "IfcWall": {
+          "source": 32,
+          "modeled": 32,
+          "delta": 0
+        },
+        "IfcDoor": {
+          "source": 0,
+          "modeled": 0,
+          "delta": 0
+        },
+        "IfcWindow": {
+          "source": 16,
+          "modeled": 16,
+          "delta": 0
+        },
+        "IfcSpace": {
+          "source": 0,
+          "modeled": 10,
+          "delta": 10
+        }
+      },
+      "storey_layout_trace": [
+        {
+          "storey_key": "1F",
+          "source_storey_key": "1F",
+          "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+          "source_fragment_ids": [
+            "一层平面图（不带家具）.dxf::fragment::1F::01"
+          ],
+          "source_assets": [
+            "一层平面图（不带家具）.dxf"
+          ],
+          "replicated": false
+        },
+        {
+          "storey_key": "2F",
+          "source_storey_key": "2F",
+          "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+          "source_fragment_ids": [
+            "二层平面图（不带家具）.dxf::fragment::2F::01"
+          ],
+          "source_assets": [
+            "二层平面图（不带家具）.dxf"
+          ],
+          "replicated": false
+        }
+      ],
+      "suggested_actions": [
+        "补全缺失字段后重新触发建模流程。"
+      ]
+    }
+  }
+}

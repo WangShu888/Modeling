@@ -1320,18 +1320,13 @@ class BimEngine:
         source_storey_key: str,
         source_fragment_id: str,
     ) -> dict[str, int | float | str]:
-        wall_min_x, wall_min_y, wall_max_x, wall_max_y = self._entity_bounds(wall_entities)
-        if None not in {wall_min_x, wall_min_y, wall_max_x, wall_max_y}:
-            width = max((float(wall_max_x) - float(wall_min_x)) * scale, 1.0)
-            depth = max((float(wall_max_y) - float(wall_min_y)) * scale, 1.0)
-            center_x = (float(wall_min_x) + float(wall_max_x)) / 2.0
-            center_y = (float(wall_min_y) + float(wall_max_y)) / 2.0
-            local_x, local_y = self._local_xy(center_x, center_y, scale, origin_x, origin_y)
-        else:
-            width = fallback_width
-            depth = fallback_depth
-            local_x = width / 2.0
-            local_y = depth / 2.0
+        # Use the pre-calculated floor dimensions from layout
+        # fallback_width and fallback_depth already represent the floor footprint
+        # Position the slab at the center of the floor coordinate system
+        width = fallback_width
+        depth = fallback_depth
+        local_x = width / 2.0
+        local_y = depth / 2.0
 
         return {
             "thickness_mm": 120,
@@ -2276,7 +2271,11 @@ class ExportService:
                     )
                 )
 
+            # First pass: create walls and collect them for opening matching
+            wall_ids: dict[str, int] = {}
             counts_by_type: dict[str, int] = {}
+            opening_data: list[tuple[BimElement, int, int, int, float, float, float, float]] = []
+
             for element in storey.elements:
                 element_index = counts_by_type.get(element.ifc_type, 0)
                 counts_by_type[element.ifc_type] = element_index + 1
@@ -2285,9 +2284,58 @@ class ExportService:
                     element_index,
                     intent,
                 )
-                placement = self._add_local_placement(writer, storey_placement, x, y, z, rotation_deg)
-                shape = self._add_box_shape(writer, body_context, axis_2d, origin_3d, dir_z, width, depth, height)
-                related_products.append(self._add_ifc_product(writer, element, placement, shape))
+
+                if element.ifc_type == "IfcWall":
+                    placement = self._add_local_placement(writer, storey_placement, x, y, z, rotation_deg)
+                    shape = self._add_box_shape(writer, body_context, axis_2d, origin_3d, dir_z, width, depth, height)
+                    wall_id = self._add_ifc_product(writer, element, placement, shape)
+                    related_products.append(wall_id)
+                    wall_ids[element.element_id] = wall_id
+
+                elif element.ifc_type in ("IfcDoor", "IfcWindow"):
+                    # Store opening data for second pass
+                    opening_data.append((element, element_index, x, y, z, rotation_deg, width, depth, height))
+
+                elif element.ifc_type == "IfcSlab":
+                    # Create slab with corrected positioning
+                    placement = self._add_local_placement(writer, storey_placement, x, y, z, rotation_deg)
+                    shape = self._add_box_shape(writer, body_context, axis_2d, origin_3d, dir_z, width, depth, height)
+                    related_products.append(self._add_ifc_product(writer, element, placement, shape))
+
+            # Second pass: create openings for doors and windows
+            for element, element_index, x, y, z, rotation_deg, width, depth, height in opening_data:
+                host_wall_ref = str(element.properties.get("host_wall_ref", "") or "")
+                host_wall_id = wall_ids.get(host_wall_ref)
+
+                if host_wall_id is None:
+                    # No host wall found, create as independent element
+                    placement = self._add_local_placement(writer, storey_placement, x, y, z, rotation_deg)
+                    shape = self._add_box_shape(writer, body_context, axis_2d, origin_3d, dir_z, width, depth, height)
+                    related_products.append(self._add_ifc_product(writer, element, placement, shape))
+                    continue
+
+                # Create opening element
+                opening_placement = self._add_local_placement(writer, storey_placement, x, y, z, rotation_deg)
+                opening_shape = self._add_box_shape(writer, body_context, axis_2d, origin_3d, dir_z, width, depth, height)
+                opening_id = writer.add(
+                    f"IFCOPENINGELEMENT('{self._ifc_guid(f'{element.element_id}:opening')}',$,'Opening',$,$,#{opening_placement},#{opening_shape},$,.OPENING.)"
+                )
+
+                # Create void relationship (wall -> opening)
+                writer.add(
+                    f"IFCRELVOIDSELEMENT('{self._ifc_guid(f'{element.element_id}:void')}',$,'Opening',$,#{host_wall_id},#{opening_id})"
+                )
+
+                # Create door/window
+                element_placement = self._add_local_placement(writer, storey_placement, x, y, z, rotation_deg)
+                element_shape = self._add_box_shape(writer, body_context, axis_2d, origin_3d, dir_z, width, depth, height)
+                element_id = self._add_ifc_product(writer, element, element_placement, element_shape)
+                related_products.append(element_id)
+
+                # Create fills relationship (opening -> door/window)
+                writer.add(
+                    f"IFCRELFILLSELEMENT('{self._ifc_guid(f'{element.element_id}:fill')}',$,'Fills',$,#{opening_id},#{element_id})"
+                )
 
             if related_products:
                 refs = ",".join(f"#{product_id}" for product_id in related_products)

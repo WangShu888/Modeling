@@ -1,0 +1,187 @@
+{
+  "project_id": "proj_0037",
+  "request_id": "req_0046",
+  "version_id": "ver_0052",
+  "source_mode": "cad_to_bim",
+  "building_type": "residential",
+  "site": {
+    "boundary_source": "drawing_or_uploaded_polygon",
+    "area_sqm": 53.67,
+    "north_angle": 0.0
+  },
+  "constraints": {
+    "floors": 2,
+    "standard_floor_height_m": 3.6,
+    "first_floor_height_m": 3.6,
+    "ruleset": "cn_residential_v1",
+    "far": 2.5
+  },
+  "program": {
+    "spaces_from_drawings": true,
+    "units_per_floor": 4,
+    "core_type": "double_elevator",
+    "first_floor_spaces": [
+      "lobby"
+    ],
+    "typical_floor_spaces": [
+      "unit",
+      "corridor"
+    ]
+  },
+  "style": {
+    "facade": "follow_drawing",
+    "material_palette": [
+      "paint",
+      "glass",
+      "metal"
+    ]
+  },
+  "deliverables": [
+    "ifc",
+    "validation.json",
+    "intent.json"
+  ],
+  "final_use": "revit_view",
+  "missing_fields": [],
+  "assumptions": [
+    {
+      "field": "program.units_per_floor",
+      "value": 4,
+      "source": "residential_template_default",
+      "confidence": 0.6
+    },
+    {
+      "field": "constraints.ruleset",
+      "value": "cn_residential_v1",
+      "source": "building_type_ruleset",
+      "confidence": 0.85
+    }
+  ],
+  "completion_trace": [
+    {
+      "field": "building_type",
+      "value": "residential",
+      "source": "form_input",
+      "source_type": "form_input",
+      "source_ref": "bundle.building_type_hint",
+      "confidence": 1.0
+    },
+    {
+      "field": "source_mode",
+      "value": "cad_to_bim",
+      "source": "parsed_assets",
+      "source_type": "parsed_drawing",
+      "source_ref": "parsed_drawing.assets_count",
+      "confidence": 0.95
+    },
+    {
+      "field": "constraints.floors",
+      "value": 2,
+      "source": "form_input",
+      "source_type": "form_input",
+      "source_ref": "form_fields.constraints.floors",
+      "confidence": 1.0
+    },
+    {
+      "field": "constraints.standard_floor_height_m",
+      "value": 3.6,
+      "source": "form_input",
+      "source_type": "form_input",
+      "source_ref": "form_fields.constraints.standard_floor_height_m",
+      "confidence": 1.0
+    },
+    {
+      "field": "constraints.first_floor_height_m",
+      "value": 3.6,
+      "source": "form_input",
+      "source_type": "form_input",
+      "source_ref": "form_fields.constraints.first_floor_height_m",
+      "confidence": 1.0
+    },
+    {
+      "field": "site.area_sqm",
+      "value": 53.67,
+      "source": "form_input",
+      "source_type": "form_input",
+      "source_ref": "form_fields.site.area_sqm",
+      "confidence": 1.0
+    },
+    {
+      "field": "constraints.far",
+      "value": 2.5,
+      "source": "form_input",
+      "source_type": "form_input",
+      "source_ref": "form_fields.constraints.far",
+      "confidence": 1.0
+    },
+    {
+      "field": "program.units_per_floor",
+      "value": 4,
+      "source": "residential_template_default",
+      "source_type": "template_default",
+      "source_ref": "intent_defaults.residential.default_units_per_floor",
+      "confidence": 0.6
+    },
+    {
+      "field": "constraints.ruleset",
+      "value": "cn_residential_v1",
+      "source": "building_type_ruleset",
+      "source_type": "template_default",
+      "source_ref": "intent_defaults.residential.default_ruleset",
+      "confidence": 0.85
+    },
+    {
+      "field": "site.boundary_source",
+      "value": "drawing_or_uploaded_polygon",
+      "source": "parsed_drawing",
+      "source_type": "parsed_drawing",
+      "source_ref": "parsed_drawing.site_boundary_detected",
+      "confidence": 0.8
+    },
+    {
+      "field": "site.north_angle",
+      "value": 0.0,
+      "source": "parsed_drawing",
+      "source_type": "parsed_drawing",
+      "source_ref": "parsed_drawing.north_angle",
+      "confidence": 0.75
+    },
+    {
+      "field": "program.spaces_from_drawings",
+      "value": true,
+      "source": "parsed_drawing",
+      "source_type": "parsed_drawing",
+      "source_ref": "parsed_drawing.space_candidates_detected",
+      "confidence": 0.75
+    },
+    {
+      "field": "deliverables",
+      "value": [
+        "ifc",
+        "validation.json",
+        "intent.json"
+      ],
+      "source": "form_input",
+      "source_type": "form_input",
+      "source_ref": "form_fields.output_formats",
+      "confidence": 1.0
+    },
+    {
+      "field": "final_use",
+      "value": "revit_view",
+      "source": "system_default",
+      "source_type": "system_default",
+      "source_ref": "module_requirements.final_use",
+      "confidence": 0.8
+    }
+  ],
+  "element_selector": null,
+  "model_patch": null,
+  "metadata": {
+    "intent_provider": "heuristic_structured_v1",
+    "config_version": "2026-03-31",
+    "schema_version": "jianmo.intent.v1",
+    "region_context": "CN-SH",
+    "asset_count": 2
+  }
+}
