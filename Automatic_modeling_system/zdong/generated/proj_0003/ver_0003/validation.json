@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "issues": [],
+  "affected_elements": [
+    "IfcWindow"
+  ],
+  "fix_suggestions": []
+}

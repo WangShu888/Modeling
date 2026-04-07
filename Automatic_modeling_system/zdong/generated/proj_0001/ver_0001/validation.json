@@ -1,0 +1,35 @@
+{
+  "status": "warning",
+  "issues": [
+    {
+      "severity": "warning",
+      "message": "A large closed polyline was inferred as a possible site boundary and should be confirmed.",
+      "target": "3890"
+    }
+  ],
+  "affected_elements": [
+    "IfcWindow"
+  ],
+  "fix_suggestions": [
+    "补全缺失字段后重新触发建模流程。"
+  ],
+  "metadata": {
+    "validation_engine": "semantic_pre_export_validator",
+    "ifc_exporter": "text_ifc_fallback",
+    "ifc_schema": "IFC4",
+    "formal_backend_ready": false,
+    "gate_trace": {
+      "validation_status": "warning",
+      "severity_counts": {
+        "info": 0,
+        "warning": 1,
+        "error": 0,
+        "fatal": 0
+      },
+      "blocking_issues": [],
+      "suggested_actions": [
+        "补全缺失字段后重新触发建模流程。"
+      ]
+    }
+  }
+}

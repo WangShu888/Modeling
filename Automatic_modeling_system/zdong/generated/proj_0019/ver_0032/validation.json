@@ -1,0 +1,116 @@
+{
+  "status": "warning",
+  "issues": [
+    {
+      "severity": "warning",
+      "message": "A large closed polyline was inferred as a possible site boundary and should be confirmed.",
+      "target": "3890"
+    },
+    {
+      "severity": "warning",
+      "message": "A large closed polyline was inferred as a possible site boundary and should be confirmed.",
+      "target": "20BB"
+    },
+    {
+      "severity": "warning",
+      "message": "Detected 73 duplicate components: RF:专用宿舍楼-建施.dxf:wall:20320.132,494647.067, RF:专用宿舍楼-建施.dxf:wall:21820.132,494647.067, RF:专用宿舍楼-建施.dxf:wall:44570.382,496446.817, RF:专用宿舍楼-建施.dxf:wall:55370.132,480547.067, RF:专用宿舍楼-建施.dxf:wall:55170.132,495547.067, RF:专用宿舍楼-建施.dxf:wall:55370.132,495547.067, RF:专用宿舍楼-建施.dxf:wall:54920.132,479747.067, RF:专用宿舍楼-建施.dxf:wall:54920.132,481347.067, RF:专用宿舍楼-建施.dxf:wall:54920.132,481547.067, RF:专用宿舍楼-建施.dxf:wall:54845.132,479447.067, RF:专用宿舍楼-建施.dxf:wall:55170.132,480547.067, RF:专用宿舍楼-建施.dxf:wall:55620.132,479747.067, RF:专用宿舍楼-建施.dxf:wall:55620.132,481547.067, RF:专用宿舍楼-建施.dxf:wall:54920.132,494547.067, RF:专用宿舍楼-建施.dxf:wall:54920.132,494747.067, RF:专用宿舍楼-建施.dxf:wall:55170.132,492147.067, RF:专用宿舍楼-建施.dxf:wall:55370.132,492147.067, RF:专用宿舍楼-建施.dxf:wall:58770.132,480497.067, RF:专用宿舍楼-建施.dxf:wall:58970.132,480497.067, RF:专用宿舍楼-建施.dxf:wall:54845.132,496647.067, RF:专用宿舍楼-建施.dxf:wall:63520.132,494647.067, RF:专用宿舍楼-建施.dxf:wall:65020.132,494647.067, RF:专用宿舍楼-建施.dxf:wall:55695.132,479447.067, RF:专用宿舍楼-建施.dxf:wall:103970.382,496446.817, RF:专用宿舍楼-建施.dxf:wall:114770.132,480547.067, RF:专用宿舍楼-建施.dxf:wall:114570.132,495547.067, RF:专用宿舍楼-建施.dxf:wall:114770.132,495547.067, RF:专用宿舍楼-建施.dxf:wall:114320.132,479747.067, RF:专用宿舍楼-建施.dxf:wall:114320.132,481347.067, RF:专用宿舍楼-建施.dxf:wall:114320.132,481547.067, RF:专用宿舍楼-建施.dxf:wall:114245.132,479447.067, RF:专用宿舍楼-建施.dxf:wall:115095.132,479447.067, RF:专用宿舍楼-建施.dxf:wall:114570.132,480547.067, RF:专用宿舍楼-建施.dxf:wall:115020.132,479747.067, RF:专用宿舍楼-建施.dxf:wall:115020.132,481547.067, RF:专用宿舍楼-建施.dxf:wall:114320.132,494547.067, RF:专用宿舍楼-建施.dxf:wall:114320.132,494747.067, RF:专用宿舍楼-建施.dxf:wall:114570.132,492147.067, RF:专用宿舍楼-建施.dxf:wall:114770.132,492147.067, RF:专用宿舍楼-建施.dxf:wall:118170.132,480497.067, RF:专用宿舍楼-建施.dxf:wall:118370.132,480497.067, RF:专用宿舍楼-建施.dxf:wall:114245.132,496647.067, RF:专用宿舍楼-建施.dxf:wall:121969.882,497146.817, RF:专用宿舍楼-建施.dxf:wall:125070.132,486947.067, 1F:专用宿舍楼-建施.dxf:wall:293460.166,488654.421, 1F:专用宿舍楼-建施.dxf:wall:288735.166,488854.421, 1F:专用宿舍楼-建施.dxf:wall:452319.425,476550.177, 1F:专用宿舍楼-建施.dxf:wall:452056.759,496074.784, 1F:专用宿舍楼-建施.dxf:wall:474447.863,490533.03, 1F:专用宿舍楼-建施.dxf:wall:473697.863,491033.03, 1F:专用宿舍楼-建施.dxf:wall:442325.331,480536.364, 1F:专用宿舍楼-建施.dxf:wall:440386.221,482786.364, 1F:专用宿舍楼-建施.dxf:wall:442950.331,480036.364, 1F:专用宿舍楼-建施.dxf:wall:450611.333,495574.784, 1F:专用宿舍楼-建施.dxf:wall:283785.166,488854.421, 1F:专用宿舍楼-建施.dxf:wall:283785.166,485254.421, 1F:专用宿舍楼-建施.dxf:wall:289185.166,485254.421, 1F:专用宿舍楼-建施.dxf:wall:291585.166,485254.421, 1F:专用宿舍楼-建施.dxf:wall:286435.166,488754.421, 1F:专用宿舍楼-建施.dxf:wall:281785.166,492129.421, 1F:专用宿舍楼-建施.dxf:wall:290385.166,488754.421, 1F:专用宿舍楼-建施.dxf:wall:289185.166,488854.421, 1F:专用宿舍楼-建施.dxf:wall:288985.166,488479.421, 1F:专用宿舍楼-建施.dxf:wall:292560.166,488754.421, 1F:专用宿舍楼-建施.dxf:wall:453764.852,495574.784, 1F:专用宿舍楼-建施.dxf:wall:299335.166,492454.421, 1F:专用宿舍楼-建施.dxf:wall:299385.166,490304.421, 1F:专用宿舍楼-建施.dxf:wall:299385.166,493904.421, 2F:专用宿舍楼-建施.dxf:wall:375705.557,495856.915, 2F:专用宿舍楼-结施.dxf:wall:674414.483,331657.799, 2F:专用宿舍楼-结施.dxf:wall:678914.483,332635.122, 2F:专用宿舍楼-结施.dxf:wall:679405.439,334157.568, 2F:专用宿舍楼-结施.dxf:wall:561566.692,333376.42",
+      "target": null
+    },
+    {
+      "severity": "warning",
+      "message": "Assembly produced multiple storeys but no continuous cross-layer chains.",
+      "target": null
+    }
+  ],
+  "affected_elements": [],
+  "fix_suggestions": [
+    "补全缺失字段后重新触发建模流程。"
+  ],
+  "metadata": {
+    "validation_engine": "semantic_pre_export_validator",
+    "ifc_exporter": "ifcopenshell_exporter",
+    "ifc_schema": "IFC4",
+    "formal_backend_ready": false,
+    "gate_trace": {
+      "validation_status": "warning",
+      "severity_counts": {
+        "info": 0,
+        "warning": 4,
+        "error": 0,
+        "fatal": 0
+      },
+      "blocking_issues": [],
+      "formal_blocking_issues": [],
+      "count_reconciliation": {
+        "IfcWall": {
+          "source": 2153,
+          "modeled": 2153,
+          "delta": 0
+        },
+        "IfcDoor": {
+          "source": 12,
+          "modeled": 12,
+          "delta": 0
+        },
+        "IfcWindow": {
+          "source": 260,
+          "modeled": 260,
+          "delta": 0
+        },
+        "IfcSpace": {
+          "source": 58,
+          "modeled": 58,
+          "delta": 0
+        }
+      },
+      "storey_layout_trace": [
+        {
+          "storey_key": "1F",
+          "source_storey_key": "1F",
+          "source_fragment_id": "专用宿舍楼-建施.dxf::fragment::1F::03",
+          "source_fragment_ids": [
+            "专用宿舍楼-建施.dxf::fragment::1F::03",
+            "专用宿舍楼-建施.dxf::fragment::1F::02",
+            "专用宿舍楼-建施.dxf::fragment::1F::01",
+            "专用宿舍楼-结施.dxf::fragment::1F::01"
+          ],
+          "source_assets": [
+            "专用宿舍楼-建施.dxf",
+            "专用宿舍楼-结施.dxf"
+          ],
+          "replicated": false
+        },
+        {
+          "storey_key": "2F",
+          "source_storey_key": "2F",
+          "source_fragment_id": "专用宿舍楼-建施.dxf::fragment::2F::04",
+          "source_fragment_ids": [
+            "专用宿舍楼-建施.dxf::fragment::2F::04",
+            "专用宿舍楼-建施.dxf::fragment::2F::05",
+            "专用宿舍楼-结施.dxf::fragment::2F::02"
+          ],
+          "source_assets": [
+            "专用宿舍楼-建施.dxf",
+            "专用宿舍楼-结施.dxf"
+          ],
+          "replicated": false
+        },
+        {
+          "storey_key": "RF",
+          "source_storey_key": "RF",
+          "source_fragment_id": "专用宿舍楼-建施.dxf::fragment::RF::06",
+          "source_fragment_ids": [
+            "专用宿舍楼-建施.dxf::fragment::RF::06"
+          ],
+          "source_assets": [
+            "专用宿舍楼-建施.dxf"
+          ],
+          "replicated": false
+        }
+      ],
+      "suggested_actions": [
+        "补全缺失字段后重新触发建模流程。"
+      ]
+    }
+  }
+}

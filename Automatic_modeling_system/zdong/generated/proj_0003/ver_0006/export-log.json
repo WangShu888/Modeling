@@ -1,0 +1,8 @@
+{
+  "project_id": "proj_0003",
+  "version_id": "ver_0006",
+  "runtime": "text_ifc_fallback",
+  "schema": "IFC4",
+  "formal_backend_ready": false,
+  "artifact_count": 5
+}

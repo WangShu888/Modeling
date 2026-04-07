@@ -1,0 +1,54 @@
+{
+  "status": "failed",
+  "issues": [
+    {
+      "severity": "warning",
+      "message": "A large closed polyline was inferred as a possible site boundary and should be confirmed.",
+      "target": "3890"
+    },
+    {
+      "severity": "warning",
+      "message": "A large closed polyline was inferred as a possible site boundary and should be confirmed.",
+      "target": "20BB"
+    },
+    {
+      "severity": "warning",
+      "message": "图纸解析未识别到房间边界，空间生成结果需要人工复核。",
+      "target": "parsed_drawing.space_boundaries_detected"
+    },
+    {
+      "severity": "error",
+      "message": "楼层数量与 DesignIntent 不一致。",
+      "target": "storeys"
+    }
+  ],
+  "affected_elements": [],
+  "fix_suggestions": [
+    "检查执行计划中的楼层拆解逻辑。"
+  ],
+  "metadata": {
+    "validation_engine": "semantic_pre_export_validator",
+    "ifc_exporter": "ifcopenshell_exporter",
+    "ifc_schema": "IFC4",
+    "formal_backend_ready": false,
+    "gate_trace": {
+      "validation_status": "failed",
+      "severity_counts": {
+        "info": 0,
+        "warning": 3,
+        "error": 1,
+        "fatal": 0
+      },
+      "blocking_issues": [
+        {
+          "severity": "error",
+          "target": "storeys",
+          "message": "楼层数量与 DesignIntent 不一致。"
+        }
+      ],
+      "suggested_actions": [
+        "检查执行计划中的楼层拆解逻辑。"
+      ]
+    }
+  }
+}

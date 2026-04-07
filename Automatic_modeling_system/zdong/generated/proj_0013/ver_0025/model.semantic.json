@@ -1,0 +1,1328 @@
+{
+  "project_id": "proj_0013",
+  "version_id": "ver_0025",
+  "building_type": "residential",
+  "storeys": [
+    {
+      "storey_id": "storey_01",
+      "name": "1F",
+      "elevation_m": 0.0,
+      "spaces": [
+        {
+          "space_id": "storey_01_unit_1",
+          "name": "户型 1",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_01_unit_2",
+          "name": "户型 2",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_01_unit_3",
+          "name": "户型 3",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_01_unit_4",
+          "name": "户型 4",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_01_corridor",
+          "name": "公共走道",
+          "category": "circulation",
+          "area_sqm": 42.0
+        }
+      ],
+      "elements": [
+        {
+          "element_id": "storey_01_ifcslab_d75af9a0",
+          "guid": "bd6f64ab-01e2-56a4-948c-c91ada8176ee",
+          "ifc_type": "IfcSlab",
+          "name": "图纸楼板 01",
+          "family_name": "cad_footprint_slab",
+          "storey_id": "storey_01",
+          "properties": {
+            "thickness_mm": 120,
+            "geometry_source": "parsed_drawing",
+            "source_category": "footprint_bbox",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 0.0,
+            "local_y_m": 0.0,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 7.716,
+            "shape_depth_m": 30.447,
+            "shape_height_m": 0.12
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_77f5e761",
+          "guid": "260a8022-1de4-58d6-8fa8-1a2934a4d575",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 1",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 5.466,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "1B15",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 0.072,
+            "local_y_m": 22.947,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 5.466,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_48ec6c53",
+          "guid": "0d73b63c-b7e3-5291-9e74-85440e5c4fcd",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 2",
+          "family_name": "cad_wall_path",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 4.466,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_path",
+            "source_ref": "1B19",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 1.072,
+            "local_y_m": 22.947,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 4.466,
+            "shape_depth_m": 2.7,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_6310b31a",
+          "guid": "03504324-ba73-517e-ac35-4416ad73804d",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 3",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 4.5,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "1B1A",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 1.072,
+            "local_y_m": 25.947,
+            "local_z_m": 0.0,
+            "rotation_deg": 90.0,
+            "shape_width_m": 4.5,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_c7feb344",
+          "guid": "3b9bf57d-b41f-5316-bbb8-34bcaa12fa6a",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 4",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 7.5,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "1B1B",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 0.072,
+            "local_y_m": 22.947,
+            "local_z_m": 0.0,
+            "rotation_deg": 90.0,
+            "shape_width_m": 7.5,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_c83097a6",
+          "guid": "5f9eb3be-43a1-5766-99ec-8dff90ca42c9",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 5",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 1.0,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "1B1C",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 0.072,
+            "local_y_m": 29.447,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.0,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_1b1258f7",
+          "guid": "6835bc53-94ed-5109-a9dd-f2cadfcb5d14",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 6",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 1.0,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "1B1D",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 0.072,
+            "local_y_m": 30.447,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.0,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_5c290672",
+          "guid": "1b0aea6c-0746-592f-b570-3e71e92d31cc",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 7",
+          "family_name": "cad_wall_path",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 8.0,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_path",
+            "source_ref": "1B1E",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 0.072,
+            "local_y_m": 22.447,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 5.466,
+            "shape_depth_m": 8.0,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_13cf25f8",
+          "guid": "b5e16816-c39a-5921-861b-3a08708c306a",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 8",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 7.716,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "2B6D",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 0.0,
+            "local_y_m": 11.079,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 7.716,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_e95b9825",
+          "guid": "89efacfa-b89f-5e04-86e9-94ac4124796f",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 9",
+          "family_name": "cad_wall_path",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 6.716,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_path",
+            "source_ref": "2B6E",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 1.0,
+            "local_y_m": 11.079,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 6.716,
+            "shape_depth_m": 2.7,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_f645fe7b",
+          "guid": "a619664d-8d25-5638-aa1d-1ae3ff69fcd4",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 10",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 4.5,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "2B6F",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 1.0,
+            "local_y_m": 14.079,
+            "local_z_m": 0.0,
+            "rotation_deg": 90.0,
+            "shape_width_m": 4.5,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_ab628d71",
+          "guid": "1d1fa931-5ddd-5714-8864-22202a2f164f",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 11",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 7.5,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "2B70",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 0.0,
+            "local_y_m": 11.079,
+            "local_z_m": 0.0,
+            "rotation_deg": 90.0,
+            "shape_width_m": 7.5,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_f56871e9",
+          "guid": "df92da26-8aab-56c6-8418-da517aa092b6",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 12",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 1.0,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "2B71",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 0.0,
+            "local_y_m": 17.579,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.0,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_e7f25025",
+          "guid": "fbdfa7e7-a89d-5f32-a748-5a555d42c33d",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 13",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 1.0,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "2B72",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 0.0,
+            "local_y_m": 18.579,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.0,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_8d13b298",
+          "guid": "b33996f6-878a-56a2-b85c-5d731457e258",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 14",
+          "family_name": "cad_wall_path",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 8.0,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_path",
+            "source_ref": "2B73",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 0.0,
+            "local_y_m": 10.579,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 7.716,
+            "shape_depth_m": 8.0,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_cde3fb60",
+          "guid": "ad6a2e18-0e43-5af0-ad28-dfefec226f30",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 15",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 6.716,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "2BD9",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 0.072,
+            "local_y_m": 0.5,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 6.716,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_e35ecb5f",
+          "guid": "fcaba4f4-6424-5aeb-82b2-595eeaacb046",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 16",
+          "family_name": "cad_wall_path",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 5.716,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_path",
+            "source_ref": "2BDA",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 1.072,
+            "local_y_m": 0.5,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 5.716,
+            "shape_depth_m": 2.7,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_9d850660",
+          "guid": "9b92d09a-d781-5bce-8927-735b92031573",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 17",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 4.5,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "2BDB",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 1.072,
+            "local_y_m": 3.5,
+            "local_z_m": 0.0,
+            "rotation_deg": 90.0,
+            "shape_width_m": 4.5,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_9cde2132",
+          "guid": "e86aaf3c-1813-5abe-b931-3b492db6ba2b",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 18",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 7.5,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "2BDC",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 0.072,
+            "local_y_m": 0.5,
+            "local_z_m": 0.0,
+            "rotation_deg": 90.0,
+            "shape_width_m": 7.5,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_2d871c68",
+          "guid": "1d8ddd8b-7f7a-54e9-aae9-cc92f246bf22",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 19",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 1.0,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "2BDD",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 0.072,
+            "local_y_m": 7.0,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.0,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_50cb3593",
+          "guid": "863b627a-2a9a-5c5e-955b-399a5a798747",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 20",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 1.0,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "2BDE",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 0.072,
+            "local_y_m": 8.0,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.0,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_e1cd0bbc",
+          "guid": "f29ae80b-2169-5308-b882-11c4247b7c04",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 21",
+          "family_name": "cad_wall_path",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 8.0,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_path",
+            "source_ref": "2BDF",
+            "source_storey_key": "1F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+            "local_x_m": 0.072,
+            "local_y_m": 0.0,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 6.716,
+            "shape_depth_m": 8.0,
+            "shape_height_m": 3.0
+          }
+        }
+      ]
+    },
+    {
+      "storey_id": "storey_02",
+      "name": "2F",
+      "elevation_m": 3.3,
+      "spaces": [
+        {
+          "space_id": "storey_02_unit_1",
+          "name": "户型 1",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_02_unit_2",
+          "name": "户型 2",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_02_unit_3",
+          "name": "户型 3",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_02_unit_4",
+          "name": "户型 4",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_02_corridor",
+          "name": "公共走道",
+          "category": "circulation",
+          "area_sqm": 42.0
+        }
+      ],
+      "elements": [
+        {
+          "element_id": "storey_02_ifcslab_e5d17f4b",
+          "guid": "79544226-b11b-5d59-8731-58a13b586c55",
+          "ifc_type": "IfcSlab",
+          "name": "图纸楼板 02",
+          "family_name": "cad_footprint_slab",
+          "storey_id": "storey_02",
+          "properties": {
+            "thickness_mm": 120,
+            "geometry_source": "parsed_drawing",
+            "source_category": "footprint_bbox",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 0.0,
+            "local_y_m": 0.0,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 121.58,
+            "shape_depth_m": 4.816,
+            "shape_height_m": 0.12
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_e5348aab",
+          "guid": "17c81aef-43e2-5948-89e8-d48b56b4483a",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 1",
+          "family_name": "cad_wall_path",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 1.982,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_path",
+            "source_ref": "1B70",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 119.598,
+            "local_y_m": 4.816,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.982,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_637f52a4",
+          "guid": "241c3123-b62e-5f20-8125-ef86d80f2801",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 2",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 0.982,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "1B71",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 120.598,
+            "local_y_m": 4.316,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 0.982,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_f5aaa473",
+          "guid": "e63f8f5c-14b2-5732-84af-7cccf190ba07",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 3",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 3.0,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "1B7F",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 116.098,
+            "local_y_m": 2.067,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 3.0,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_dea47b01",
+          "guid": "55e948ec-f462-54f9-813c-a79b802d3a39",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 4",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 2.75,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "1B80",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 119.598,
+            "local_y_m": 2.067,
+            "local_z_m": 0.0,
+            "rotation_deg": 90.0,
+            "shape_width_m": 2.75,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_7311fd73",
+          "guid": "2225845d-0e81-5efa-a593-1ef0b3e420b1",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 5",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 3.5,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "1B81",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 116.098,
+            "local_y_m": 1.567,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 3.5,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_fe83dfdd",
+          "guid": "a99b9d3e-a815-5f0e-9359-e0894d795361",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 6",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 0.5,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "1B82",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 116.098,
+            "local_y_m": 2.067,
+            "local_z_m": 0.0,
+            "rotation_deg": -90.0,
+            "shape_width_m": 0.5,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_42c46d86",
+          "guid": "07972889-4e3b-5ddf-ab39-bf2e6253b3af",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 7",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 3.045,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "1B83",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 120.598,
+            "local_y_m": 1.272,
+            "local_z_m": 0.0,
+            "rotation_deg": 90.0,
+            "shape_width_m": 3.045,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_e1b51ab3",
+          "guid": "cee218b2-2719-5cb9-9ffb-71dcf2e153be",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 8",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 2.25,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "2C87",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 119.598,
+            "local_y_m": 4.316,
+            "local_z_m": 0.0,
+            "rotation_deg": -90.0,
+            "shape_width_m": 2.25,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_a300de7c",
+          "guid": "b16397fa-a7ee-5367-9cf7-d420d4276277",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 9",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 3.5,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "2C88",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 119.598,
+            "local_y_m": 2.067,
+            "local_z_m": 0.0,
+            "rotation_deg": 180.0,
+            "shape_width_m": 3.5,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_e2c94750",
+          "guid": "65ef315d-ab9b-546d-8e5b-19e825ea065a",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 10",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 0.5,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "2C89",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 116.098,
+            "local_y_m": 2.067,
+            "local_z_m": 0.0,
+            "rotation_deg": -90.0,
+            "shape_width_m": 0.5,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_a5e0caac",
+          "guid": "c2385191-0a05-51b1-883c-0a7de8b1f00a",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 11",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 3.045,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "2C8A",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 120.598,
+            "local_y_m": 1.272,
+            "local_z_m": 0.0,
+            "rotation_deg": 90.0,
+            "shape_width_m": 3.045,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_2fa08aaa",
+          "guid": "4cced8c1-d27e-5dec-afd8-3a72e6592d01",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 12",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 0.982,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "2C8B",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 120.598,
+            "local_y_m": 4.316,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 0.982,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_fe2f3c23",
+          "guid": "69510f1f-6331-5355-adf6-65b69e5a4fc3",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 13",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 1.562,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "520E",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 4.75,
+            "local_y_m": 2.5,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.562,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_ffff23e1",
+          "guid": "0ea7a34b-d7c7-55b2-9d18-f3e1c876bb2e",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 14",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 2.062,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "520F",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 4.25,
+            "local_y_m": 3.0,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 2.062,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_807538f9",
+          "guid": "479a04d0-a98b-5990-953e-83627acf7dd6",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 15",
+          "family_name": "cad_wall_path",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 4.071,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_path",
+            "source_ref": "5239",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 0.0,
+            "local_y_m": 0.0,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 3.55,
+            "shape_depth_m": 4.071,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_dae1a78e",
+          "guid": "f96a0541-38e8-503b-99f0-95f41c1d196a",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 16",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 4.25,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "523A",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 0.0,
+            "local_y_m": 3.0,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 4.25,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_7e05a926",
+          "guid": "6e69ab85-7de6-526b-8a00-14b858e325e4",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 17",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 3.25,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "523B",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 0.0,
+            "local_y_m": 2.5,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 3.25,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_e27f4112",
+          "guid": "b7e4f2d4-6d93-591f-8b4d-e5166ced9873",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 18",
+          "family_name": "cad_wall_path",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 3.25,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_path",
+            "source_ref": "523C",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 0.0,
+            "local_y_m": 2.5,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 3.25,
+            "shape_depth_m": 0.5,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_698bca9d",
+          "guid": "a9f397a3-4ba8-5e4c-83a0-834ca8b7cd6a",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 19",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 0.5,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "524E",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 0.0,
+            "local_y_m": 2.5,
+            "local_z_m": 0.0,
+            "rotation_deg": 90.0,
+            "shape_width_m": 0.5,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_f9ddf8ac",
+          "guid": "ca67b091-a7cb-5c71-87f3-388934d0a4b6",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 20",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 2.5,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "5253",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 4.75,
+            "local_y_m": 2.5,
+            "local_z_m": 0.0,
+            "rotation_deg": -90.0,
+            "shape_width_m": 2.5,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_2a9b85eb",
+          "guid": "a5e4b7e8-4cad-5f06-8cb2-96af171cb3af",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 21",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 2.5,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "5257",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 3.25,
+            "local_y_m": 0.0,
+            "local_z_m": 0.0,
+            "rotation_deg": 90.0,
+            "shape_width_m": 2.5,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_26d71d79",
+          "guid": "28e327ce-8a51-525a-b109-dd30f4cc03b5",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 22",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 1.5,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "5278",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 3.25,
+            "local_y_m": 0.0,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.5,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_0e58866b",
+          "guid": "c3075cd9-e567-5ae7-8591-09f986a0e184",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 23",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 1.071,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "528D",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 3.25,
+            "local_y_m": 3.0,
+            "local_z_m": 0.0,
+            "rotation_deg": 90.0,
+            "shape_width_m": 1.071,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_b689c258",
+          "guid": "639ed9fd-4af6-5174-ad99-c807e18198d1",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 24",
+          "family_name": "cad_wall_path",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 1.071,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_path",
+            "source_ref": "528E",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 3.25,
+            "local_y_m": 3.0,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 0.2,
+            "shape_depth_m": 1.071,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_9b101fa8",
+          "guid": "8ded02dc-8569-5571-b301-7e9dd16ded79",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 25",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 1.071,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "5293",
+            "source_storey_key": "2F",
+            "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+            "local_x_m": 4.25,
+            "local_y_m": 4.071,
+            "local_z_m": 0.0,
+            "rotation_deg": -90.0,
+            "shape_width_m": 1.071,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        }
+      ]
+    }
+  ],
+  "element_index": {
+    "IfcSlab": 2,
+    "IfcWall": 46
+  },
+  "metadata": {
+    "strategy": "cad_to_bim",
+    "replacement_count": 0,
+    "units_per_floor": 4,
+    "geometry_source": "parsed_drawing",
+    "source_wall_entities": 46,
+    "source_window_entities": 0,
+    "source_door_entities": 0,
+    "source_storey_keys": [
+      "1F",
+      "2F"
+    ],
+    "source_fragment_ids": [
+      "专用宿舍楼-结施.dxf::fragment::1F::01",
+      "专用宿舍楼-结施.dxf::fragment::2F::02"
+    ],
+    "storey_layout_trace": [
+      {
+        "storey_key": "1F",
+        "source_storey_key": "1F",
+        "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+        "source_fragment_ids": [
+          "专用宿舍楼-结施.dxf::fragment::1F::01"
+        ],
+        "source_assets": [
+          "专用宿舍楼-结施.dxf"
+        ],
+        "replicated": false
+      },
+      {
+        "storey_key": "2F",
+        "source_storey_key": "2F",
+        "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+        "source_fragment_ids": [
+          "专用宿舍楼-结施.dxf::fragment::2F::02"
+        ],
+        "source_assets": [
+          "专用宿舍楼-结施.dxf"
+        ],
+        "replicated": false
+      }
+    ],
+    "source_layout_bounds_by_storey": {
+      "1F": {
+        "min_x_m": 0.0,
+        "min_y_m": 0.0,
+        "max_x_m": 7.716,
+        "max_y_m": 30.447
+      },
+      "2F": {
+        "min_x_m": 0.0,
+        "min_y_m": 0.0,
+        "max_x_m": 121.58,
+        "max_y_m": 4.816
+      }
+    },
+    "source_entity_totals": {
+      "wall": 46,
+      "window": 0,
+      "door": 0,
+      "space": 0
+    },
+    "modeled_entity_totals": {
+      "IfcWall": 46,
+      "IfcDoor": 0,
+      "IfcWindow": 0,
+      "IfcSpace": 10
+    },
+    "count_reconciliation": {
+      "IfcWall": {
+        "source": 46,
+        "modeled": 46,
+        "delta": 0
+      },
+      "IfcDoor": {
+        "source": 0,
+        "modeled": 0,
+        "delta": 0
+      },
+      "IfcWindow": {
+        "source": 0,
+        "modeled": 0,
+        "delta": 0
+      },
+      "IfcSpace": {
+        "source": 0,
+        "modeled": 10,
+        "delta": 10
+      }
+    }
+  }
+}

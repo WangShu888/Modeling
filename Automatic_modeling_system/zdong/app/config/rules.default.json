@@ -1,0 +1,34 @@
+{
+  "version": "rules.2026-03-31",
+  "shared": {
+    "max_far_warning": 5.0,
+    "cad_requires_assets": true,
+    "cad_missing_space_boundaries_severity": "warning",
+    "site_area_missing_severity": "warning"
+  },
+  "rulesets": {
+    "cn_residential_v1": {
+      "building_type": "residential",
+      "min_floor_count": 1,
+      "min_standard_floor_height_m": 2.8,
+      "min_first_floor_height_m": 3.0
+    },
+    "cn_office_v1": {
+      "building_type": "office",
+      "min_floor_count": 1,
+      "min_standard_floor_height_m": 3.0,
+      "min_first_floor_height_m": 4.2
+    }
+  },
+  "rule_descriptions": {
+    "constraints.floors.min": "确保楼层数不低于所属规则集的最小要求。",
+    "constraints.standard_floor_height.min": "标准层层高需达到建议值，以保持空间舒适度。",
+    "constraints.first_floor_height.min": "首层层高需满足建议值以兼容商业/入口需求。",
+    "source.assets.required_for_cad": "图纸驱动请求必须附带 CAD/PDF 资产供解析。",
+    "drawing.pending_review.forward": "收集待审核图纸项作为风险提示发送给建模者。",
+    "drawing.space_boundaries.required_for_cad": "CAD 模式需识别出空间边界，否则结果需人工复核。",
+    "constraints.far.warning_threshold": "容积率超过阈值时提醒复核场地边界或退线。",
+    "site.area.required_for_delivery": "缺少场地面积时输出仅适合作为草案参考。",
+    "intent.missing_fields.forward": "为客户端缺失字段生成警告，帮助补全要素。"
+  }
+}

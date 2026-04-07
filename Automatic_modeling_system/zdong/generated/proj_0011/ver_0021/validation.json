@@ -1,0 +1,2837 @@
+{
+  "status": "failed",
+  "issues": [
+    {
+      "severity": "warning",
+      "message": "A large closed polyline was inferred as a possible site boundary and should be confirmed.",
+      "target": "3890"
+    },
+    {
+      "severity": "warning",
+      "message": "A large closed polyline was inferred as a possible site boundary and should be confirmed.",
+      "target": "20BB"
+    },
+    {
+      "severity": "warning",
+      "message": "A large closed polyline was inferred as a possible site boundary and should be confirmed.",
+      "target": "20BB"
+    },
+    {
+      "severity": "warning",
+      "message": "A large closed polyline was inferred as a possible site boundary and should be confirmed.",
+      "target": "3890"
+    },
+    {
+      "severity": "error",
+      "message": "Detected explicit storey candidates 1F, 2F in one asset. Detected geometry is still concentrated in too few fragment storeys, so inter-storey stitching may remain collapsed until fragment assignment is reliable.",
+      "target": "专用宿舍楼-结施.dxf"
+    },
+    {
+      "severity": "warning",
+      "message": "图纸解析未识别到房间边界，空间生成结果需要人工复核。",
+      "target": "parsed_drawing.space_boundaries_detected"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcdoor_33401e91"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcdoor_c7259849"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcdoor_f0905fa9"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcdoor_33adf650"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_84aca244"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_061f8155"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_67c9c0af"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_ba3ecf06"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_1a6b76e5"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_769331a7"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_5dcc499b"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_23054ad5"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_2abc499f"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_aed23e5f"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_2fd63f98"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_a942c330"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_1df23e7e"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_5b5cc1dc"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_9b23f990"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_3fec7ac9"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_d3eab529"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_31d53a9e"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_45416819"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_d3746331"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_00bd7e2a"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_d39231d4"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_7904b8d9"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_e90eb969"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_ac0cc158"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_3a54106b"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_5c2b4517"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_508c0ffa"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_1908dc4b"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_bebf9aed"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_f9ad0170"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_88b610f9"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_9ff85d37"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_adab44bf"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_8e4d93a1"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_5c3c46b3"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_3d622976"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_dda66c1c"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_2cebbc17"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_42601e53"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_281ada55"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_0343bb6b"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_30130a03"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_fb561da0"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_e2e790d6"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_37079e86"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_70b0daeb"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_a74f45ef"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_7ebb0327"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_9573d301"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_f04c38d9"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_079e0f4f"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_75f86d83"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_c3e3596b"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_da85d712"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_4eec47d3"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_1335e7af"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_8bc66cfe"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_7143d63e"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_8576fb07"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_1f62b118"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_4dcce766"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_77388928"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_02c47345"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_7ee602e4"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_d3532bac"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_88a6ea28"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_a64c5151"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_3a5009d7"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_927a762a"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_a5fb238b"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_da9b81c8"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_d9acf710"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_8bde0bb6"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_3a9e63c4"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_caa4dbfb"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_ef1c34f3"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_b7477f47"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_55c16124"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_7de48c84"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_eb3b544e"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_63a51b19"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_55eb6cd1"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_d08a5f06"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_891a8eac"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_c3654f20"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_d9ea7ffe"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_1edc2065"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_e963e796"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_eaade5cc"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_e6bff993"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_3bd8ed4d"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_5cd4f3f9"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_999317bf"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_026b27ef"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_2d2d02ec"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_6f5dc72c"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_3fcc3f22"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_6b7f02c9"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_8781a035"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_01883638"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_ee80ef31"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_0c306374"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_ce881b32"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_33037103"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_a536993c"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_73c9d76e"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_49cc6e0e"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_f60b2636"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_dc4bb375"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_811f9e6e"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_fb171a86"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_c6f6b937"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_afdbb9b8"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_a9fa21f2"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_024bdd0d"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_4aadeebc"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_44751a5b"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_08f3d2b6"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_977ebf0d"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_8adedcd1"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_ddce763f"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_30d2f0af"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_4ef09faf"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_83479d54"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_381fc0a0"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_0f15005e"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_56f69bad"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_90f4643b"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_666752d7"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_4979c193"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_67108c9c"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_5cfe9ff8"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_c1f470e2"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_208d80b8"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_f813562a"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_faba5bfb"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_ef0002b1"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_7c8fe8aa"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_01761652"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_1780eec5"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_c3fd1b1e"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_1b6f9467"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_77591982"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_9045cf7d"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_267a91c1"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_80e2e3dd"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_14505236"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_9b3dbcf4"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_cc35ca78"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_d2328f43"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_fc2b25ec"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_6d292cf1"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_cfe2b823"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_fec76c42"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_b04a0579"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_14caaf22"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_dd78b512"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_e75d9103"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_5068aeda"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_34609fa9"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_29186336"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_418b37ec"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_7817b0c8"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_3aab2598"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_a3c9a8ba"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_277b7f84"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_63a82b99"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_9726fb79"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_296c1fee"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_69cd606a"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_afbadcb8"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_0d9c374b"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_5d62aa1d"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_6e6ce96d"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_f0d0176a"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_acf991f4"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_3c5abe59"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_01ff3717"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_d7173603"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_7809945a"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_b5c085bb"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_01_ifcwindow_e775eaf0"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcdoor_9891aad8"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcdoor_36291614"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcdoor_80d99235"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcdoor_3054ba07"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcdoor_3b05be96"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcdoor_84dc6af8"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcdoor_fbeca44e"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcdoor_60c37ddd"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_ed6eea37"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_11fdd2e4"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_cb970bc8"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_c22adfac"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_2bff0e3f"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_e65814c6"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_29e7b3e5"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_11bdcd0e"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_4e613381"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_5c356d49"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_939fec46"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_f8e2800f"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_004a4f7f"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_7b6b70de"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_867f894e"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_11828649"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_55a0770d"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_08e7968e"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_bf084b9d"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_8ca047bd"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_a900ec2c"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_49fe5cbd"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_84553e7b"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_e0f1a8f5"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_927e7f74"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_308f8394"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_69611351"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_356d9810"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_1543422f"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_136cfab2"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_68e7635b"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_1d7fae5d"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_2eca8a1b"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_0243ca6d"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_98507b2a"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_4aab6ea1"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_b58a0c68"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_05718675"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_90e4d407"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_6ae70fd8"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_0d12cce7"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_1cb1813b"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_d563805e"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_f6b946ef"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_5d2014f5"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_5623ee77"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_4a8a62be"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_e37afd7c"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_5567a8a2"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_d554a13c"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_5262ee6e"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_84496815"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_a416e095"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_68096fcc"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_f2125683"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_398c4316"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_49cff6f2"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_705d91f6"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_ad91db4a"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_134bad08"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_94ecee5e"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_8ed2c552"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_d63baaa5"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_223ba430"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_f4e23b45"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_66a4437a"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_32954214"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_2ecf072f"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_2593d02d"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_cd5f7bb6"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_2bdd4f3b"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_201db733"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_4a4bad55"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_e19016b5"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_051a71f1"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_e19c076a"
+    },
+    {
+      "severity": "error",
+      "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。",
+      "target": "storey_02_ifcwindow_d486e6f0"
+    }
+  ],
+  "affected_elements": [],
+  "fix_suggestions": [
+    "补全缺失字段后重新触发建模流程。"
+  ],
+  "metadata": {
+    "validation_engine": "semantic_pre_export_validator",
+    "ifc_exporter": "ifcopenshell_exporter",
+    "ifc_schema": "IFC4",
+    "formal_backend_ready": false,
+    "gate_trace": {
+      "validation_status": "failed",
+      "severity_counts": {
+        "info": 0,
+        "warning": 5,
+        "error": 273,
+        "fatal": 0
+      },
+      "blocking_issues": [
+        {
+          "severity": "error",
+          "target": "专用宿舍楼-结施.dxf",
+          "message": "Detected explicit storey candidates 1F, 2F in one asset. Detected geometry is still concentrated in too few fragment storeys, so inter-storey stitching may remain collapsed until fragment assignment is reliable."
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcdoor_33401e91",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcdoor_c7259849",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcdoor_f0905fa9",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcdoor_33adf650",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_84aca244",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_061f8155",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_67c9c0af",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_ba3ecf06",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_1a6b76e5",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_769331a7",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_5dcc499b",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_23054ad5",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_2abc499f",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_aed23e5f",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_2fd63f98",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_a942c330",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_1df23e7e",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_5b5cc1dc",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_9b23f990",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_3fec7ac9",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_d3eab529",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_31d53a9e",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_45416819",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_d3746331",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_00bd7e2a",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_d39231d4",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_7904b8d9",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_e90eb969",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_ac0cc158",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_3a54106b",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_5c2b4517",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_508c0ffa",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_1908dc4b",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_bebf9aed",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_f9ad0170",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_88b610f9",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_9ff85d37",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_adab44bf",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_8e4d93a1",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_5c3c46b3",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_3d622976",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_dda66c1c",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_2cebbc17",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_42601e53",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_281ada55",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_0343bb6b",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_30130a03",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_fb561da0",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_e2e790d6",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_37079e86",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_70b0daeb",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_a74f45ef",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_7ebb0327",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_9573d301",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_f04c38d9",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_079e0f4f",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_75f86d83",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_c3e3596b",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_da85d712",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_4eec47d3",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_1335e7af",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_8bc66cfe",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_7143d63e",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_8576fb07",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_1f62b118",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_4dcce766",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_77388928",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_02c47345",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_7ee602e4",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_d3532bac",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_88a6ea28",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_a64c5151",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_3a5009d7",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_927a762a",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_a5fb238b",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_da9b81c8",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_d9acf710",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_8bde0bb6",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_3a9e63c4",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_caa4dbfb",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_ef1c34f3",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_b7477f47",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_55c16124",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_7de48c84",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_eb3b544e",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_63a51b19",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_55eb6cd1",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_d08a5f06",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_891a8eac",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_c3654f20",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_d9ea7ffe",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_1edc2065",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_e963e796",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_eaade5cc",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_e6bff993",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_3bd8ed4d",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_5cd4f3f9",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_999317bf",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_026b27ef",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_2d2d02ec",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_6f5dc72c",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_3fcc3f22",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_6b7f02c9",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_8781a035",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_01883638",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_ee80ef31",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_0c306374",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_ce881b32",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_33037103",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_a536993c",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_73c9d76e",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_49cc6e0e",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_f60b2636",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_dc4bb375",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_811f9e6e",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_fb171a86",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_c6f6b937",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_afdbb9b8",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_a9fa21f2",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_024bdd0d",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_4aadeebc",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_44751a5b",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_08f3d2b6",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_977ebf0d",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_8adedcd1",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_ddce763f",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_30d2f0af",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_4ef09faf",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_83479d54",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_381fc0a0",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_0f15005e",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_56f69bad",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_90f4643b",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_666752d7",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_4979c193",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_67108c9c",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_5cfe9ff8",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_c1f470e2",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_208d80b8",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_f813562a",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_faba5bfb",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_ef0002b1",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_7c8fe8aa",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_01761652",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_1780eec5",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_c3fd1b1e",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_1b6f9467",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_77591982",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_9045cf7d",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_267a91c1",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_80e2e3dd",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_14505236",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_9b3dbcf4",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_cc35ca78",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_d2328f43",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_fc2b25ec",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_6d292cf1",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_cfe2b823",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_fec76c42",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_b04a0579",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_14caaf22",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_dd78b512",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_e75d9103",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_5068aeda",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_34609fa9",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_29186336",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_418b37ec",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_7817b0c8",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_3aab2598",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_a3c9a8ba",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_277b7f84",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_63a82b99",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_9726fb79",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_296c1fee",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_69cd606a",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_afbadcb8",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_0d9c374b",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_5d62aa1d",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_6e6ce96d",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_f0d0176a",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_acf991f4",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_3c5abe59",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_01ff3717",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_d7173603",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_7809945a",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_b5c085bb",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_01_ifcwindow_e775eaf0",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcdoor_9891aad8",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcdoor_36291614",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcdoor_80d99235",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcdoor_3054ba07",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcdoor_3b05be96",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcdoor_84dc6af8",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcdoor_fbeca44e",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcdoor_60c37ddd",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_ed6eea37",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_11fdd2e4",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_cb970bc8",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_c22adfac",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_2bff0e3f",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_e65814c6",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_29e7b3e5",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_11bdcd0e",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_4e613381",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_5c356d49",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_939fec46",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_f8e2800f",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_004a4f7f",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_7b6b70de",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_867f894e",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_11828649",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_55a0770d",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_08e7968e",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_bf084b9d",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_8ca047bd",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_a900ec2c",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_49fe5cbd",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_84553e7b",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_e0f1a8f5",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_927e7f74",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_308f8394",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_69611351",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_356d9810",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_1543422f",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_136cfab2",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_68e7635b",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_1d7fae5d",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_2eca8a1b",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_0243ca6d",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_98507b2a",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_4aab6ea1",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_b58a0c68",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_05718675",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_90e4d407",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_6ae70fd8",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_0d12cce7",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_1cb1813b",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_d563805e",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_f6b946ef",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_5d2014f5",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_5623ee77",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_4a8a62be",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_e37afd7c",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_5567a8a2",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_d554a13c",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_5262ee6e",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_84496815",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_a416e095",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_68096fcc",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_f2125683",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_398c4316",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_49cff6f2",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_705d91f6",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_ad91db4a",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_134bad08",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_94ecee5e",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_8ed2c552",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_d63baaa5",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_223ba430",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_f4e23b45",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_66a4437a",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_32954214",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_2ecf072f",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_2593d02d",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_cd5f7bb6",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_2bdd4f3b",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_201db733",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_4a4bad55",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_e19016b5",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_051a71f1",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_e19c076a",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        },
+        {
+          "severity": "error",
+          "target": "storey_02_ifcwindow_d486e6f0",
+          "message": "检测到重复 GUID，导出 IFC 时可能发生对象冲突。"
+        }
+      ],
+      "formal_blocking_issues": [],
+      "count_reconciliation": {
+        "IfcWall": {
+          "source": 4306,
+          "modeled": 4306,
+          "delta": 0
+        },
+        "IfcDoor": {
+          "source": 24,
+          "modeled": 24,
+          "delta": 0
+        },
+        "IfcWindow": {
+          "source": 520,
+          "modeled": 520,
+          "delta": 0
+        },
+        "IfcSpace": {
+          "source": 0,
+          "modeled": 10,
+          "delta": 10
+        }
+      },
+      "storey_layout_trace": [
+        {
+          "storey_key": "1F",
+          "source_storey_key": "1F",
+          "source_fragment_id": "专用宿舍楼-建施.dxf::fragment::1F::01",
+          "source_fragment_ids": [
+            "专用宿舍楼-建施.dxf::fragment::1F::01",
+            "专用宿舍楼-建施.dxf::fragment::1F::02",
+            "专用宿舍楼-结施.dxf::fragment::1F::01"
+          ],
+          "source_assets": [
+            "专用宿舍楼-建施.dxf",
+            "专用宿舍楼-结施.dxf"
+          ],
+          "replicated": false
+        },
+        {
+          "storey_key": "2F",
+          "source_storey_key": "2F",
+          "source_fragment_id": "专用宿舍楼-建施.dxf::fragment::2F::05",
+          "source_fragment_ids": [
+            "专用宿舍楼-建施.dxf::fragment::2F::05",
+            "专用宿舍楼-建施.dxf::fragment::2F::04"
+          ],
+          "source_assets": [
+            "专用宿舍楼-建施.dxf"
+          ],
+          "replicated": false
+        }
+      ],
+      "suggested_actions": [
+        "补全缺失字段后重新触发建模流程。"
+      ]
+    }
+  }
+}

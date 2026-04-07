@@ -1,0 +1,19 @@
+{
+  "issue_messages": {
+    "A large closed polyline was inferred as a possible site boundary and should be confirmed.": "系统识别到一条较大的闭合多段线，推测它可能是场地边界，请人工确认是否属实。"
+  },
+  "statuses": {
+    "passed": "通过",
+    "warning": "警告",
+    "failed": "失败",
+    "blocked": "阻断",
+    "pending": "等待中",
+    "running": "执行中"
+  },
+  "severities": {
+    "info": "提示",
+    "warning": "警告",
+    "error": "错误",
+    "fatal": "严重错误"
+  }
+}

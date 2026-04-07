@@ -1,0 +1,657 @@
+{
+  "project_id": "proj_0023",
+  "version_id": "ver_0038",
+  "building_type": "residential",
+  "storeys": [
+    {
+      "storey_id": "storey_01",
+      "name": "1F",
+      "elevation_m": 0.0,
+      "spaces": [
+        {
+          "space_id": "storey_01_unit_1",
+          "name": "户型 1",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_01_unit_2",
+          "name": "户型 2",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_01_unit_3",
+          "name": "户型 3",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_01_unit_4",
+          "name": "户型 4",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_01_corridor",
+          "name": "公共走道",
+          "category": "circulation",
+          "area_sqm": 42.0
+        }
+      ],
+      "elements": [
+        {
+          "element_id": "storey_01_ifcwall_7c699b64",
+          "guid": "f1aa2424-f7bc-5b0c-a8d9-95c519bb46fe",
+          "ifc_type": "IfcWall",
+          "name": "墙体 1",
+          "family_name": "generic_wall",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 6,
+            "height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_e45fec8f",
+          "guid": "74aaa5a1-1cca-5cad-9080-4fd7f2482198",
+          "ifc_type": "IfcWall",
+          "name": "墙体 2",
+          "family_name": "generic_wall",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 7,
+            "height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_4b378893",
+          "guid": "ac3aa847-0495-5d32-8b5d-486c02c498e9",
+          "ifc_type": "IfcWall",
+          "name": "墙体 3",
+          "family_name": "generic_wall",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 8,
+            "height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_efb34a27",
+          "guid": "18575c68-5eb1-5549-a65b-12459f7ebff6",
+          "ifc_type": "IfcWall",
+          "name": "墙体 4",
+          "family_name": "generic_wall",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 6,
+            "height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_62ce1c9e",
+          "guid": "25d6ab2c-f61d-51e0-952e-0c39a26c2f18",
+          "ifc_type": "IfcWall",
+          "name": "墙体 5",
+          "family_name": "generic_wall",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 7,
+            "height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_c9c29c83",
+          "guid": "b04edc7b-0f8c-5cfb-a167-90e3f6d02643",
+          "ifc_type": "IfcWall",
+          "name": "墙体 6",
+          "family_name": "generic_wall",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 8,
+            "height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_84b95bf8",
+          "guid": "419beb12-63f4-5d83-84c7-379ff0097c3b",
+          "ifc_type": "IfcWall",
+          "name": "墙体 7",
+          "family_name": "generic_wall",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 6,
+            "height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_2d6aa564",
+          "guid": "86129bc3-052d-52ef-a4b0-0e0cbd9e3e31",
+          "ifc_type": "IfcWall",
+          "name": "墙体 8",
+          "family_name": "generic_wall",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 7,
+            "height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcslab_8029d28a",
+          "guid": "f6cd4442-a122-503c-88d2-805611688c24",
+          "ifc_type": "IfcSlab",
+          "name": "楼板 1",
+          "family_name": "generic_slab",
+          "storey_id": "storey_01",
+          "properties": {
+            "thickness_mm": 120
+          }
+        },
+        {
+          "element_id": "storey_01_ifcdoor_8de39b4f",
+          "guid": "7fb64268-c06f-5497-9f04-072e46abd3a9",
+          "ifc_type": "IfcDoor",
+          "name": "户门 1",
+          "family_name": "unit_entry_door",
+          "storey_id": "storey_01",
+          "properties": {
+            "width_mm": 1000,
+            "height_mm": 2100
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwindow_3ef6c83f",
+          "guid": "32710b90-466f-56ac-92b7-63b16d240364",
+          "ifc_type": "IfcWindow",
+          "name": "窗 1-A",
+          "family_name": "floor_to_ceiling_window",
+          "storey_id": "storey_01",
+          "properties": {
+            "overall_width_mm": 800,
+            "overall_height_mm": 1200
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwindow_d9412088",
+          "guid": "991e0e6a-1e0a-59ae-8e53-c3897e33d306",
+          "ifc_type": "IfcWindow",
+          "name": "窗 1-B",
+          "family_name": "secondary_window",
+          "storey_id": "storey_01",
+          "properties": {
+            "overall_width_mm": 1200,
+            "overall_height_mm": 1500
+          }
+        },
+        {
+          "element_id": "storey_01_ifcdoor_a0c19322",
+          "guid": "c3a35975-3ac9-5a92-a5ef-cb26758956b7",
+          "ifc_type": "IfcDoor",
+          "name": "户门 2",
+          "family_name": "unit_entry_door",
+          "storey_id": "storey_01",
+          "properties": {
+            "width_mm": 1000,
+            "height_mm": 2100
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwindow_ba25e9a9",
+          "guid": "ec398396-1704-5c2f-89c6-d7a886e0d626",
+          "ifc_type": "IfcWindow",
+          "name": "窗 2-A",
+          "family_name": "floor_to_ceiling_window",
+          "storey_id": "storey_01",
+          "properties": {
+            "overall_width_mm": 800,
+            "overall_height_mm": 1200
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwindow_a816b05f",
+          "guid": "b701ff4a-72d0-5269-82fb-407d728b3eaf",
+          "ifc_type": "IfcWindow",
+          "name": "窗 2-B",
+          "family_name": "secondary_window",
+          "storey_id": "storey_01",
+          "properties": {
+            "overall_width_mm": 1200,
+            "overall_height_mm": 1500
+          }
+        },
+        {
+          "element_id": "storey_01_ifcdoor_c68815c8",
+          "guid": "9b3ed9c7-03e6-5754-bbe7-63afab9090cf",
+          "ifc_type": "IfcDoor",
+          "name": "户门 3",
+          "family_name": "unit_entry_door",
+          "storey_id": "storey_01",
+          "properties": {
+            "width_mm": 1000,
+            "height_mm": 2100
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwindow_2539d2ec",
+          "guid": "37b839ac-8ad9-595b-a9b8-af0105f4a274",
+          "ifc_type": "IfcWindow",
+          "name": "窗 3-A",
+          "family_name": "floor_to_ceiling_window",
+          "storey_id": "storey_01",
+          "properties": {
+            "overall_width_mm": 800,
+            "overall_height_mm": 1200
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwindow_a314f965",
+          "guid": "d78d0bad-7277-5fdd-9c9e-36b8ee8834b4",
+          "ifc_type": "IfcWindow",
+          "name": "窗 3-B",
+          "family_name": "secondary_window",
+          "storey_id": "storey_01",
+          "properties": {
+            "overall_width_mm": 1200,
+            "overall_height_mm": 1500
+          }
+        },
+        {
+          "element_id": "storey_01_ifcdoor_6f6590d2",
+          "guid": "0e73ac39-f327-549a-ae8f-e1680d9d4c3a",
+          "ifc_type": "IfcDoor",
+          "name": "户门 4",
+          "family_name": "unit_entry_door",
+          "storey_id": "storey_01",
+          "properties": {
+            "width_mm": 1000,
+            "height_mm": 2100
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwindow_03e0bd3a",
+          "guid": "66b18543-b30e-5049-a03d-e513dc6cda27",
+          "ifc_type": "IfcWindow",
+          "name": "窗 4-A",
+          "family_name": "floor_to_ceiling_window",
+          "storey_id": "storey_01",
+          "properties": {
+            "overall_width_mm": 800,
+            "overall_height_mm": 1200
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwindow_75806310",
+          "guid": "a85aa2a6-cb9f-55ac-9360-f3d6c033b6c3",
+          "ifc_type": "IfcWindow",
+          "name": "窗 4-B",
+          "family_name": "secondary_window",
+          "storey_id": "storey_01",
+          "properties": {
+            "overall_width_mm": 1200,
+            "overall_height_mm": 1500
+          }
+        }
+      ]
+    },
+    {
+      "storey_id": "storey_02",
+      "name": "2F",
+      "elevation_m": 3.3,
+      "spaces": [
+        {
+          "space_id": "storey_02_unit_1",
+          "name": "户型 1",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_02_unit_2",
+          "name": "户型 2",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_02_unit_3",
+          "name": "户型 3",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_02_unit_4",
+          "name": "户型 4",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_02_corridor",
+          "name": "公共走道",
+          "category": "circulation",
+          "area_sqm": 42.0
+        }
+      ],
+      "elements": [
+        {
+          "element_id": "storey_02_ifcwall_2f7518af",
+          "guid": "d2483998-e67d-5728-a23c-0149a9546ae3",
+          "ifc_type": "IfcWall",
+          "name": "墙体 1",
+          "family_name": "generic_wall",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 6,
+            "height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_8ff069d2",
+          "guid": "2819ab89-a5d9-5329-9249-e17928c8646e",
+          "ifc_type": "IfcWall",
+          "name": "墙体 2",
+          "family_name": "generic_wall",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 7,
+            "height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_42b60127",
+          "guid": "d657f813-9f4d-5064-b736-8e1d9cb5ee8d",
+          "ifc_type": "IfcWall",
+          "name": "墙体 3",
+          "family_name": "generic_wall",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 8,
+            "height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_482c535c",
+          "guid": "acd7fec5-e316-5fbd-9a00-d23a7ce50e50",
+          "ifc_type": "IfcWall",
+          "name": "墙体 4",
+          "family_name": "generic_wall",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 6,
+            "height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_d185b430",
+          "guid": "50965b40-2c83-5757-9b6d-625f30237b28",
+          "ifc_type": "IfcWall",
+          "name": "墙体 5",
+          "family_name": "generic_wall",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 7,
+            "height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_ab32349e",
+          "guid": "e09ddec9-189b-578f-a609-d2578051e556",
+          "ifc_type": "IfcWall",
+          "name": "墙体 6",
+          "family_name": "generic_wall",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 8,
+            "height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_7ed09467",
+          "guid": "bed441a1-0c6b-5f9c-b660-c891889c035d",
+          "ifc_type": "IfcWall",
+          "name": "墙体 7",
+          "family_name": "generic_wall",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 6,
+            "height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_ef3a54d2",
+          "guid": "eff7fef0-a2c9-553a-ba60-e6dd109117f1",
+          "ifc_type": "IfcWall",
+          "name": "墙体 8",
+          "family_name": "generic_wall",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 7,
+            "height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcslab_270dc8c6",
+          "guid": "abe179c6-fa80-5d3a-89f0-6fd50fccbab5",
+          "ifc_type": "IfcSlab",
+          "name": "楼板 2",
+          "family_name": "generic_slab",
+          "storey_id": "storey_02",
+          "properties": {
+            "thickness_mm": 120
+          }
+        },
+        {
+          "element_id": "storey_02_ifcdoor_5057480d",
+          "guid": "e92a291a-331e-5e3d-9756-60179ae276c4",
+          "ifc_type": "IfcDoor",
+          "name": "户门 1",
+          "family_name": "unit_entry_door",
+          "storey_id": "storey_02",
+          "properties": {
+            "width_mm": 1000,
+            "height_mm": 2100
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwindow_26ac4c0e",
+          "guid": "bb8675df-f737-51e0-8719-7bdeb0ad339e",
+          "ifc_type": "IfcWindow",
+          "name": "窗 1-A",
+          "family_name": "floor_to_ceiling_window",
+          "storey_id": "storey_02",
+          "properties": {
+            "overall_width_mm": 800,
+            "overall_height_mm": 1200
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwindow_a3f401c1",
+          "guid": "6e091e23-0fce-5207-9aea-5868b6e8b2d2",
+          "ifc_type": "IfcWindow",
+          "name": "窗 1-B",
+          "family_name": "secondary_window",
+          "storey_id": "storey_02",
+          "properties": {
+            "overall_width_mm": 1200,
+            "overall_height_mm": 1500
+          }
+        },
+        {
+          "element_id": "storey_02_ifcdoor_12656939",
+          "guid": "268b44fa-8da6-538a-8d25-3579fc0a68cc",
+          "ifc_type": "IfcDoor",
+          "name": "户门 2",
+          "family_name": "unit_entry_door",
+          "storey_id": "storey_02",
+          "properties": {
+            "width_mm": 1000,
+            "height_mm": 2100
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwindow_e7d7c74c",
+          "guid": "b464a5a0-1a23-5346-8b33-b505edd0e917",
+          "ifc_type": "IfcWindow",
+          "name": "窗 2-A",
+          "family_name": "floor_to_ceiling_window",
+          "storey_id": "storey_02",
+          "properties": {
+            "overall_width_mm": 800,
+            "overall_height_mm": 1200
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwindow_dd1191e9",
+          "guid": "48aedea0-a91d-533a-a816-feb4c8c4ba82",
+          "ifc_type": "IfcWindow",
+          "name": "窗 2-B",
+          "family_name": "secondary_window",
+          "storey_id": "storey_02",
+          "properties": {
+            "overall_width_mm": 1200,
+            "overall_height_mm": 1500
+          }
+        },
+        {
+          "element_id": "storey_02_ifcdoor_b493083a",
+          "guid": "2731734a-9dae-5753-a386-db0005288652",
+          "ifc_type": "IfcDoor",
+          "name": "户门 3",
+          "family_name": "unit_entry_door",
+          "storey_id": "storey_02",
+          "properties": {
+            "width_mm": 1000,
+            "height_mm": 2100
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwindow_e914468a",
+          "guid": "e2550465-d9e1-5157-8deb-f5d125a4a32e",
+          "ifc_type": "IfcWindow",
+          "name": "窗 3-A",
+          "family_name": "floor_to_ceiling_window",
+          "storey_id": "storey_02",
+          "properties": {
+            "overall_width_mm": 800,
+            "overall_height_mm": 1200
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwindow_f996a1e0",
+          "guid": "4237d0cf-368e-5bf6-b441-886befbcf5c9",
+          "ifc_type": "IfcWindow",
+          "name": "窗 3-B",
+          "family_name": "secondary_window",
+          "storey_id": "storey_02",
+          "properties": {
+            "overall_width_mm": 1200,
+            "overall_height_mm": 1500
+          }
+        },
+        {
+          "element_id": "storey_02_ifcdoor_29323f37",
+          "guid": "15ce9adb-29ae-56ce-9de1-5ceffbc4230f",
+          "ifc_type": "IfcDoor",
+          "name": "户门 4",
+          "family_name": "unit_entry_door",
+          "storey_id": "storey_02",
+          "properties": {
+            "width_mm": 1000,
+            "height_mm": 2100
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwindow_7ed527b7",
+          "guid": "20bd1e39-038d-5c10-bbaf-0423ddac638c",
+          "ifc_type": "IfcWindow",
+          "name": "窗 4-A",
+          "family_name": "floor_to_ceiling_window",
+          "storey_id": "storey_02",
+          "properties": {
+            "overall_width_mm": 800,
+            "overall_height_mm": 1200
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwindow_b8cfb9b5",
+          "guid": "ce11b120-2cf8-5999-b7d0-a132c5c9023c",
+          "ifc_type": "IfcWindow",
+          "name": "窗 4-B",
+          "family_name": "secondary_window",
+          "storey_id": "storey_02",
+          "properties": {
+            "overall_width_mm": 1200,
+            "overall_height_mm": 1500
+          }
+        }
+      ]
+    }
+  ],
+  "element_index": {
+    "IfcWall": 16,
+    "IfcSlab": 2,
+    "IfcDoor": 8,
+    "IfcWindow": 16
+  },
+  "metadata": {
+    "strategy": "element_batch_replace",
+    "replacement_count": 8,
+    "units_per_floor": 4,
+    "geometry_source": "template_fallback",
+    "source_wall_entities": 0,
+    "source_window_entities": 0,
+    "source_door_entities": 0,
+    "source_storey_keys": [],
+    "source_fragment_ids": [],
+    "storey_layout_trace": [
+      {
+        "storey_key": "1F",
+        "source_storey_key": null,
+        "source_fragment_id": "",
+        "source_fragment_ids": [],
+        "source_assets": [],
+        "replicated": false
+      },
+      {
+        "storey_key": "2F",
+        "source_storey_key": null,
+        "source_fragment_id": "",
+        "source_fragment_ids": [],
+        "source_assets": [],
+        "replicated": false
+      }
+    ],
+    "source_layout_bounds_by_storey": {},
+    "source_entity_totals": {
+      "wall": 0,
+      "window": 0,
+      "door": 0,
+      "space": 0
+    },
+    "modeled_entity_totals": {
+      "IfcWall": 16,
+      "IfcDoor": 8,
+      "IfcWindow": 16,
+      "IfcSpace": 10
+    },
+    "count_reconciliation": {
+      "IfcWall": {
+        "source": 0,
+        "modeled": 16,
+        "delta": 16
+      },
+      "IfcDoor": {
+        "source": 0,
+        "modeled": 8,
+        "delta": 8
+      },
+      "IfcWindow": {
+        "source": 0,
+        "modeled": 16,
+        "delta": 16
+      },
+      "IfcSpace": {
+        "source": 0,
+        "modeled": 10,
+        "delta": 10
+      }
+    }
+  }
+}

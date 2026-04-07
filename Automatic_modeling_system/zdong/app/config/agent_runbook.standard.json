@@ -1,0 +1,273 @@
+{
+  "version": "2026-04-01.runbook.v1",
+  "plan_ref": "agent_plan.standard.json",
+  "delivery_target": "形成从 SourceBundle 到 model.ifc 的稳定主链路，并补齐工作台反馈闭环。",
+  "phases": [
+    {
+      "phase_id": "phase_a_main_chain",
+      "display_name": "阶段 A：主链路打通",
+      "objective": "先打通输入、解析、意图、规则、建模、自检与导出，形成正式版本交付物。",
+      "required_agents": [
+        "agent_intake_asset",
+        "agent_drawing_parser",
+        "agent_intent_ai",
+        "agent_rules_planner",
+        "agent_bim_executor",
+        "agent_validation_delivery"
+      ],
+      "entry_criteria": [
+        "标准版代理配置已冻结",
+        "图纸解析组现有成果已确认可复用",
+        "版本号、请求号与资产号策略已确定"
+      ],
+      "exit_criteria": [
+        "生成可追溯 SourceBundle",
+        "输出可消费 ParsedDrawingModel",
+        "输出 schema 化 DesignIntent",
+        "生成可回放 ModelingPlan",
+        "生成可被自检读取的内部 BIM 语义模型",
+        "通过验证门禁并正式导出 model.ifc"
+      ],
+      "release_gates": [
+        {
+          "gate_id": "gate_source_bundle",
+          "owner_agent": "agent_intake_asset",
+          "required_outputs": [
+            "SourceBundle"
+          ],
+          "block_on_fail": true
+        },
+        {
+          "gate_id": "gate_parsed_drawing",
+          "owner_agent": "agent_drawing_parser",
+          "required_outputs": [
+            "ParsedDrawingModel",
+            "PendingReview"
+          ],
+          "block_on_fail": true
+        },
+        {
+          "gate_id": "gate_design_intent",
+          "owner_agent": "agent_intent_ai",
+          "required_outputs": [
+            "DesignIntent",
+            "Assumptions",
+            "MissingFields",
+            "CompletionTrace"
+          ],
+          "block_on_fail": true
+        },
+        {
+          "gate_id": "gate_modeling_plan",
+          "owner_agent": "agent_rules_planner",
+          "required_outputs": [
+            "RuleCheckResult",
+            "ModelingPlan"
+          ],
+          "block_on_fail": true
+        },
+        {
+          "gate_id": "gate_bim_semantic_model",
+          "owner_agent": "agent_bim_executor",
+          "required_outputs": [
+            "内部 BIM 语义模型",
+            "构件索引与版本映射"
+          ],
+          "block_on_fail": true
+        },
+        {
+          "gate_id": "gate_release_export",
+          "owner_agent": "agent_validation_delivery",
+          "required_outputs": [
+            "ValidationReport",
+            "model.ifc",
+            "validation.json",
+            "intent.json"
+          ],
+          "block_on_fail": true
+        }
+      ]
+    },
+    {
+      "phase_id": "phase_b_feedback_loop",
+      "display_name": "阶段 B：交付闭环补齐",
+      "objective": "让版本交付结果可查看、可下载、可反馈，并重新进入下一轮修改请求。",
+      "required_agents": [
+        "agent_workbench_feedback"
+      ],
+      "entry_criteria": [
+        "阶段 A 已完成正式导出",
+        "ExportBundle 已可被 API 或前端消费"
+      ],
+      "exit_criteria": [
+        "用户可以查看版本状态",
+        "用户可以下载交付产物",
+        "用户反馈可以重新进入请求链路"
+      ],
+      "release_gates": [
+        {
+          "gate_id": "gate_feedback_loop",
+          "owner_agent": "agent_workbench_feedback",
+          "required_outputs": [
+            "版本查看界面",
+            "导出结果下载",
+            "FeedbackRequest"
+          ],
+          "block_on_fail": false
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "task_a1_intake_bundle",
+      "phase_id": "phase_a_main_chain",
+      "owner_agent": "agent_intake_asset",
+      "depends_on": [],
+      "goal": "将用户输入收敛为可追溯 SourceBundle。",
+      "deliverables": [
+        "project_id",
+        "request_id",
+        "asset_id[]",
+        "version_id",
+        "SourceBundle"
+      ],
+      "acceptance_criteria": [
+        "文本与图纸绑定到同一个 request_id",
+        "资产元数据完整可追溯",
+        "下游无需再拼装请求上下文"
+      ]
+    },
+    {
+      "task_id": "task_a2_parse_drawings",
+      "phase_id": "phase_a_main_chain",
+      "owner_agent": "agent_drawing_parser",
+      "depends_on": [
+        "task_a1_intake_bundle"
+      ],
+      "goal": "基于现有成果输出稳定 ParsedDrawingModel。",
+      "deliverables": [
+        "ParsedDrawingModel",
+        "LayerMap",
+        "GridMap",
+        "DimensionEntities",
+        "TextAnnotations",
+        "StoreyCandidates",
+        "PendingReview"
+      ],
+      "acceptance_criteria": [
+        "DWG 优先转换为 DXF 后解析",
+        "单位、原点、朝向已归一化",
+        "无法确认图元进入 PendingReview"
+      ],
+      "must_continue_existing_results": true
+    },
+    {
+      "task_id": "task_a3_build_design_intent",
+      "phase_id": "phase_a_main_chain",
+      "owner_agent": "agent_intent_ai",
+      "depends_on": [
+        "task_a2_parse_drawings"
+      ],
+      "goal": "将文本与解析结果转为可执行 DesignIntent。",
+      "deliverables": [
+        "DesignIntent",
+        "Assumptions",
+        "MissingFields",
+        "CompletionTrace",
+        "ModelPatch"
+      ],
+      "acceptance_criteria": [
+        "输出符合 schema",
+        "补全字段有来源追踪",
+        "高风险字段不被隐式吞掉"
+      ]
+    },
+    {
+      "task_id": "task_a4_rules_and_plan",
+      "phase_id": "phase_a_main_chain",
+      "owner_agent": "agent_rules_planner",
+      "depends_on": [
+        "task_a3_build_design_intent"
+      ],
+      "goal": "产出带版本的规则结果与 ModelingPlan。",
+      "deliverables": [
+        "RuleCheckResult",
+        "RuleViolations",
+        "RuleWarnings",
+        "ModelingPlan",
+        "AffectedModules",
+        "RegenerationScope"
+      ],
+      "acceptance_criteria": [
+        "先规则后计划",
+        "计划可回放",
+        "局部重生成范围明确"
+      ]
+    },
+    {
+      "task_id": "task_a5_generate_bim",
+      "phase_id": "phase_a_main_chain",
+      "owner_agent": "agent_bim_executor",
+      "depends_on": [
+        "task_a4_rules_and_plan"
+      ],
+      "goal": "从 ModelingPlan 生成可自检的内部 BIM 语义模型。",
+      "deliverables": [
+        "内部 BIM 语义模型",
+        "IfcProject",
+        "IfcSite",
+        "IfcBuilding",
+        "IfcBuildingStorey",
+        "构件索引与版本映射"
+      ],
+      "acceptance_criteria": [
+        "楼层、宿主、空间关系完整",
+        "GUID 稳定",
+        "下游可直接读取并校验"
+      ]
+    },
+    {
+      "task_id": "task_a6_validate_and_export",
+      "phase_id": "phase_a_main_chain",
+      "owner_agent": "agent_validation_delivery",
+      "depends_on": [
+        "task_a5_generate_bim"
+      ],
+      "goal": "完成验证门禁、精确回退与正式导出。",
+      "deliverables": [
+        "ValidationReport",
+        "RollbackTarget",
+        "RepairInstruction",
+        "model.ifc",
+        "validation.json",
+        "intent.json",
+        "ExportBundle"
+      ],
+      "acceptance_criteria": [
+        "fatal/error 问题阻断导出",
+        "失败时精确回退，不默认全量重建",
+        "通过后输出正式交付物"
+      ]
+    },
+    {
+      "task_id": "task_b1_feedback_loop",
+      "phase_id": "phase_b_feedback_loop",
+      "owner_agent": "agent_workbench_feedback",
+      "depends_on": [
+        "task_a6_validate_and_export"
+      ],
+      "goal": "形成可查看、可下载、可反馈的交付闭环。",
+      "deliverables": [
+        "版本查看界面",
+        "导出结果下载",
+        "FeedbackRequest"
+      ],
+      "acceptance_criteria": [
+        "用户可查看交付版本",
+        "用户可下载导出产物",
+        "反馈可重新进入请求链路"
+      ]
+    }
+  ]
+}

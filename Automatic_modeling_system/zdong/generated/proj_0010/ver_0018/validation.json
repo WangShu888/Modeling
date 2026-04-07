@@ -1,0 +1,64 @@
+{
+  "status": "passed",
+  "issues": [],
+  "affected_elements": [],
+  "fix_suggestions": [],
+  "metadata": {
+    "validation_engine": "semantic_pre_export_validator",
+    "ifc_exporter": "ifcopenshell_exporter",
+    "ifc_schema": "IFC4",
+    "formal_backend_ready": false,
+    "gate_trace": {
+      "validation_status": "passed",
+      "severity_counts": {
+        "info": 0,
+        "warning": 0,
+        "error": 0,
+        "fatal": 0
+      },
+      "blocking_issues": [],
+      "formal_blocking_issues": [],
+      "count_reconciliation": {
+        "IfcWall": {
+          "source": 0,
+          "modeled": 16,
+          "delta": 16
+        },
+        "IfcDoor": {
+          "source": 0,
+          "modeled": 8,
+          "delta": 8
+        },
+        "IfcWindow": {
+          "source": 0,
+          "modeled": 16,
+          "delta": 16
+        },
+        "IfcSpace": {
+          "source": 0,
+          "modeled": 10,
+          "delta": 10
+        }
+      },
+      "storey_layout_trace": [
+        {
+          "storey_key": "1F",
+          "source_storey_key": null,
+          "source_fragment_id": "",
+          "source_fragment_ids": [],
+          "source_assets": [],
+          "replicated": false
+        },
+        {
+          "storey_key": "2F",
+          "source_storey_key": null,
+          "source_fragment_id": "",
+          "source_fragment_ids": [],
+          "source_assets": [],
+          "replicated": false
+        }
+      ],
+      "suggested_actions": []
+    }
+  }
+}

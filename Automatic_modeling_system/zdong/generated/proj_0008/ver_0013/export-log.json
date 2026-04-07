@@ -1,0 +1,8 @@
+{
+  "project_id": "proj_0008",
+  "version_id": "ver_0013",
+  "runtime": "ifcopenshell_exporter",
+  "schema": "IFC4",
+  "formal_backend_ready": false,
+  "artifact_count": 5
+}

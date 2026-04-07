@@ -1,0 +1,378 @@
+{
+  "version": "2026-04-01.standard.v1",
+  "mode": "standard",
+  "release_objective": "按标准版模块分工组织 7 个代理，严格沿主链路形成可交付版本。",
+  "coverage_required": [
+    "4.1",
+    "4.2",
+    "4.3",
+    "4.4",
+    "4.5",
+    "4.6",
+    "4.7",
+    "4.8",
+    "4.9",
+    "4.10"
+  ],
+  "primary_delivery_chain": [
+    "agent_intake_asset",
+    "agent_drawing_parser",
+    "agent_intent_ai",
+    "agent_rules_planner",
+    "agent_bim_executor",
+    "agent_validation_delivery",
+    "agent_workbench_feedback"
+  ],
+  "shared_execution_rules": [
+    "只消费上游结构化输出，不绕过交接对象直接读自然语言或最终产物。",
+    "禁止代理跨模块兜底实现非本组职责。",
+    "fatal 或 error 级问题未消除前，不得进入正式导出。",
+    "所有代理必须以版本交付为目标，不允许只完成单模块 demo。"
+  ],
+  "agents": [
+    {
+      "agent_id": "agent_intake_asset",
+      "display_name": "接入与资产代理",
+      "owner_group": "接入与资产组",
+      "assigned_modules": [
+        "4.1"
+      ],
+      "execution_order": 1,
+      "depends_on": [],
+      "execution_mode": "greenfield_or_iterative",
+      "owned_paths": [
+        "zdong/app/main.py",
+        "zdong/app/assets.py",
+        "zdong/app/store.py"
+      ],
+      "inputs": [
+        "用户上传图纸",
+        "用户文字需求",
+        "项目基础表单"
+      ],
+      "outputs": [
+        "SourceBundle",
+        "project_id",
+        "request_id",
+        "asset_id[]",
+        "version_id"
+      ],
+      "handoff_object": "SourceBundle",
+      "guardrails": [
+        "不负责图纸识别",
+        "不负责规则判定",
+        "不负责 BIM 建模"
+      ],
+      "definition_of_done": [
+        "上传资产和元数据可追溯",
+        "同一次请求的文本与图纸绑定到统一 request_id",
+        "下游可直接消费 SourceBundle"
+      ]
+    },
+    {
+      "agent_id": "agent_drawing_parser",
+      "display_name": "图纸解析代理",
+      "owner_group": "图纸解析组",
+      "assigned_modules": [
+        "4.2"
+      ],
+      "execution_order": 2,
+      "depends_on": [
+        "agent_intake_asset"
+      ],
+      "execution_mode": "continue_existing_results",
+      "owned_paths": [
+        "zdong/app/drawing_parser.py",
+        "zdong/tests/test_dwg_conversion.py",
+        "zdong/tests/test_remote_dwg_conversion.py",
+        "zdong/tests/test_windows_dwg_converter_service.py"
+      ],
+      "existing_assets": [
+        "zdong/app/drawing_parser.py",
+        "zdong/app/windows_dwg_converter_service.py",
+        "zdong/tests/test_dwg_conversion.py",
+        "zdong/tests/test_remote_dwg_conversion.py",
+        "zdong/tests/test_windows_dwg_converter_service.py"
+      ],
+      "inputs": [
+        "SourceBundle",
+        "DWG/DXF/PDF",
+        "图层映射配置",
+        "项目默认单位"
+      ],
+      "outputs": [
+        "ParsedDrawingModel",
+        "LayerMap",
+        "GridMap",
+        "DimensionEntities",
+        "TextAnnotations",
+        "StoreyCandidates",
+        "PendingReview"
+      ],
+      "handoff_object": "ParsedDrawingModel",
+      "guardrails": [
+        "基于现有成果继续推进，不重做已存在的 DWG/DXF 转换与解析基础能力",
+        "不直接解释用户自然语言需求",
+        "不替规则组做可行性判定"
+      ],
+      "definition_of_done": [
+        "DWG 优先转换为 DXF 后解析",
+        "单位、原点、朝向和楼层候选完成归一化",
+        "无法确认的图元进入 PendingReview"
+      ]
+    },
+    {
+      "agent_id": "agent_intent_ai",
+      "display_name": "AI需求转化代理",
+      "owner_group": "AI 需求转化组",
+      "assigned_modules": [
+        "4.3"
+      ],
+      "execution_order": 3,
+      "depends_on": [
+        "agent_drawing_parser"
+      ],
+      "execution_mode": "structured_output_only",
+      "owned_paths": [
+        "zdong/app/intent_service.py",
+        "zdong/app/config/intent_defaults.json"
+      ],
+      "inputs": [
+        "用户文本需求",
+        "ParsedDrawingModel",
+        "表单字段",
+        "项目默认参数"
+      ],
+      "outputs": [
+        "DesignIntent",
+        "MissingFields",
+        "Assumptions",
+        "CompletionTrace",
+        "ModelPatch",
+        "ElementSelector"
+      ],
+      "handoff_object": "DesignIntent",
+      "guardrails": [
+        "严格按 schema 输出结构化对象",
+        "不输出自由文本作为最终执行指令",
+        "不负责几何建模和 IFC 导出"
+      ],
+      "definition_of_done": [
+        "所有补全字段写入 Assumptions",
+        "高风险字段进入 MissingFields",
+        "可直接被规则组消费"
+      ]
+    },
+    {
+      "agent_id": "agent_rules_planner",
+      "display_name": "规则与计划代理",
+      "owner_group": "规则与计划组",
+      "assigned_modules": [
+        "4.4",
+        "4.5"
+      ],
+      "execution_order": 4,
+      "depends_on": [
+        "agent_intent_ai"
+      ],
+      "execution_mode": "deterministic_then_planning",
+      "owned_paths": [
+        "zdong/app/planning.py",
+        "zdong/app/config/rules.default.json",
+        "zdong/app/config/planner.default.json"
+      ],
+      "inputs": [
+        "DesignIntent",
+        "ParsedDrawingModel",
+        "项目规则集",
+        "地区规则集",
+        "当前模型版本"
+      ],
+      "outputs": [
+        "RuleCheckResult",
+        "RuleViolations",
+        "RuleWarnings",
+        "SolverConstraints",
+        "ModelingPlan",
+        "AffectedModules",
+        "RegenerationScope"
+      ],
+      "handoff_object": "ModelingPlan",
+      "guardrails": [
+        "先做规则，再做计划",
+        "不直接生成 IFC 构件",
+        "不代替 AI 组补写业务意图"
+      ],
+      "definition_of_done": [
+        "规则结果可解释且带版本",
+        "执行计划可回放",
+        "局部重生成范围明确"
+      ]
+    },
+    {
+      "agent_id": "agent_bim_executor",
+      "display_name": "BIM执行代理",
+      "owner_group": "BIM 执行组",
+      "assigned_modules": [
+        "4.6"
+      ],
+      "execution_order": 5,
+      "depends_on": [
+        "agent_rules_planner"
+      ],
+      "execution_mode": "semantic_bim_generation",
+      "owned_paths": [
+        "zdong/app/ifc_runtime.py"
+      ],
+      "inputs": [
+        "ModelingPlan",
+        "MassingOption",
+        "FloorPlanResult",
+        "FacadeResult",
+        "ModelPatch"
+      ],
+      "outputs": [
+        "内部 BIM 语义模型",
+        "IfcProject",
+        "IfcSite",
+        "IfcBuilding",
+        "IfcBuildingStorey",
+        "IfcWall",
+        "IfcWindow",
+        "IfcDoor",
+        "IfcSlab",
+        "IfcSpace",
+        "构件索引与版本映射"
+      ],
+      "handoff_object": "内部 BIM 语义模型",
+      "guardrails": [
+        "只接受结构化输入",
+        "不消费自然语言",
+        "不跳过自检直接导出"
+      ],
+      "definition_of_done": [
+        "楼层、墙、窗、空间语义关系完整",
+        "GUID 稳定",
+        "模型可被下游自检读取"
+      ]
+    },
+    {
+      "agent_id": "agent_validation_delivery",
+      "display_name": "质量回退与交付代理",
+      "owner_group": "质量与回退组（兼导出交付）",
+      "assigned_modules": [
+        "4.7",
+        "4.8",
+        "4.9"
+      ],
+      "execution_order": 6,
+      "depends_on": [
+        "agent_bim_executor"
+      ],
+      "execution_mode": "gate_before_export",
+      "owned_paths": [
+        "zdong/app/pipeline.py",
+        "zdong/generated"
+      ],
+      "inputs": [
+        "内部 BIM 语义模型",
+        "DesignIntent",
+        "ModelPatch",
+        "RuleCheckResult",
+        "上一个版本模型"
+      ],
+      "outputs": [
+        "ValidationReport",
+        "ValidationStatus",
+        "Issue[]",
+        "RollbackTarget",
+        "RepairInstruction",
+        "model.ifc",
+        "validation.json",
+        "intent.json"
+      ],
+      "handoff_object": "ExportBundle",
+      "guardrails": [
+        "自检失败时必须精确回退，不默认全量重建",
+        "未通过自检不得正式导出",
+        "导出结果必须绑定验证报告和版本信息"
+      ],
+      "definition_of_done": [
+        "导出门禁清晰且可阻断",
+        "失败问题可路由回正确模块",
+        "通过后生成正式交付产物"
+      ]
+    },
+    {
+      "agent_id": "agent_workbench_feedback",
+      "display_name": "工作台与反馈代理",
+      "owner_group": "工作台与反馈组",
+      "assigned_modules": [
+        "4.10"
+      ],
+      "execution_order": 7,
+      "depends_on": [
+        "agent_validation_delivery"
+      ],
+      "execution_mode": "delivery_feedback_loop",
+      "owned_paths": [
+        "zdong/web"
+      ],
+      "inputs": [
+        "model.ifc",
+        "validation.json",
+        "intent.json",
+        "ExportBundle"
+      ],
+      "outputs": [
+        "版本查看界面",
+        "导出结果下载",
+        "用户反馈",
+        "新一轮修改请求"
+      ],
+      "handoff_object": "FeedbackRequest",
+      "guardrails": [
+        "Revit 仅作为用户查看工具",
+        "不承担系统内部自动验证职责",
+        "用户反馈必须重新进入请求链路"
+      ],
+      "definition_of_done": [
+        "用户可查看版本状态和交付产物",
+        "反馈可重新进入主链路",
+        "形成版本交付闭环"
+      ]
+    }
+  ],
+  "handoff_contracts": [
+    {
+      "from": "agent_intake_asset",
+      "to": "agent_drawing_parser",
+      "object": "SourceBundle"
+    },
+    {
+      "from": "agent_drawing_parser",
+      "to": "agent_intent_ai",
+      "object": "ParsedDrawingModel"
+    },
+    {
+      "from": "agent_intent_ai",
+      "to": "agent_rules_planner",
+      "object": "DesignIntent"
+    },
+    {
+      "from": "agent_rules_planner",
+      "to": "agent_bim_executor",
+      "object": "ModelingPlan"
+    },
+    {
+      "from": "agent_bim_executor",
+      "to": "agent_validation_delivery",
+      "object": "内部 BIM 语义模型"
+    },
+    {
+      "from": "agent_validation_delivery",
+      "to": "agent_workbench_feedback",
+      "object": "ExportBundle"
+    }
+  ]
+}

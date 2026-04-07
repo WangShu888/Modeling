@@ -1,0 +1,102 @@
+{
+  "status": "warning",
+  "issues": [
+    {
+      "severity": "warning",
+      "message": "A large closed polyline was inferred as a possible site boundary and should be confirmed.",
+      "target": "20BB"
+    },
+    {
+      "severity": "warning",
+      "message": "图纸解析未识别到房间边界，空间生成结果需要人工复核。",
+      "target": "parsed_drawing.space_boundaries_detected"
+    },
+    {
+      "severity": "warning",
+      "message": "用地面积缺失，当前结果仅适合作为草案方案。",
+      "target": "site.area_sqm"
+    },
+    {
+      "severity": "warning",
+      "message": "模型缺少关键构件类型 IfcDoor。",
+      "target": "IfcDoor"
+    },
+    {
+      "severity": "warning",
+      "message": "模型缺少关键构件类型 IfcWindow。",
+      "target": "IfcWindow"
+    }
+  ],
+  "affected_elements": [],
+  "fix_suggestions": [
+    "补全缺失字段后重新触发建模流程。"
+  ],
+  "metadata": {
+    "validation_engine": "semantic_pre_export_validator",
+    "ifc_exporter": "ifcopenshell_exporter",
+    "ifc_schema": "IFC4",
+    "formal_backend_ready": false,
+    "gate_trace": {
+      "validation_status": "warning",
+      "severity_counts": {
+        "info": 0,
+        "warning": 5,
+        "error": 0,
+        "fatal": 0
+      },
+      "blocking_issues": [],
+      "formal_blocking_issues": [],
+      "count_reconciliation": {
+        "IfcWall": {
+          "source": 46,
+          "modeled": 46,
+          "delta": 0
+        },
+        "IfcDoor": {
+          "source": 0,
+          "modeled": 0,
+          "delta": 0
+        },
+        "IfcWindow": {
+          "source": 0,
+          "modeled": 0,
+          "delta": 0
+        },
+        "IfcSpace": {
+          "source": 0,
+          "modeled": 10,
+          "delta": 10
+        }
+      },
+      "storey_layout_trace": [
+        {
+          "storey_key": "1F",
+          "source_storey_key": "1F",
+          "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::1F::01",
+          "source_fragment_ids": [
+            "专用宿舍楼-结施.dxf::fragment::1F::01"
+          ],
+          "source_assets": [
+            "专用宿舍楼-结施.dxf"
+          ],
+          "replicated": false
+        },
+        {
+          "storey_key": "2F",
+          "source_storey_key": "2F",
+          "source_fragment_id": "专用宿舍楼-结施.dxf::fragment::2F::02",
+          "source_fragment_ids": [
+            "专用宿舍楼-结施.dxf::fragment::2F::02"
+          ],
+          "source_assets": [
+            "专用宿舍楼-结施.dxf"
+          ],
+          "replicated": false
+        }
+      ],
+      "suggested_actions": [
+        "补全缺失字段后重新触发建模流程。"
+      ]
+    }
+  }
+}

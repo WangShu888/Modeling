@@ -1,0 +1,254 @@
+{
+  "version": "planner.2026-03-31",
+  "strategies": {
+    "text_to_massing": {
+      "regeneration_scope": "building",
+      "strategy_reason": "Text-only request without drawing-driven geometry input.",
+      "explainability_notes": "纯文本请求遵循 Intake → Intent → Rule Engine → BIM 的链路以形成可追溯的体量方案。",
+      "affected_modules": [
+        "ai_intent",
+        "rule_engine",
+        "bim_engine",
+        "validation_export"
+      ],
+      "steps": [
+        {
+          "name": "normalize_inputs",
+          "module": "intake",
+          "description": "归档文本和表单输入，生成 SourceBundle。",
+          "inputs": [
+            "ModelingRequestInput"
+          ],
+          "outputs": [
+            "SourceBundle"
+          ]
+        },
+        {
+          "name": "transform_intent",
+          "module": "ai_intent",
+          "description": "按结构化 schema 生成 DesignIntent。",
+          "inputs": [
+            "SourceBundle",
+            "ParsedDrawingModel"
+          ],
+          "outputs": [
+            "StructuredIntentOutput",
+            "DesignIntent"
+          ]
+        },
+        {
+          "name": "evaluate_rules",
+          "module": "rule_engine",
+          "description": "执行配置化规则校验并生成 solver 约束。",
+          "inputs": [
+            "DesignIntent",
+            "ParsedDrawingModel"
+          ],
+          "outputs": [
+            "RuleCheckResult"
+          ]
+        },
+        {
+          "name": "build_bim",
+          "module": "bim_engine",
+          "description": "生成方案级语义 BIM 模型。",
+          "inputs": [
+            "DesignIntent",
+            "RuleCheckResult"
+          ],
+          "outputs": [
+            "BimSemanticModel"
+          ]
+        },
+        {
+          "name": "validate_and_export",
+          "module": "validation_export",
+          "description": "执行自检并导出 IFC/JSON 产物。",
+          "inputs": [
+            "BimSemanticModel",
+            "DesignIntent",
+            "RuleCheckResult"
+          ],
+          "outputs": [
+            "ValidationReport",
+            "ExportBundle"
+          ]
+        }
+      ]
+    },
+    "cad_to_bim": {
+      "regeneration_scope": "building",
+      "strategy_reason": "Drawing assets are available and the request prefers CAD/PDF driven modeling.",
+      "explainability_notes": "图纸驱动的策略记录了 parse → intent → rules → BIM 的每一步，保障可解释输出与回放需求。",
+      "affected_modules": [
+        "drawing_parser",
+        "ai_intent",
+        "rule_engine",
+        "bim_engine",
+        "validation_export"
+      ],
+      "steps": [
+        {
+          "name": "normalize_inputs",
+          "module": "intake",
+          "description": "归档文本、图纸和表单输入，生成 SourceBundle。",
+          "inputs": [
+            "ModelingRequestInput"
+          ],
+          "outputs": [
+            "SourceBundle"
+          ]
+        },
+        {
+          "name": "parse_drawings",
+          "module": "drawing_parser",
+          "description": "解析 CAD/PDF 图元并输出统一图纸中间模型。",
+          "inputs": [
+            "SourceBundle"
+          ],
+          "outputs": [
+            "ParsedDrawingModel"
+          ]
+        },
+        {
+          "name": "transform_intent",
+          "module": "ai_intent",
+          "description": "按结构化 schema 生成 DesignIntent。",
+          "inputs": [
+            "SourceBundle",
+            "ParsedDrawingModel"
+          ],
+          "outputs": [
+            "StructuredIntentOutput",
+            "DesignIntent"
+          ]
+        },
+        {
+          "name": "evaluate_rules",
+          "module": "rule_engine",
+          "description": "执行配置化规则校验并生成 solver 约束。",
+          "inputs": [
+            "DesignIntent",
+            "ParsedDrawingModel"
+          ],
+          "outputs": [
+            "RuleCheckResult"
+          ]
+        },
+        {
+          "name": "build_bim",
+          "module": "bim_engine",
+          "description": "生成图纸驱动的语义 BIM 模型。",
+          "inputs": [
+            "DesignIntent",
+            "RuleCheckResult"
+          ],
+          "outputs": [
+            "BimSemanticModel"
+          ]
+        },
+        {
+          "name": "validate_and_export",
+          "module": "validation_export",
+          "description": "执行自检并导出 IFC/JSON 产物。",
+          "inputs": [
+            "BimSemanticModel",
+            "DesignIntent",
+            "RuleCheckResult"
+          ],
+          "outputs": [
+            "ValidationReport",
+            "ExportBundle"
+          ]
+        }
+      ]
+    },
+    "element_batch_replace": {
+      "regeneration_scope": "matched_elements",
+      "strategy_reason": "The request includes a structured ModelPatch for element-level replacement.",
+      "explainability_notes": "通过解析和 ModelPatch 建立的局部替换链路记录了可复现的计划和模块依赖。",
+      "affected_modules": [
+        "drawing_parser",
+        "ai_intent",
+        "rule_engine",
+        "bim_engine",
+        "validation_export"
+      ],
+      "steps": [
+        {
+          "name": "normalize_inputs",
+          "module": "intake",
+          "description": "归档文本、图纸和表单输入，生成 SourceBundle。",
+          "inputs": [
+            "ModelingRequestInput"
+          ],
+          "outputs": [
+            "SourceBundle"
+          ]
+        },
+        {
+          "name": "parse_drawings",
+          "module": "drawing_parser",
+          "description": "解析图纸并识别待替换构件上下文。",
+          "inputs": [
+            "SourceBundle"
+          ],
+          "outputs": [
+            "ParsedDrawingModel"
+          ]
+        },
+        {
+          "name": "transform_intent",
+          "module": "ai_intent",
+          "description": "按结构化 schema 生成 ElementSelector 和 ModelPatch。",
+          "inputs": [
+            "SourceBundle",
+            "ParsedDrawingModel"
+          ],
+          "outputs": [
+            "StructuredIntentOutput",
+            "DesignIntent"
+          ]
+        },
+        {
+          "name": "evaluate_rules",
+          "module": "rule_engine",
+          "description": "执行替换前约束校验和风险检查。",
+          "inputs": [
+            "DesignIntent",
+            "ParsedDrawingModel"
+          ],
+          "outputs": [
+            "RuleCheckResult"
+          ]
+        },
+        {
+          "name": "build_bim",
+          "module": "bim_engine",
+          "description": "按匹配条件局部替换构件并保留语义关系。",
+          "inputs": [
+            "DesignIntent",
+            "RuleCheckResult"
+          ],
+          "outputs": [
+            "BimSemanticModel"
+          ]
+        },
+        {
+          "name": "validate_and_export",
+          "module": "validation_export",
+          "description": "执行自检并导出 IFC/JSON 产物。",
+          "inputs": [
+            "BimSemanticModel",
+            "DesignIntent",
+            "RuleCheckResult"
+          ],
+          "outputs": [
+            "ValidationReport",
+            "ExportBundle"
+          ]
+        }
+      ]
+    }
+  }
+}

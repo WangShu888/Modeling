@@ -1,0 +1,1377 @@
+{
+  "project_id": "proj_0027",
+  "version_id": "ver_0041",
+  "building_type": "residential",
+  "storeys": [
+    {
+      "storey_id": "storey_01",
+      "name": "1F",
+      "elevation_m": 0.0,
+      "spaces": [
+        {
+          "space_id": "storey_01_unit_1",
+          "name": "户型 1",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_01_unit_2",
+          "name": "户型 2",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_01_unit_3",
+          "name": "户型 3",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_01_unit_4",
+          "name": "户型 4",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_01_corridor",
+          "name": "公共走道",
+          "category": "circulation",
+          "area_sqm": 42.0
+        }
+      ],
+      "elements": [
+        {
+          "element_id": "storey_01_ifcslab_f16cf7d9",
+          "guid": "cdaf68dc-3229-5b6c-9481-0cb57601e8ac",
+          "ifc_type": "IfcSlab",
+          "name": "图纸楼板 01",
+          "family_name": "cad_footprint_slab",
+          "storey_id": "storey_01",
+          "properties": {
+            "thickness_mm": 120,
+            "geometry_source": "parsed_drawing",
+            "source_category": "footprint_bbox",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 0.0,
+            "local_y_m": 0.0,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 24.744,
+            "shape_depth_m": 21.731,
+            "shape_height_m": 0.12
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_5057312b",
+          "guid": "2cb91ab8-d0aa-5536-85b7-1443fbee965e",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 1",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 10.078,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:1",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 7.742,
+            "local_y_m": 5.893,
+            "local_z_m": 0.0,
+            "rotation_deg": 90.0,
+            "shape_width_m": 10.078,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_28e1045a",
+          "guid": "02d08bb7-353d-5290-9aff-149d9f63977c",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 2",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 10.349,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:2",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 7.087,
+            "local_y_m": 6.549,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 10.349,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_e3a489d9",
+          "guid": "a0db654a-4411-5790-ac0b-b8c46c92384c",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 3",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 10.349,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:3",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 7.087,
+            "local_y_m": 11.649,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 10.349,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_47b4ea97",
+          "guid": "8222784a-b7d2-593b-830b-9f825f6e3e47",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 4",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 10.349,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:4",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 7.087,
+            "local_y_m": 15.249,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 10.349,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_4e0e1e71",
+          "guid": "ccda157c-4f9c-5b63-a793-06ef93135ccf",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 5",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 10.078,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:5",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 7.742,
+            "local_y_m": 15.97,
+            "local_z_m": 0.0,
+            "rotation_deg": -90.0,
+            "shape_width_m": 10.078,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_466e83dc",
+          "guid": "438f5310-10e3-5c58-89ba-20b04f59bd34",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 6",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 10.078,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:6",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 11.842,
+            "local_y_m": 15.97,
+            "local_z_m": 0.0,
+            "rotation_deg": -90.0,
+            "shape_width_m": 10.078,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_a74578db",
+          "guid": "b2628490-f62f-5859-a666-95f09080a2d5",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 7",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 10.078,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:7",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 16.842,
+            "local_y_m": 15.97,
+            "local_z_m": 0.0,
+            "rotation_deg": -90.0,
+            "shape_width_m": 10.078,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_e78a8770",
+          "guid": "ae0ec6e4-b9ea-5cb6-bfc7-283970794fcb",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 8",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 24.744,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:8",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 0.0,
+            "local_y_m": 21.731,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 24.744,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_9a551ebd",
+          "guid": "509c84a4-d99e-5a85-81b7-6a5be1478073",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 9",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 21.731,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:9",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 24.744,
+            "local_y_m": 21.731,
+            "local_z_m": 0.0,
+            "rotation_deg": -90.0,
+            "shape_width_m": 21.731,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_e88d5e59",
+          "guid": "d743d162-ab46-5a41-953e-037ed8a93d50",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 10",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 24.744,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:10",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 24.744,
+            "local_y_m": 0.0,
+            "local_z_m": 0.0,
+            "rotation_deg": 180.0,
+            "shape_width_m": 24.744,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_ee643cb6",
+          "guid": "083fc7db-7ad2-53ec-bcc0-2d3e516379b0",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 11",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 21.731,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:11",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 0.0,
+            "local_y_m": 0.0,
+            "local_z_m": 0.0,
+            "rotation_deg": 90.0,
+            "shape_width_m": 21.731,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_209d5c71",
+          "guid": "7394a482-8102-5afd-a655-5edf383098ca",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 12",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 0.8,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:12",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 11.992,
+            "local_y_m": 11.749,
+            "local_z_m": 0.0,
+            "rotation_deg": 90.0,
+            "shape_width_m": 0.8,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_d65f80ee",
+          "guid": "0a70228e-c508-5cb5-ba15-8b3dc425e887",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 13",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 1.35,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:13",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 11.992,
+            "local_y_m": 12.549,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.35,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_434cddc0",
+          "guid": "25893b54-d5b7-540b-8b7e-7887d9e2c6b4",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 14",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 0.85,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:14",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 11.742,
+            "local_y_m": 11.749,
+            "local_z_m": 0.0,
+            "rotation_deg": 90.0,
+            "shape_width_m": 0.85,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_69c522a4",
+          "guid": "29d0251b-5020-5e4e-8da8-e45c36168856",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 15",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 1.6,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:15",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 11.742,
+            "local_y_m": 12.599,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.6,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwall_68f90a28",
+          "guid": "f97c387f-b326-5bfb-8c00-1718fbfb0e02",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 16",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_01",
+          "properties": {
+            "length_m": 0.2,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:16",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 13.342,
+            "local_y_m": 12.549,
+            "local_z_m": 0.0,
+            "rotation_deg": 90.0,
+            "shape_width_m": 0.2,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwindow_1f9a9716",
+          "guid": "c46bc3ae-5d9f-579f-a3f5-586b2a2286ee",
+          "ifc_type": "IfcWindow",
+          "name": "图纸窗 1",
+          "family_name": "cad_window_block",
+          "storey_id": "storey_01",
+          "properties": {
+            "overall_width_mm": 1500,
+            "overall_height_mm": 1500,
+            "geometry_source": "parsed_drawing",
+            "source_category": "window_block",
+            "source_ref": "proxy-fallback-window:1",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 6.992,
+            "local_y_m": 10.871,
+            "local_z_m": 0.9,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.5,
+            "shape_depth_m": 0.12,
+            "shape_height_m": 1.5
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwindow_5027ff65",
+          "guid": "59283165-7a84-5531-a0ad-81b104de2602",
+          "ifc_type": "IfcWindow",
+          "name": "图纸窗 2",
+          "family_name": "cad_window_block",
+          "storey_id": "storey_01",
+          "properties": {
+            "overall_width_mm": 1500,
+            "overall_height_mm": 1500,
+            "geometry_source": "parsed_drawing",
+            "source_category": "window_block",
+            "source_ref": "proxy-fallback-window:2",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 11.511,
+            "local_y_m": 6.489,
+            "local_z_m": 0.9,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.5,
+            "shape_depth_m": 0.12,
+            "shape_height_m": 1.5
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwindow_d335c4b8",
+          "guid": "9274689b-6b24-5ffe-8f0c-c71a841ad196",
+          "ifc_type": "IfcWindow",
+          "name": "图纸窗 3",
+          "family_name": "cad_window_block",
+          "storey_id": "storey_01",
+          "properties": {
+            "overall_width_mm": 1500,
+            "overall_height_mm": 1500,
+            "geometry_source": "parsed_drawing",
+            "source_category": "window_block",
+            "source_ref": "proxy-fallback-window:3",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 11.511,
+            "local_y_m": 11.589,
+            "local_z_m": 0.9,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.5,
+            "shape_depth_m": 0.12,
+            "shape_height_m": 1.5
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwindow_0d3fe6d1",
+          "guid": "928f0f1c-2be1-5a40-8b43-04b4f633850e",
+          "ifc_type": "IfcWindow",
+          "name": "图纸窗 4",
+          "family_name": "cad_window_block",
+          "storey_id": "storey_01",
+          "properties": {
+            "overall_width_mm": 1500,
+            "overall_height_mm": 1500,
+            "geometry_source": "parsed_drawing",
+            "source_category": "window_block",
+            "source_ref": "proxy-fallback-window:4",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 11.511,
+            "local_y_m": 15.189,
+            "local_z_m": 0.9,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.5,
+            "shape_depth_m": 0.12,
+            "shape_height_m": 1.5
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwindow_553f1a38",
+          "guid": "1beb4cb3-f249-5fc1-a3da-47eabdb4537c",
+          "ifc_type": "IfcWindow",
+          "name": "图纸窗 5",
+          "family_name": "cad_window_block",
+          "storey_id": "storey_01",
+          "properties": {
+            "overall_width_mm": 1500,
+            "overall_height_mm": 1500,
+            "geometry_source": "parsed_drawing",
+            "source_category": "window_block",
+            "source_ref": "proxy-fallback-window:5",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 6.992,
+            "local_y_m": 10.871,
+            "local_z_m": 0.9,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.5,
+            "shape_depth_m": 0.12,
+            "shape_height_m": 1.5
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwindow_6cbca1a4",
+          "guid": "4be84a39-550b-5aaa-9686-eec65925a52f",
+          "ifc_type": "IfcWindow",
+          "name": "图纸窗 6",
+          "family_name": "cad_window_block",
+          "storey_id": "storey_01",
+          "properties": {
+            "overall_width_mm": 1500,
+            "overall_height_mm": 1500,
+            "geometry_source": "parsed_drawing",
+            "source_category": "window_block",
+            "source_ref": "proxy-fallback-window:6",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 11.092,
+            "local_y_m": 10.871,
+            "local_z_m": 0.9,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.5,
+            "shape_depth_m": 0.12,
+            "shape_height_m": 1.5
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwindow_9c6d3e3a",
+          "guid": "68fac5ae-dc8e-5b6a-a665-7419bbe2454d",
+          "ifc_type": "IfcWindow",
+          "name": "图纸窗 7",
+          "family_name": "cad_window_block",
+          "storey_id": "storey_01",
+          "properties": {
+            "overall_width_mm": 1500,
+            "overall_height_mm": 1500,
+            "geometry_source": "parsed_drawing",
+            "source_category": "window_block",
+            "source_ref": "proxy-fallback-window:7",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 16.092,
+            "local_y_m": 10.871,
+            "local_z_m": 0.9,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.5,
+            "shape_depth_m": 0.12,
+            "shape_height_m": 1.5
+          }
+        },
+        {
+          "element_id": "storey_01_ifcwindow_1cf7c2bc",
+          "guid": "bc0e173b-525e-57c8-aceb-ceaa7573a9c6",
+          "ifc_type": "IfcWindow",
+          "name": "图纸窗 8",
+          "family_name": "cad_window_block",
+          "storey_id": "storey_01",
+          "properties": {
+            "overall_width_mm": 1500,
+            "overall_height_mm": 1500,
+            "geometry_source": "parsed_drawing",
+            "source_category": "window_block",
+            "source_ref": "proxy-fallback-window:8",
+            "source_storey_key": "1F",
+            "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+            "local_x_m": 11.622,
+            "local_y_m": 21.671,
+            "local_z_m": 0.9,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.5,
+            "shape_depth_m": 0.12,
+            "shape_height_m": 1.5
+          }
+        }
+      ]
+    },
+    {
+      "storey_id": "storey_02",
+      "name": "2F",
+      "elevation_m": 3.3,
+      "spaces": [
+        {
+          "space_id": "storey_02_unit_1",
+          "name": "户型 1",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_02_unit_2",
+          "name": "户型 2",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_02_unit_3",
+          "name": "户型 3",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_02_unit_4",
+          "name": "户型 4",
+          "category": "apartment",
+          "area_sqm": 95.0
+        },
+        {
+          "space_id": "storey_02_corridor",
+          "name": "公共走道",
+          "category": "circulation",
+          "area_sqm": 42.0
+        }
+      ],
+      "elements": [
+        {
+          "element_id": "storey_02_ifcslab_03420eaf",
+          "guid": "99328a7f-3678-51e2-b828-1bf2ffbfdf38",
+          "ifc_type": "IfcSlab",
+          "name": "图纸楼板 02",
+          "family_name": "cad_footprint_slab",
+          "storey_id": "storey_02",
+          "properties": {
+            "thickness_mm": 120,
+            "geometry_source": "parsed_drawing",
+            "source_category": "footprint_bbox",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 0.0,
+            "local_y_m": 0.0,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 10.349,
+            "shape_depth_m": 10.078,
+            "shape_height_m": 0.12
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_fbebd6db",
+          "guid": "8beb6c25-31d2-5965-96d2-74a6e5b18ba8",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 1",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 10.078,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:1",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 0.655,
+            "local_y_m": 0.0,
+            "local_z_m": 0.0,
+            "rotation_deg": 90.0,
+            "shape_width_m": 10.078,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_0c0adfa7",
+          "guid": "bf31bb99-ee15-5206-9caf-f8d9b2be2af9",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 2",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 10.349,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:2",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 0.0,
+            "local_y_m": 0.656,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 10.349,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_b017b070",
+          "guid": "cd3d5cae-a2c1-58a8-80b4-d99e297d093e",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 3",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 10.349,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:3",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 0.0,
+            "local_y_m": 5.756,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 10.349,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_5e4876ef",
+          "guid": "c2069093-676f-53fe-8e2c-c9e837e25355",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 4",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 10.349,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:4",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 0.0,
+            "local_y_m": 9.356,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 10.349,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_b67622f8",
+          "guid": "3b982083-ef92-5383-8368-4552bf43bf15",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 5",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 10.078,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:5",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 0.655,
+            "local_y_m": 10.078,
+            "local_z_m": 0.0,
+            "rotation_deg": -90.0,
+            "shape_width_m": 10.078,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_6282adbf",
+          "guid": "7be1b2d4-064c-52b2-8e24-01526df340e7",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 6",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 10.078,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:6",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 4.755,
+            "local_y_m": 10.078,
+            "local_z_m": 0.0,
+            "rotation_deg": -90.0,
+            "shape_width_m": 10.078,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_f094155a",
+          "guid": "49866076-1e5b-50fa-a190-033a782e8d26",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 7",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 10.078,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:7",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 9.755,
+            "local_y_m": 10.078,
+            "local_z_m": 0.0,
+            "rotation_deg": -90.0,
+            "shape_width_m": 10.078,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_65d3d960",
+          "guid": "2850abe6-3e2b-5667-8b08-69e5d7b5043a",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 8",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 1.329,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:8",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 4.855,
+            "local_y_m": 6.656,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.329,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_878907f8",
+          "guid": "8f044827-f7ab-5eec-bc1b-4d7f1d567b9c",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 9",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 2.329,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:9",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 6.325,
+            "local_y_m": 6.656,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 2.329,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_868be5d3",
+          "guid": "b4243f51-2c85-52d9-bc1a-2dd95059ca85",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 10",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 2.079,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:10",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 4.905,
+            "local_y_m": 5.856,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 2.079,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_95ebac25",
+          "guid": "15bad1d7-0488-548b-b8fd-3c0a82f97aec",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 11",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 1.529,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:11",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 7.125,
+            "local_y_m": 5.856,
+            "local_z_m": 0.0,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.529,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_80ce6bdd",
+          "guid": "5600825c-e449-5e39-b665-3b02b4f3d5c5",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 12",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 0.8,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:12",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 4.905,
+            "local_y_m": 6.656,
+            "local_z_m": 0.0,
+            "rotation_deg": -90.0,
+            "shape_width_m": 0.8,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_5aa6943e",
+          "guid": "9aa4d523-0c28-5f47-821c-d17801f78d72",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 13",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 0.8,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:13",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 5.155,
+            "local_y_m": 6.656,
+            "local_z_m": 0.0,
+            "rotation_deg": -90.0,
+            "shape_width_m": 0.8,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_af814b47",
+          "guid": "c835611e-1cc1-52d8-a25f-b9d05bc52a86",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 14",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 0.8,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:14",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 5.405,
+            "local_y_m": 6.656,
+            "local_z_m": 0.0,
+            "rotation_deg": -90.0,
+            "shape_width_m": 0.8,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_d0f82e28",
+          "guid": "16c1cec1-8f1d-5c20-9ae8-7e1d5f6057ac",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 15",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 0.8,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:15",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 5.655,
+            "local_y_m": 6.656,
+            "local_z_m": 0.0,
+            "rotation_deg": -90.0,
+            "shape_width_m": 0.8,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwall_7be1a0f4",
+          "guid": "a452b2f7-c774-54a0-a673-74a61c17f880",
+          "ifc_type": "IfcWall",
+          "name": "图纸墙体 16",
+          "family_name": "cad_wall_line",
+          "storey_id": "storey_02",
+          "properties": {
+            "length_m": 0.8,
+            "height_m": 3.0,
+            "geometry_source": "parsed_drawing",
+            "source_category": "wall_line",
+            "source_ref": "proxy-fallback-wall:16",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 5.905,
+            "local_y_m": 6.656,
+            "local_z_m": 0.0,
+            "rotation_deg": -90.0,
+            "shape_width_m": 0.8,
+            "shape_depth_m": 0.2,
+            "shape_height_m": 3.0
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwindow_6afc7506",
+          "guid": "ff6e23ca-6ae9-5388-887c-ec6dbdf45593",
+          "ifc_type": "IfcWindow",
+          "name": "图纸窗 1",
+          "family_name": "cad_window_block",
+          "storey_id": "storey_02",
+          "properties": {
+            "overall_width_mm": 1500,
+            "overall_height_mm": 1500,
+            "geometry_source": "parsed_drawing",
+            "source_category": "window_block",
+            "source_ref": "proxy-fallback-window:1",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": -0.095,
+            "local_y_m": 4.979,
+            "local_z_m": 0.9,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.5,
+            "shape_depth_m": 0.12,
+            "shape_height_m": 1.5
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwindow_ddf5c269",
+          "guid": "b6e3cd01-4418-51de-931f-b9180f430bb3",
+          "ifc_type": "IfcWindow",
+          "name": "图纸窗 2",
+          "family_name": "cad_window_block",
+          "storey_id": "storey_02",
+          "properties": {
+            "overall_width_mm": 1500,
+            "overall_height_mm": 1500,
+            "geometry_source": "parsed_drawing",
+            "source_category": "window_block",
+            "source_ref": "proxy-fallback-window:2",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 4.424,
+            "local_y_m": 0.596,
+            "local_z_m": 0.9,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.5,
+            "shape_depth_m": 0.12,
+            "shape_height_m": 1.5
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwindow_559c29c8",
+          "guid": "6444bc0d-b9c6-5039-9ece-8f268f4c3d8d",
+          "ifc_type": "IfcWindow",
+          "name": "图纸窗 3",
+          "family_name": "cad_window_block",
+          "storey_id": "storey_02",
+          "properties": {
+            "overall_width_mm": 1500,
+            "overall_height_mm": 1500,
+            "geometry_source": "parsed_drawing",
+            "source_category": "window_block",
+            "source_ref": "proxy-fallback-window:3",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 4.424,
+            "local_y_m": 5.696,
+            "local_z_m": 0.9,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.5,
+            "shape_depth_m": 0.12,
+            "shape_height_m": 1.5
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwindow_833cd451",
+          "guid": "139f0e98-0aaf-5747-9d63-968eac88742d",
+          "ifc_type": "IfcWindow",
+          "name": "图纸窗 4",
+          "family_name": "cad_window_block",
+          "storey_id": "storey_02",
+          "properties": {
+            "overall_width_mm": 1500,
+            "overall_height_mm": 1500,
+            "geometry_source": "parsed_drawing",
+            "source_category": "window_block",
+            "source_ref": "proxy-fallback-window:4",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 4.424,
+            "local_y_m": 9.296,
+            "local_z_m": 0.9,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.5,
+            "shape_depth_m": 0.12,
+            "shape_height_m": 1.5
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwindow_d8e1f70f",
+          "guid": "cdc69a90-4551-5aab-8d7c-b24170ade37a",
+          "ifc_type": "IfcWindow",
+          "name": "图纸窗 5",
+          "family_name": "cad_window_block",
+          "storey_id": "storey_02",
+          "properties": {
+            "overall_width_mm": 1500,
+            "overall_height_mm": 1500,
+            "geometry_source": "parsed_drawing",
+            "source_category": "window_block",
+            "source_ref": "proxy-fallback-window:5",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": -0.095,
+            "local_y_m": 4.979,
+            "local_z_m": 0.9,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.5,
+            "shape_depth_m": 0.12,
+            "shape_height_m": 1.5
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwindow_71200f58",
+          "guid": "f2fe2e6d-d989-5e14-9e11-7ebf87a37acd",
+          "ifc_type": "IfcWindow",
+          "name": "图纸窗 6",
+          "family_name": "cad_window_block",
+          "storey_id": "storey_02",
+          "properties": {
+            "overall_width_mm": 1500,
+            "overall_height_mm": 1500,
+            "geometry_source": "parsed_drawing",
+            "source_category": "window_block",
+            "source_ref": "proxy-fallback-window:6",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 4.005,
+            "local_y_m": 4.979,
+            "local_z_m": 0.9,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.5,
+            "shape_depth_m": 0.12,
+            "shape_height_m": 1.5
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwindow_f61092e9",
+          "guid": "5b529be0-b744-55db-b387-cba64a1e83e3",
+          "ifc_type": "IfcWindow",
+          "name": "图纸窗 7",
+          "family_name": "cad_window_block",
+          "storey_id": "storey_02",
+          "properties": {
+            "overall_width_mm": 1500,
+            "overall_height_mm": 1500,
+            "geometry_source": "parsed_drawing",
+            "source_category": "window_block",
+            "source_ref": "proxy-fallback-window:7",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 9.005,
+            "local_y_m": 4.979,
+            "local_z_m": 0.9,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.5,
+            "shape_depth_m": 0.12,
+            "shape_height_m": 1.5
+          }
+        },
+        {
+          "element_id": "storey_02_ifcwindow_7cafc6f5",
+          "guid": "04947a32-eaf7-5aed-9005-bacbc5206371",
+          "ifc_type": "IfcWindow",
+          "name": "图纸窗 8",
+          "family_name": "cad_window_block",
+          "storey_id": "storey_02",
+          "properties": {
+            "overall_width_mm": 1500,
+            "overall_height_mm": 1500,
+            "geometry_source": "parsed_drawing",
+            "source_category": "window_block",
+            "source_ref": "proxy-fallback-window:8",
+            "source_storey_key": "2F",
+            "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+            "local_x_m": 4.769,
+            "local_y_m": 6.596,
+            "local_z_m": 0.9,
+            "rotation_deg": 0.0,
+            "shape_width_m": 1.5,
+            "shape_depth_m": 0.12,
+            "shape_height_m": 1.5
+          }
+        }
+      ]
+    }
+  ],
+  "element_index": {
+    "IfcSlab": 2,
+    "IfcWall": 32,
+    "IfcWindow": 16
+  },
+  "metadata": {
+    "strategy": "cad_to_bim",
+    "replacement_count": 0,
+    "units_per_floor": 4,
+    "geometry_source": "parsed_drawing",
+    "source_wall_entities": 32,
+    "source_window_entities": 16,
+    "source_door_entities": 0,
+    "source_storey_keys": [
+      "1F",
+      "2F"
+    ],
+    "source_fragment_ids": [
+      "一层平面图（不带家具）.dxf::fragment::1F::01",
+      "二层平面图（不带家具）.dxf::fragment::2F::01"
+    ],
+    "storey_layout_trace": [
+      {
+        "storey_key": "1F",
+        "source_storey_key": "1F",
+        "source_fragment_id": "一层平面图（不带家具）.dxf::fragment::1F::01",
+        "source_fragment_ids": [
+          "一层平面图（不带家具）.dxf::fragment::1F::01"
+        ],
+        "source_assets": [
+          "一层平面图（不带家具）.dxf"
+        ],
+        "replicated": false
+      },
+      {
+        "storey_key": "2F",
+        "source_storey_key": "2F",
+        "source_fragment_id": "二层平面图（不带家具）.dxf::fragment::2F::01",
+        "source_fragment_ids": [
+          "二层平面图（不带家具）.dxf::fragment::2F::01"
+        ],
+        "source_assets": [
+          "二层平面图（不带家具）.dxf"
+        ],
+        "replicated": false
+      }
+    ],
+    "source_layout_bounds_by_storey": {
+      "1F": {
+        "min_x_m": 0.0,
+        "min_y_m": 0.0,
+        "max_x_m": 24.744,
+        "max_y_m": 21.731
+      },
+      "2F": {
+        "min_x_m": 0.0,
+        "min_y_m": 0.0,
+        "max_x_m": 10.349,
+        "max_y_m": 10.078
+      }
+    },
+    "source_entity_totals": {
+      "wall": 32,
+      "window": 16,
+      "door": 0,
+      "space": 0
+    },
+    "modeled_entity_totals": {
+      "IfcWall": 32,
+      "IfcDoor": 0,
+      "IfcWindow": 16,
+      "IfcSpace": 10
+    },
+    "count_reconciliation": {
+      "IfcWall": {
+        "source": 32,
+        "modeled": 32,
+        "delta": 0
+      },
+      "IfcDoor": {
+        "source": 0,
+        "modeled": 0,
+        "delta": 0
+      },
+      "IfcWindow": {
+        "source": 16,
+        "modeled": 16,
+        "delta": 0
+      },
+      "IfcSpace": {
+        "source": 0,
+        "modeled": 10,
+        "delta": 10
+      }
+    }
+  }
+}

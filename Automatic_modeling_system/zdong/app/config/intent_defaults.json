@@ -1,0 +1,55 @@
+{
+  "schema_version": "jianmo.intent.v1",
+  "config_version": "2026-03-31",
+  "default_deliverables": [
+    "ifc",
+    "validation.json",
+    "intent.json"
+  ],
+  "building_types": {
+    "residential": {
+      "default_standard_floor_height_m": 3.0,
+      "default_first_floor_height_m": 3.3,
+      "default_units_per_floor": 4,
+      "default_ruleset": "cn_residential_v1",
+      "core_type": "double_elevator",
+      "first_floor_spaces": [
+        "lobby"
+      ],
+      "typical_floor_spaces": [
+        "unit",
+        "corridor"
+      ],
+      "cad_facade": "follow_drawing",
+      "text_facade": "generated_default",
+      "material_palette": [
+        "paint",
+        "glass",
+        "metal"
+      ]
+    },
+    "office": {
+      "default_standard_floor_height_m": 3.6,
+      "default_first_floor_height_m": 4.2,
+      "default_units_per_floor": 8,
+      "default_ruleset": "cn_office_v1",
+      "core_type": "office_core",
+      "first_floor_spaces": [
+        "lobby",
+        "support"
+      ],
+      "typical_floor_spaces": [
+        "open_office",
+        "meeting_room",
+        "core"
+      ],
+      "cad_facade": "follow_drawing",
+      "text_facade": "generated_default",
+      "material_palette": [
+        "concrete",
+        "glass",
+        "aluminum"
+      ]
+    }
+  }
+}

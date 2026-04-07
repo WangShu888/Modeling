@@ -1,0 +1,101 @@
+{
+  "project_id": "proj_0003",
+  "request_id": "req_0003",
+  "version_id": "ver_0003",
+  "source_mode": "cad_to_bim",
+  "building_type": "residential",
+  "site": {
+    "boundary_source": "drawing_or_uploaded_polygon",
+    "area_sqm": 8000.0,
+    "north_angle": 0.0
+  },
+  "constraints": {
+    "floors": 4,
+    "standard_floor_height_m": 3.0,
+    "first_floor_height_m": 3.3,
+    "ruleset": "cn_residential_v1",
+    "far": 2.5
+  },
+  "program": {
+    "spaces_from_drawings": true,
+    "units_per_floor": 4,
+    "core_type": "double_elevator",
+    "first_floor_spaces": [
+      "lobby"
+    ],
+    "typical_floor_spaces": [
+      "unit",
+      "corridor"
+    ]
+  },
+  "style": {
+    "facade": "follow_drawing",
+    "material_palette": [
+      "paint",
+      "glass",
+      "metal"
+    ]
+  },
+  "deliverables": [
+    "ifc",
+    "validation.json",
+    "intent.json"
+  ],
+  "final_use": "revit_view",
+  "missing_fields": [],
+  "assumptions": [],
+  "completion_trace": [
+    {
+      "field": "constraints.floors",
+      "value": 4,
+      "source": "form_input"
+    },
+    {
+      "field": "constraints.standard_floor_height_m",
+      "value": 3.0,
+      "source": "form_input"
+    },
+    {
+      "field": "constraints.first_floor_height_m",
+      "value": 3.3,
+      "source": "form_input"
+    },
+    {
+      "field": "site.area_sqm",
+      "value": 8000.0,
+      "source": "form_input"
+    },
+    {
+      "field": "constraints.far",
+      "value": 2.5,
+      "source": "form_input"
+    },
+    {
+      "field": "program.units_per_floor",
+      "value": 4,
+      "source": "text_prompt"
+    },
+    {
+      "field": "constraints.ruleset",
+      "value": "cn_residential_v1",
+      "source": "building_type_ruleset"
+    }
+  ],
+  "element_selector": {
+    "ifc_type": "IfcWindow",
+    "properties": {
+      "overall_width_mm": 800,
+      "overall_height_mm": 1200
+    }
+  },
+  "model_patch": {
+    "action_type": "replace_family",
+    "target_family": "floor_to_ceiling_window",
+    "preserve": [
+      "storey",
+      "host_wall",
+      "axis_alignment",
+      "material_style"
+    ]
+  }
+}
