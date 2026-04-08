@@ -109,6 +109,10 @@ export async function fetchVersions(projectId: string): Promise<VersionSnapshot[
   return request<VersionSnapshot[]>(`/api/projects/${projectId}/versions`);
 }
 
+export async function fetchRequests(projectId: string): Promise<ModelingRequestRecord[]> {
+  return request<ModelingRequestRecord[]>(`/api/projects/${projectId}/requests`);
+}
+
 export function buildArtifactUrl(
   projectId: string,
   versionId: string,

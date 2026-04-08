@@ -14,6 +14,7 @@ import {
   fetchAssets,
   fetchHealth,
   fetchProjects,
+  fetchRequests,
   fetchVersions,
   runSavedRequest,
   sendFeedback,
@@ -302,9 +303,10 @@ export default function App() {
   }
 
   async function refreshProjectData(projectId: string) {
-    const [assetItems, versionItems] = await Promise.all([
+    const [assetItems, versionItems, requestItems] = await Promise.all([
       fetchAssets(projectId),
-      fetchVersions(projectId)
+      fetchVersions(projectId),
+      fetchRequests(projectId)
     ]);
 
     startTransition(() => {
@@ -312,6 +314,37 @@ export default function App() {
       setVersions(versionItems);
       if (!selectedVersion || selectedVersion.project.project_id !== projectId) {
         setSelectedVersion(versionItems[0] ?? null);
+      }
+
+      // Populate form from the selected project's latest data
+      const project = projects.find(p => p.project_id === projectId)
+                   ?? versionItems[0]?.project
+                   ?? null;
+      const latestVersion = versionItems[0] ?? null;
+      const latestRequest = requestItems[0] ?? null;
+
+      if (project) {
+        setForm({
+          projectName: project.name,
+          buildingType: (project.building_type ?? "residential") as ModelingFormState["buildingType"],
+          region: project.region ?? "CN-SH",
+          floors: latestVersion
+            ? String(latestVersion.design_intent.constraints.floors)
+            : latestRequest?.floors != null ? String(latestRequest.floors) : initialForm.floors,
+          standardFloorHeight: latestVersion
+            ? String(latestVersion.design_intent.constraints.standard_floor_height_m)
+            : latestRequest?.standard_floor_height_m != null ? String(latestRequest.standard_floor_height_m) : initialForm.standardFloorHeight,
+          firstFloorHeight: latestVersion
+            ? String(latestVersion.design_intent.constraints.first_floor_height_m)
+            : latestRequest?.first_floor_height_m != null ? String(latestRequest.first_floor_height_m) : initialForm.firstFloorHeight,
+          siteArea: latestVersion?.design_intent.site.area_sqm != null
+            ? String(latestVersion.design_intent.site.area_sqm)
+            : latestRequest?.site_area_sqm != null ? String(latestRequest.site_area_sqm) : initialForm.siteArea,
+          far: latestVersion?.design_intent.constraints.far != null
+            ? String(latestVersion.design_intent.constraints.far)
+            : latestRequest?.far != null ? String(latestRequest.far) : initialForm.far,
+          prompt: latestRequest?.prompt ?? initialForm.prompt,
+        });
       }
     });
   }
