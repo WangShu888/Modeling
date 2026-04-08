@@ -1,0 +1,109 @@
+{
+  "status": "warning",
+  "issues": [
+    {
+      "severity": "warning",
+      "message": "A large closed polyline was inferred as a possible site boundary and should be confirmed.",
+      "target": "47D"
+    },
+    {
+      "severity": "warning",
+      "message": "A large closed polyline was inferred as a possible site boundary and should be confirmed.",
+      "target": "431"
+    },
+    {
+      "severity": "warning",
+      "message": "Detected 10 duplicate components: 2F:二层平面图.dxf:room:54897.887,21392.208, 2F:二层平面图.dxf:room:53961.464,23676.911, 2F:二层平面图.dxf:room:57935.883,26611.037, 2F:二层平面图.dxf:room:54261.372,26646.237, 1F:二层平面图.dxf:column_path:53291.417,25044.727, 1F:一层平面图.dxf:column_path:53291.417,50843.893, 1F:一层平面图.dxf:room:54897.887,47191.373, 1F:一层平面图.dxf:room:53961.464,49476.077, 1F:一层平面图.dxf:room:54422.641,52410.203, 1F:一层平面图.dxf:room:57935.883,52410.203",
+      "target": null
+    },
+    {
+      "severity": "warning",
+      "message": "Assembly produced multiple storeys but no continuous cross-layer chains.",
+      "target": null
+    }
+  ],
+  "affected_elements": [],
+  "fix_suggestions": [
+    "补全缺失字段后重新触发建模流程。"
+  ],
+  "metadata": {
+    "validation_engine": "semantic_pre_export_validator",
+    "ifc_exporter": "ifcopenshell_exporter",
+    "ifc_schema": "IFC4",
+    "formal_backend_ready": false,
+    "gate_trace": {
+      "validation_status": "warning",
+      "severity_counts": {
+        "info": 0,
+        "warning": 4,
+        "error": 0,
+        "fatal": 0
+      },
+      "blocking_issues": [],
+      "formal_blocking_issues": [],
+      "count_reconciliation": {
+        "IfcWall": {
+          "source": 30,
+          "modeled": 45,
+          "delta": 15
+        },
+        "IfcDoor": {
+          "source": 7,
+          "modeled": 10,
+          "delta": 3
+        },
+        "IfcWindow": {
+          "source": 9,
+          "modeled": 14,
+          "delta": 5
+        },
+        "IfcSpace": {
+          "source": 16,
+          "modeled": 24,
+          "delta": 8
+        }
+      },
+      "storey_layout_trace": [
+        {
+          "storey_key": "1F",
+          "source_storey_key": "1F",
+          "source_fragment_id": "一层平面图.dxf::fragment::1F::01",
+          "source_fragment_ids": [
+            "一层平面图.dxf::fragment::1F::01"
+          ],
+          "source_assets": [
+            "一层平面图.dxf"
+          ],
+          "replicated": false
+        },
+        {
+          "storey_key": "2F",
+          "source_storey_key": "2F",
+          "source_fragment_id": "二层平面图.dxf::fragment::2F::01",
+          "source_fragment_ids": [
+            "二层平面图.dxf::fragment::2F::01"
+          ],
+          "source_assets": [
+            "二层平面图.dxf"
+          ],
+          "replicated": false
+        },
+        {
+          "storey_key": "3F",
+          "source_storey_key": "2F",
+          "source_fragment_id": "二层平面图.dxf::fragment::2F::01",
+          "source_fragment_ids": [
+            "二层平面图.dxf::fragment::2F::01"
+          ],
+          "source_assets": [
+            "二层平面图.dxf"
+          ],
+          "replicated": true
+        }
+      ],
+      "suggested_actions": [
+        "补全缺失字段后重新触发建模流程。"
+      ]
+    }
+  }
+}

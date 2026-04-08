@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections import Counter
 from datetime import datetime, timezone
 import importlib
+import logging
 import math
 
 import json
@@ -14,6 +15,8 @@ from .drawing_parser import DrawingParser as RealDrawingParser
 from .ifc_runtime import detect_ifc_runtime
 from .intent_service import StructuredIntentTransformer
 from .models import (
+    AIIntentParseRequest,
+    AIIntentParseResponse,
     AssetInput,
     AssetRecord,
     Assumption,
@@ -21,6 +24,7 @@ from .models import (
     BimSemanticModel,
     BimSpace,
     BimStorey,
+    ClarificationQuestion,
     CompletionTraceItem,
     Constraints,
     DesignIntent,
@@ -29,6 +33,7 @@ from .models import (
     ExportBundle,
     FeedbackCreateRequest,
     FeedbackReceipt,
+    IntentConflict,
     MissingField,
     ModelPatch,
     ModelingPlan,
@@ -45,14 +50,18 @@ from .models import (
     RuleIssue,
     SiteInfo,
     SourceBundle,
+    StructuredIntentOutput,
     StyleInfo,
     ValidationIssue,
     ValidationReport,
     VersionSnapshot,
 )
+from .llm_client import LLMConfig, create_llm_client
 from .planning import ConfigurableModelingPlanner, ConfigurableRuleEngine
 from .storey_inference import infer_asset_view_role, infer_parsed_asset_storeys, storey_display_name, storey_sort_key
 from .store import Store
+
+logger = logging.getLogger(__name__)
 
 
 _CHINESE_NUMERALS = {
@@ -1697,6 +1706,153 @@ class BimEngine:
             "source_ref": wall_axis.get("source_ref", ""),
         }
 
+    def _make_roof_elements(
+        self,
+        intent: DesignIntent,
+        top_storey: BimStorey,
+        source_layouts: list[dict[str, object]],
+    ) -> list[BimElement]:
+        """为顶层创建屋顶构件。"""
+        if not intent.roof or not intent.roof.roof_type:
+            return []
+
+        roof = intent.roof
+        storey_id = top_storey.storey_id
+        elements: list[BimElement] = []
+
+        # 计算建筑轮廓尺寸（从楼层构件或默认值）
+        if source_layouts:
+            # 使用所有楼层中最大的尺寸，确保屋顶覆盖整栋建筑
+            valid_widths = [float(l.get("footprint_width", 0)) for l in source_layouts if float(l.get("footprint_width", 0)) > 0]
+            valid_depths = [float(l.get("footprint_depth", 0)) for l in source_layouts if float(l.get("footprint_depth", 0)) > 0]
+            footprint_width = max(valid_widths) if valid_widths else 30.0
+            footprint_depth = max(valid_depths) if valid_depths else 12.0
+
+            # 计算建筑中心（使用顶层布局的墙体中心）
+            top_layout = source_layouts[-1]
+            scale = float(top_layout.get("scale", 0.001))
+            origin_x = float(top_layout.get("origin_x", 0))
+            origin_y = float(top_layout.get("origin_y", 0))
+            wall_cx = top_layout.get("wall_center_x")
+            wall_cy = top_layout.get("wall_center_y")
+            if wall_cx is not None and wall_cy is not None:
+                building_center_x = (float(wall_cx) - origin_x) * scale
+                building_center_y = (float(wall_cy) - origin_y) * scale
+            else:
+                building_center_x = footprint_width / 2.0
+                building_center_y = footprint_depth / 2.0
+        else:
+            # 模板建筑：24m x 14m，中心在 (12, 7)
+            footprint_width = 24.0
+            footprint_depth = 14.0
+            building_center_x = 12.0
+            building_center_y = 7.0
+
+        slope_deg = roof.roof_slope_deg or 30.0
+        overhang_m = roof.roof_overhang_m or 0.6
+        slope_rad = math.radians(slope_deg)
+
+        # 所有屋顶构件共享的建筑中心信息
+        base_props = {
+            "building_center_x_m": round(building_center_x, 3),
+            "building_center_y_m": round(building_center_y, 3),
+            "footprint_width_m": round(footprint_width, 3),
+            "footprint_depth_m": round(footprint_depth, 3),
+        }
+
+        if roof.roof_type == "gable":
+            # 双坡屋顶：两个坡面
+            ridge_height_m = round((footprint_depth / 2) * math.tan(slope_rad), 2)
+            roof_height = roof.roof_height_m or ridge_height_m
+
+            slope_width = round(footprint_width + 2 * overhang_m, 3)
+            slope_depth = round((footprint_depth / 2) + overhang_m, 3)
+
+            elements.append(
+                self._element(
+                    intent, storey_id,
+                    "IfcRoof", "双坡屋顶-左坡面", "gable_roof_left",
+                    {
+                        **base_props,
+                        "roof_type": "gable",
+                        "slope_deg": slope_deg,
+                        "overhang_m": overhang_m,
+                        "ridge_height_m": roof_height,
+                        "width_m": slope_width,
+                        "depth_m": slope_depth,
+                    },
+                )
+            )
+            elements.append(
+                self._element(
+                    intent, storey_id,
+                    "IfcRoof", "双坡屋顶-右坡面", "gable_roof_right",
+                    {
+                        **base_props,
+                        "roof_type": "gable",
+                        "slope_deg": slope_deg,
+                        "overhang_m": overhang_m,
+                        "ridge_height_m": roof_height,
+                        "width_m": slope_width,
+                        "depth_m": slope_depth,
+                    },
+                )
+            )
+        elif roof.roof_type == "hip":
+            # 四坡屋顶
+            ridge_height_m = round((footprint_depth / 2) * math.tan(slope_rad), 2)
+            roof_height = roof.roof_height_m or ridge_height_m
+            for i, label in enumerate(["前坡面", "后坡面", "左坡面", "右坡面"]):
+                elements.append(
+                    self._element(
+                        intent, storey_id,
+                        "IfcRoof", f"四坡屋顶-{label}", f"hip_roof_{['front','back','left','right'][i]}",
+                        {
+                            **base_props,
+                            "roof_type": "hip",
+                            "slope_deg": slope_deg,
+                            "overhang_m": overhang_m,
+                            "ridge_height_m": roof_height,
+                        },
+                    )
+                )
+        elif roof.roof_type == "shed":
+            # 单坡屋顶
+            ridge_height_m = round(footprint_depth * math.tan(slope_rad), 2)
+            roof_height = roof.roof_height_m or ridge_height_m
+            elements.append(
+                self._element(
+                    intent, storey_id,
+                    "IfcRoof", "单坡屋顶", "shed_roof",
+                    {
+                        **base_props,
+                        "roof_type": "shed",
+                        "slope_deg": slope_deg,
+                        "overhang_m": overhang_m,
+                        "ridge_height_m": roof_height,
+                        "width_m": round(footprint_width + 2 * overhang_m, 3),
+                        "depth_m": round(footprint_depth + overhang_m, 3),
+                    },
+                )
+            )
+        else:
+            # 平屋顶
+            elements.append(
+                self._element(
+                    intent, storey_id,
+                    "IfcRoof", "平屋顶", "flat_roof",
+                    {
+                        **base_props,
+                        "roof_type": "flat",
+                        "thickness_mm": 150,
+                        "width_m": round(footprint_width + 2 * overhang_m, 3),
+                        "depth_m": round(footprint_depth + 2 * overhang_m, 3),
+                    },
+                )
+            )
+
+        return elements
+
     def _element(
         self,
         intent: DesignIntent,
@@ -2389,6 +2545,27 @@ class ExportService:
                     shape = self._add_box_shape(writer, body_context, axis_2d, origin_3d, dir_z, width, depth, height)
                     related_products.append(self._add_ifc_product(writer, element, placement, shape))
 
+                elif element.ifc_type == "IfcRoof":
+                    # Create roof element
+                    roof_type = element.properties.get("roof_type", "flat")
+                    if roof_type == "gable" and ("左" in element.name or "右" in element.name):
+                        # 双坡屋顶坡面：使用三角形截面
+                        is_left = "左" in element.name
+                        slope_depth = depth
+                        ridge_h = height
+                        bldg_width = width
+                        # 坡面放置位置：屋脊线处（建筑中心Y），墙体顶部（Z=z）
+                        center_x = float(element.properties.get("building_center_x_m", x))
+                        center_y = float(element.properties.get("building_center_y_m", y))
+                        roof_z = z  # z 来自 _element_layout，已经是 storey_height
+                        placement = self._add_local_placement(writer, storey_placement, center_x, center_y, roof_z, 0.0)
+                        shape = self._add_gable_slope_shape(writer, body_context, slope_depth, ridge_h, bldg_width, is_left)
+                    else:
+                        # 其他屋顶类型使用矩形
+                        placement = self._add_local_placement(writer, storey_placement, x, y, z, rotation_deg)
+                        shape = self._add_box_shape(writer, body_context, axis_2d, origin_3d, dir_z, width, depth, height)
+                    related_products.append(self._add_ifc_product(writer, element, placement, shape))
+
             # Second pass: create openings for doors and windows
             for element, element_index, x, y, z, rotation_deg, width, depth, height in opening_data:
                 host_wall_ref = str(element.properties.get("host_wall_ref", "") or "")
@@ -2514,6 +2691,70 @@ class ExportService:
         )
         return writer.add(f"IFCPRODUCTDEFINITIONSHAPE($,$,(#{shape}))")
 
+    def _add_gable_slope_shape(
+        self,
+        writer: _IfcEntityBuffer,
+        body_context: int,
+        slope_depth: float,
+        ridge_height: float,
+        building_width: float,
+        is_left: bool,
+    ) -> int:
+        """创建双坡屋顶的单个坡面（等厚四边形截面拉伸体）。
+
+        截面为四边形，保证坡面各处厚度均匀（0.15m），避免片状效果：
+        - 底面: 屋脊底部 → 檐口底部（水平线，在墙体顶部）
+        - 顶面: 檐口顶部 → 屋脊顶部（平行于坡面，偏移 thickness）
+
+        截面坐标系：Profile X = 坡面深度方向，Profile Y = 高度方向
+        拉伸方向：沿建筑 X 轴（宽度方向）
+        """
+        thickness = 0.15  # 屋顶板厚度(m)
+
+        # 计算坡面法线方向的偏移量（保证等厚度）
+        slope_length = math.sqrt(slope_depth ** 2 + ridge_height ** 2)
+        if slope_length > 0:
+            dx = thickness * ridge_height / slope_length
+            dy = thickness * slope_depth / slope_length
+        else:
+            dx, dy = 0.0, thickness
+
+        # 四边形截面顶点（Profile 2D 空间：X=深度, Y=高度）
+        if is_left:
+            # 左坡面：从屋脊线向 +Y 方向延伸
+            p1 = writer.add(f"IFCCARTESIANPOINT((0.,0.))")
+            p2 = writer.add(f"IFCCARTESIANPOINT(({_format_ifc_float(slope_depth)},0.))")
+            p3 = writer.add(f"IFCCARTESIANPOINT(({_format_ifc_float(slope_depth + dx)},{_format_ifc_float(dy)}))")
+            p4 = writer.add(f"IFCCARTESIANPOINT(({_format_ifc_float(dx)},{_format_ifc_float(ridge_height + dy)}))")
+        else:
+            # 右坡面：从屋脊线向 -Y 方向延伸
+            p1 = writer.add(f"IFCCARTESIANPOINT((0.,0.))")
+            p2 = writer.add(f"IFCCARTESIANPOINT(({_format_ifc_float(-slope_depth)},0.))")
+            p3 = writer.add(f"IFCCARTESIANPOINT(({_format_ifc_float(-slope_depth - dx)},{_format_ifc_float(dy)}))")
+            p4 = writer.add(f"IFCCARTESIANPOINT(({_format_ifc_float(-dx)},{_format_ifc_float(ridge_height + dy)}))")
+
+        polyline = writer.add(f"IFCPOLYLINE((#{p1},#{p2},#{p3},#{p4},#{p1}))")
+        profile = writer.add(f"IFCARBITRARYCLOSEDPROFILEDEF(.AREA.,$,#" + str(polyline) + ")")
+
+        # 自定义坐标轴：Z轴(拉伸方向)=建筑X轴, X轴ref=建筑Y轴
+        extrusion_dir = writer.add("IFCDIRECTION((1.,0.,0.))")
+        x_ref = writer.add("IFCDIRECTION((0.,1.,0.))")
+
+        # 拉伸体原点：偏移 -width/2 使拉伸体沿 X 居中
+        solid_origin = writer.add(
+            f"IFCCARTESIANPOINT(({_format_ifc_float(-building_width / 2)},0.,0.))"
+        )
+        solid_axis = writer.add(
+            f"IFCAXIS2PLACEMENT3D(#{solid_origin},#{extrusion_dir},#{x_ref})"
+        )
+        solid = writer.add(
+            f"IFCEXTRUDEDAREASOLID(#{profile},#{solid_axis},#{extrusion_dir},{_format_ifc_float(building_width)})"
+        )
+        shape = writer.add(
+            f"IFCSHAPEREPRESENTATION(#{body_context},'Body','SweptSolid',(#{solid}))"
+        )
+        return writer.add(f"IFCPRODUCTDEFINITIONSHAPE($,$,(#{shape}))")
+
     def _space_layout(self, index: int) -> tuple[float, float, float]:
         layouts = (
             (4.0, 4.0, 0.0),
@@ -2576,6 +2817,46 @@ class ExportService:
             height = float(element.properties.get("overall_height_mm", 1500)) / 1000.0
             return (x, y, 0.9, 0.0, width, 0.12, height)
 
+        if element.ifc_type == "IfcRoof":
+            roof_type = element.properties.get("roof_type", "flat")
+            width = float(element.properties.get("width_m", 30.0))
+            depth = float(element.properties.get("depth_m", 12.0))
+            ridge_h = float(element.properties.get("ridge_height_m", 3.46))
+            overhang = float(element.properties.get("overhang_m", 0.6))
+            slope_deg = float(element.properties.get("slope_deg", 30.0))
+            # 使用存储的建筑中心定位屋顶
+            center_x = float(element.properties.get("building_center_x_m", width / 2))
+            center_y = float(element.properties.get("building_center_y_m", 7.0))
+            fp_width = float(element.properties.get("footprint_width_m", width - 2 * overhang))
+            fp_depth = float(element.properties.get("footprint_depth_m", depth * 2 - 2 * overhang))
+
+            if roof_type == "gable":
+                # slope_depth 是从屋脊到檐口的水平距离（含悬挑）
+                slope_depth = (fp_depth / 2) + overhang
+                if "左" in element.name:
+                    # 左坡面：从屋脊(center_y)向前延伸 slope_depth
+                    return (center_x, center_y + slope_depth / 2, storey_height, 0.0, width, slope_depth, ridge_h)
+                elif "右" in element.name:
+                    # 右坡面：从屋脊(center_y)向后延伸 slope_depth
+                    return (center_x, center_y - slope_depth / 2, storey_height, 0.0, width, slope_depth, ridge_h)
+                else:
+                    # 屋脊：位于屋脊线顶部
+                    return (center_x, center_y, storey_height + ridge_h, 0.0, width, 0.2, 0.3)
+            elif roof_type == "hip":
+                if "前" in element.name:
+                    return (center_x, center_y + fp_depth / 4, storey_height, 0.0, width, fp_depth / 2 + overhang, ridge_h)
+                elif "后" in element.name:
+                    return (center_x, center_y - fp_depth / 4, storey_height, 0.0, width, fp_depth / 2 + overhang, ridge_h)
+                elif "左" in element.name:
+                    return (center_x - fp_width / 4, center_y, storey_height, 0.0, fp_width / 2 + overhang, fp_depth + 2 * overhang, ridge_h)
+                else:
+                    return (center_x + fp_width / 4, center_y, storey_height, 0.0, fp_width / 2 + overhang, fp_depth + 2 * overhang, ridge_h)
+            elif roof_type == "shed":
+                return (center_x, center_y, storey_height, 0.0, width, depth, ridge_h)
+            else:
+                # flat roof
+                return (center_x, center_y, storey_height, 0.0, width, depth, 0.15)
+
         return (4.0 + index * 2.0, 6.0, 0.0, 0.0, 1.0, 1.0, 1.0)
 
     def _property_geometry(
@@ -2629,6 +2910,10 @@ class ExportService:
                 f"'{guid}',$,'{name}',$,$,#{placement},#{shape},'{tag}',"
                 f"{overall_height},{overall_width},.WINDOW.,.NOTDEFINED.,$)"
             )
+        if element.ifc_type == "IfcRoof":
+            return writer.add(
+                f"IFCROOF('{guid}',$,'{name}',$,$,#{placement},#{shape},'{tag}',.NOTDEFINED.)"
+            )
         return writer.add(
             f"IFCBUILDINGELEMENTPROXY('{guid}',$,'{name}',$,$,#{placement},#{shape},'{tag}',$)"
         )
@@ -2673,13 +2958,31 @@ class ModelingPipeline:
         self.store = store
         self.source_builder = SourceBundleBuilder(store)
         self.drawing_parser = RealDrawingParser()
-        self.intent_transformer = StructuredIntentTransformer()
+        self.llm_client = self._create_llm_client()
+        self.intent_transformer = StructuredIntentTransformer(llm_client=self.llm_client)
         self.rule_engine = ConfigurableRuleEngine()
         self.planner = ConfigurableModelingPlanner()
         self.bim_engine = BimEngine()
         self.validation_service = ValidationService()
         self.export_service = ExportService(export_root)
         self.feedback_service = FeedbackService(export_root)
+
+    @staticmethod
+    def _create_llm_client():
+        """从环境变量构建 LLM 客户端，无可用 key 时回退到 Mock。"""
+        import os
+        config = LLMConfig(
+            provider=os.getenv("JIANMO_LLM_PROVIDER", "fallback"),
+            api_key=os.getenv("OPENAI_API_KEY") or os.getenv("JIANMO_API_KEY"),
+            model=os.getenv("JIANMO_LLM_MODEL", "gpt-4o"),
+            claude_api_key=os.getenv("ANTHROPIC_API_KEY") or os.getenv("JIANMO_CLAUDE_API_KEY"),
+            claude_model=os.getenv("JIANMO_CLAUDE_MODEL", "claude-sonnet-4-20250514"),
+            fallback_enabled=True,
+        )
+        client = create_llm_client(config)
+        client_type = type(client).__name__
+        logger.info("LLM client initialized: %s (provider=%s)", client_type, config.provider)
+        return client
 
     def create_project(self, payload: ProjectCreateRequest) -> ProjectSummary:
         return self.store.create_project(payload)
@@ -2795,6 +3098,178 @@ class ModelingPipeline:
             assets=assets,
         )
         return self.drawing_parser.parse(source_bundle)
+
+    def parse_intent_only(
+        self,
+        project_id: str,
+        payload: AIIntentParseRequest,
+    ) -> AIIntentParseResponse:
+        """仅执行意图解析（不触发完整建模管线），供前端预览 AI 解析结果。"""
+        import time
+
+        project = self.store.get_project(project_id)
+        if project is None:
+            raise KeyError(project_id)
+
+        start_ms = int(time.time() * 1000)
+
+        # Load assets if asset_ids provided
+        assets: list[AssetRecord] = []
+        for asset_id in payload.asset_ids:
+            asset = self.store.get_asset(project_id, asset_id)
+            if asset is not None:
+                assets.append(asset)
+
+        # Build SourceBundle from the request
+        form_fields: dict[str, Any] = payload.form_fields.copy()
+        form_fields.setdefault("floors", None)
+        form_fields.setdefault("standard_floor_height_m", None)
+        form_fields.setdefault("first_floor_height_m", None)
+        form_fields.setdefault("site_area_sqm", None)
+        form_fields.setdefault("far", None)
+        form_fields.setdefault("units_per_floor", None)
+
+        source_bundle = SourceBundle(
+            project_id=project_id,
+            request_id=self.store.next_id("req"),
+            version_id=self.store.next_id("ver"),
+            prompt=payload.prompt,
+            source_mode_hint="auto",
+            building_type_hint=payload.building_type or project.building_type,
+            region=payload.region or project.region,
+            assets=assets,
+            form_fields=form_fields,
+        )
+
+        parsed_drawing = self.drawing_parser.parse(source_bundle)
+        structured = self.intent_transformer.transform(source_bundle, parsed_drawing)
+
+        elapsed_ms = int(time.time() * 1000) - start_ms
+
+        # Detect conflicts between form fields and parsed drawing
+        conflicts = self._detect_intent_conflicts(form_fields, parsed_drawing, structured)
+
+        # Generate clarification questions for low-confidence fields
+        clarification_questions = self._build_clarification_questions(structured)
+
+        # Build parsed summary
+        parsed_summary = self._build_parsed_summary(structured, parsed_drawing)
+
+        return AIIntentParseResponse(
+            structured_intent=StructuredIntentOutput(
+                schema_version=structured.metadata.get("schema_version", "jianmo.intent.v1"),
+                source_mode=structured.source_mode,
+                building_type=structured.building_type,
+                site=structured.site,
+                constraints=structured.constraints,
+                program=structured.program,
+                style=structured.style,
+                deliverables=structured.deliverables,
+                final_use=structured.final_use,
+                missing_fields=structured.missing_fields,
+                assumptions=structured.assumptions,
+                completion_trace=structured.completion_trace,
+                element_selector=structured.element_selector,
+                model_patch=structured.model_patch,
+                metadata=structured.metadata,
+            ),
+            parsed_summary=parsed_summary,
+            conflicts=conflicts,
+            clarification_questions=clarification_questions,
+            ai_model=getattr(self.intent_transformer, "_last_model", ""),
+            parsing_time_ms=elapsed_ms,
+            provider_name=getattr(structured, "metadata", {}).get("intent_provider", "unknown"),
+        )
+
+    def _detect_intent_conflicts(
+        self,
+        form_fields: dict[str, Any],
+        parsed: ParsedDrawingModel,
+        intent: DesignIntent,
+    ) -> list[IntentConflict]:
+        """检测表单输入与图纸解析结果之间的冲突。"""
+        conflicts: list[IntentConflict] = []
+
+        # Floor count conflict
+        form_floors = form_fields.get("floors")
+        if form_floors is not None and parsed.storey_candidates:
+            parsed_floors = len(parsed.storey_candidates)
+            if int(form_floors) != parsed_floors:
+                conflicts.append(IntentConflict(
+                    field="constraints.floors",
+                    text_value=int(form_floors),
+                    drawing_value=parsed_floors,
+                    resolution="use_text",
+                    reason="用户明确指定层数，优先使用文本输入",
+                ))
+
+        # Site area conflict
+        form_site_area = form_fields.get("site_area_sqm")
+        if form_site_area is not None and parsed.site_boundary_detected:
+            conflicts.append(IntentConflict(
+                field="site.area_sqm",
+                text_value=float(form_site_area),
+                drawing_value="图纸推断面积",
+                resolution="use_text",
+                reason="用户提供的用地面积优先于图纸推断",
+            ))
+
+        return conflicts
+
+    def _build_clarification_questions(self, intent: DesignIntent) -> list[ClarificationQuestion]:
+        """根据低置信度字段生成澄清问题。"""
+        questions: list[ClarificationQuestion] = []
+
+        for assumption in intent.assumptions:
+            if assumption.confidence < 0.65:
+                questions.append(ClarificationQuestion(
+                    field=assumption.field,
+                    question=f"系统假设 {assumption.field} 为 {assumption.value}（来源：{assumption.source}），是否正确？",
+                    suggested_answers=["正确，继续", "需要修改"],
+                    confidence=assumption.confidence,
+                ))
+
+        for missing in intent.missing_fields:
+            if missing.critical:
+                questions.append(ClarificationQuestion(
+                    field=missing.field,
+                    question=f"缺少关键信息：{missing.reason}",
+                    suggested_answers=["稍后补充", "使用默认值"],
+                    confidence=0.3,
+                ))
+
+        return questions[:5]  # 最多返回 5 个问题
+
+    def _build_parsed_summary(self, intent: DesignIntent, parsed: ParsedDrawingModel) -> str:
+        """生成解析摘要文本。"""
+        parts: list[str] = []
+        building_type_map = {"residential": "住宅", "office": "办公"}
+        bt = building_type_map.get(intent.building_type, intent.building_type)
+        parts.append(f"建筑类型：{bt}")
+
+        parts.append(f"模式：{'CAD驱动建模' if intent.source_mode == 'cad_to_bim' else '文本描述建模'}")
+        parts.append(f"层数：{intent.constraints.floors} 层")
+        parts.append(f"标准层层高：{intent.constraints.standard_floor_height_m}m")
+
+        if intent.site.area_sqm:
+            parts.append(f"用地面积：{intent.site.area_sqm}㎡")
+
+        if intent.constraints.far:
+            parts.append(f"容积率：{intent.constraints.far}")
+
+        if parsed.assets_count:
+            parts.append(f"已解析图纸：{parsed.assets_count} 份")
+
+        if intent.assumptions:
+            parts.append(f"系统假设：{len(intent.assumptions)} 项")
+
+        if intent.missing_fields:
+            parts.append(f"待确认项：{len(intent.missing_fields)} 项")
+
+        if intent.element_selector and intent.model_patch:
+            parts.append(f"修改指令：{intent.model_patch.action_type} → {intent.model_patch.target_family}")
+
+        return "；".join(parts)
 
     def run(self, project_id: str, payload: ModelingRequestInput) -> VersionSnapshot:
         project = self.store.get_project(project_id)

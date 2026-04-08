@@ -51,5 +51,125 @@
         "aluminum"
       ]
     }
+  },
+  "knowledge_entries": {
+    "residential_low_rise": {
+      "description": "低层住宅（1-3层）",
+      "conditions": {"floors_max": 3, "building_type": "residential"},
+      "defaults": {
+        "core_type": "staircase_only",
+        "units_per_floor": [2, 3, 4],
+        "typical_unit_area_sqm": [90, 120, 150],
+        "standard_floor_height_m": 3.0,
+        "first_floor_height_m": 3.3,
+        "window_to_wall_ratio": [0.20, 0.30],
+        "balcony_type": "projecting",
+        "roof_type": "gable",
+        "typical_wall_thickness_mm": 200,
+        "typical_door_size_mm": [1000, 2100],
+        "typical_window_sizes_mm": [[1200, 1500], [1500, 1800]],
+        "material_palette": ["paint", "brick", "metal"]
+      }
+    },
+    "residential_mid_rise": {
+      "description": "多层住宅（4-6层）",
+      "conditions": {"floors_min": 4, "floors_max": 6, "building_type": "residential"},
+      "defaults": {
+        "core_type": "staircase",
+        "units_per_floor": [2, 3, 4],
+        "typical_unit_area_sqm": [80, 100, 120],
+        "standard_floor_height_m": 3.0,
+        "first_floor_height_m": 3.3,
+        "window_to_wall_ratio": [0.25, 0.35],
+        "balcony_type": "recessed",
+        "roof_type": "flat",
+        "typical_wall_thickness_mm": 200,
+        "typical_door_size_mm": [1000, 2100],
+        "typical_window_sizes_mm": [[800, 1200], [1200, 1500], [1500, 1800]],
+        "material_palette": ["paint", "glass", "metal"]
+      }
+    },
+    "residential_high_rise": {
+      "description": "高层住宅（7-33层）",
+      "conditions": {"floors_min": 7, "floors_max": 33, "building_type": "residential"},
+      "defaults": {
+        "core_type": "double_elevator_plus_staircase",
+        "units_per_floor": [4, 6, 8],
+        "typical_unit_area_sqm": [70, 90, 120, 140],
+        "standard_floor_height_m": 3.0,
+        "first_floor_height_m": 3.6,
+        "window_to_wall_ratio": [0.25, 0.35],
+        "balcony_type": "recessed",
+        "roof_type": "flat",
+        "typical_wall_thickness_mm": 200,
+        "typical_door_size_mm": [1000, 2100],
+        "typical_window_sizes_mm": [[800, 1200], [1200, 1500], [1500, 1500]],
+        "material_palette": ["paint", "glass", "aluminum", "stone"],
+        "elevator_count": 2,
+        "staircase_count": 1
+      }
+    },
+    "office_low_rise": {
+      "description": "低层办公（1-3层）",
+      "conditions": {"floors_max": 3, "building_type": "office"},
+      "defaults": {
+        "core_type": "single_core",
+        "units_per_floor": null,
+        "standard_floor_height_m": 3.6,
+        "first_floor_height_m": 4.2,
+        "open_office_ratio": [0.6, 0.8],
+        "window_to_wall_ratio": [0.35, 0.50],
+        "roof_type": "flat",
+        "typical_wall_thickness_mm": 200,
+        "typical_door_size_mm": [1000, 2100],
+        "typical_window_sizes_mm": [[1200, 1800], [1500, 2100]],
+        "material_palette": ["glass", "aluminum", "concrete"],
+        "typical_spaces": ["open_office", "meeting_room", "reception", "pantry", "server_room"]
+      }
+    },
+    "office_mid_high_rise": {
+      "description": "中高层办公（4层以上）",
+      "conditions": {"floors_min": 4, "building_type": "office"},
+      "defaults": {
+        "core_type": "office_core",
+        "units_per_floor": null,
+        "standard_floor_height_m": 3.9,
+        "first_floor_height_m": 4.5,
+        "open_office_ratio": [0.5, 0.7],
+        "curtain_wall_ratio": [0.5, 0.7],
+        "window_to_wall_ratio": [0.40, 0.60],
+        "roof_type": "flat",
+        "typical_wall_thickness_mm": 200,
+        "typical_door_size_mm": [1000, 2100],
+        "typical_window_sizes_mm": [[1200, 2100], [1500, 2400]],
+        "material_palette": ["glass", "aluminum", "stone", "steel"],
+        "elevator_count": 4,
+        "typical_spaces": ["open_office", "meeting_room", "executive_office", "pantry", "server_room", "core"]
+      }
+    },
+    "modern_facade_style": {
+      "description": "现代风格立面",
+      "conditions": {"style": "modern"},
+      "defaults": {
+        "material_palette": ["glass", "aluminum", "stone"],
+        "facade_pattern": "horizontal_band",
+        "balcony_type": "recessed",
+        "window_style": "floor_to_ceiling",
+        "facade_rhythm": "regular",
+        "typical_bay_width_m": [3.6, 4.2, 4.8]
+      }
+    },
+    "traditional_facade_style": {
+      "description": "传统风格立面",
+      "conditions": {"style": "traditional"},
+      "defaults": {
+        "material_palette": ["brick", "paint", "wood"],
+        "facade_pattern": "vertical_pier",
+        "balcony_type": "projecting",
+        "window_style": "standard",
+        "facade_rhythm": "symmetrical",
+        "typical_bay_width_m": [3.0, 3.3, 3.6]
+      }
+    }
   }
 }

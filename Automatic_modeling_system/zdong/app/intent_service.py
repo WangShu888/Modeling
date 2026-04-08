@@ -18,12 +18,14 @@ from .models import (
     ParsedDrawingModel,
     Point2D,
     ProgramInfo,
+    RoofInfo,
     SiteInfo,
     SourceBundle,
     StructuredIntentOutput,
     StyleInfo,
 )
 from .storey_inference import infer_floor_count
+from .llm_client import LLMClient, LLMConfig, LLMError, create_llm_client
 
 
 _CHINESE_NUMERALS = {
@@ -74,6 +76,57 @@ def _extract_model_patch_from_prompt(prompt: str) -> tuple[ElementSelector | Non
         scope={"selector_scope": "matched_elements"},
     )
     return selector, patch
+
+
+_ROOF_TYPE_MAP = {
+    "双坡": "gable",
+    "双坡型": "gable",
+    "人字": "gable",
+    "人字形": "gable",
+    "单坡": "shed",
+    "单坡型": "shed",
+    "四坡": "hip",
+    "四坡型": "hip",
+    "平顶": "flat",
+    "平屋顶": "flat",
+    "坡屋顶": "gable",
+    "屋顶": "gable",
+    "roof": "gable",
+    "gable": "gable",
+    "hip": "hip",
+    "flat": "flat",
+}
+
+
+def _extract_roof_from_prompt(prompt: str) -> RoofInfo | None:
+    """从 prompt 中提取屋顶信息。"""
+    lower = prompt.lower()
+    has_roof_keyword = any(kw in lower for kw in ("屋顶", "坡", "roof"))
+    if not has_roof_keyword:
+        return None
+
+    roof_type = None
+    for keyword, mapped_type in _ROOF_TYPE_MAP.items():
+        if keyword in lower:
+            roof_type = mapped_type
+            break
+
+    if roof_type is None:
+        return None
+
+    # 提取坡度
+    slope_match = re.search(r"(\d+)\s*[°度]", prompt)
+    slope_deg = float(slope_match.group(1)) if slope_match else 30.0
+
+    # 提取悬挑
+    overhang_match = re.search(r"悬挑\s*(\d+(?:\.\d+)?)\s*[m米]", prompt)
+    overhang_m = float(overhang_match.group(1)) if overhang_match else 0.6
+
+    return RoofInfo(
+        roof_type=roof_type,
+        roof_slope_deg=slope_deg,
+        roof_overhang_m=overhang_m,
+    )
 
 
 @lru_cache(maxsize=4)
@@ -344,6 +397,28 @@ class HeuristicStructuredIntentProvider:
                 confidence=0.8,
             )
         )
+
+        # 提取屋顶信息
+        roof = _extract_roof_from_prompt(prompt)
+        if roof:
+            completion_trace.append(
+                self._trace(
+                    field="roof.roof_type",
+                    value=roof.roof_type,
+                    source="text_prompt",
+                    source_type="text_prompt",
+                    source_ref="prompt.roof_keyword",
+                    confidence=0.85,
+                )
+            )
+            assumptions.append(
+                Assumption(
+                    field="roof",
+                    value={"roof_type": roof.roof_type, "slope_deg": roof.roof_slope_deg},
+                    source="text_prompt",
+                    confidence=0.85,
+                )
+            )
 
         return StructuredIntentOutput(
             schema_version=str(self.config.get("schema_version", "jianmo.intent.v1")),
@@ -649,11 +724,37 @@ class HeuristicStructuredIntentProvider:
 
 
 class StructuredIntentTransformer:
-    def __init__(self, provider: IntentProvider | None = None) -> None:
-        self.provider = provider or HeuristicStructuredIntentProvider()
+    def __init__(
+        self,
+        provider: IntentProvider | None = None,
+        llm_client: LLMClient | None = None,
+    ) -> None:
+        if provider is not None:
+            self.provider = provider
+            self._selector = None
+        elif llm_client is not None:
+            self._selector = IntentProviderSelector(llm_client=llm_client)
+            self.provider = None
+        else:
+            self.provider = HeuristicStructuredIntentProvider()
+            self._selector = None
 
     def transform(self, bundle: SourceBundle, parsed: ParsedDrawingModel) -> DesignIntent:
-        structured = self.provider.build(bundle, parsed)
+        if self._selector is not None:
+            provider = self._selector.select(bundle, parsed)
+            structured = provider.build(bundle, parsed)
+        else:
+            structured = self.provider.build(bundle, parsed)
+
+        # Extract roof from prompt if not already in structured output metadata
+        roof = _extract_roof_from_prompt(_normalize_text(bundle.prompt))
+
+        # Check if AI provider returned roof info in metadata
+        if roof is None and structured.metadata.get("roof"):
+            roof_data = structured.metadata["roof"]
+            if isinstance(roof_data, dict) and roof_data.get("roof_type"):
+                roof = RoofInfo(**{k: v for k, v in roof_data.items() if v is not None})
+
         return DesignIntent(
             project_id=bundle.project_id,
             request_id=bundle.request_id,
@@ -671,6 +772,7 @@ class StructuredIntentTransformer:
             completion_trace=structured.completion_trace,
             element_selector=structured.element_selector,
             model_patch=structured.model_patch,
+            roof=roof,
             metadata={
                 **structured.metadata,
                 "schema_version": structured.schema_version,
@@ -680,3 +782,145 @@ class StructuredIntentTransformer:
     @staticmethod
     def structured_schema() -> dict[str, Any]:
         return StructuredIntentOutput.model_json_schema()
+
+
+_AI_PROMPTS_PATH = Path(__file__).resolve().parent / "config" / "ai_prompts.json"
+
+_COMPLEX_MODIFICATION_KEYWORDS = ("替换", "更换", "增加", "删除", "修改", "调整", "替换为", "全部换成")
+
+
+class PromptBuilder:
+    """构建 AI 意图解析的提示词。"""
+
+    def __init__(self, config_path: Path | None = None) -> None:
+        self.config_path = config_path or _AI_PROMPTS_PATH
+
+    @property
+    def _config(self) -> dict[str, Any]:
+        return json.loads(self.config_path.read_text(encoding="utf-8"))
+
+    def build_system_prompt(self, schema: dict[str, Any]) -> str:
+        config = self._config
+        template = config.get("system_prompt", "")
+        return template.replace("{schema}", json.dumps(schema, ensure_ascii=False, indent=2))
+
+    def build_fallback_system_prompt(self, schema: dict[str, Any]) -> str:
+        config = self._config
+        template = config.get("fallback_system_prompt", "")
+        return template.replace("{schema}", json.dumps(schema, ensure_ascii=False, indent=2))
+
+    def build_user_prompt(
+        self,
+        bundle: SourceBundle,
+        parsed: ParsedDrawingModel,
+        config: dict[str, Any] | None = None,
+    ) -> str:
+        prompts_config = self._config
+        template = prompts_config.get("user_prompt_template", "")
+        intent_config = config or _load_intent_config(str(_INTENT_CONFIG_PATH))
+
+        building_type = bundle.building_type_hint or "residential"
+        profile = intent_config.get("building_types", {}).get(building_type, {})
+
+        entity_summary = parsed.entity_summary if isinstance(parsed.entity_summary, dict) else {}
+        wall_count = int(entity_summary.get("wall_entities", entity_summary.get("detected_entities_emitted", 0)))
+        door_count = int(entity_summary.get("door_entities", 0))
+        window_count = int(entity_summary.get("window_entities", 0))
+        space_count = parsed.space_candidates_detected
+
+        substitutions = {
+            "prompt": bundle.prompt,
+            "building_type": building_type or "未指定",
+            "region": bundle.region or "未指定",
+            "floors": bundle.form_fields.get("floors", "未指定"),
+            "standard_floor_height_m": bundle.form_fields.get("standard_floor_height_m", "未指定"),
+            "first_floor_height_m": bundle.form_fields.get("first_floor_height_m", "未指定"),
+            "site_area_sqm": bundle.form_fields.get("site_area_sqm", "未指定"),
+            "far": bundle.form_fields.get("far", "未指定"),
+            "assets_count": str(parsed.assets_count),
+            "recognized_layers": ", ".join(parsed.recognized_layers[:10]) or "无",
+            "storey_candidates": ", ".join(parsed.storey_candidates) or "无",
+            "wall_count": str(wall_count),
+            "door_count": str(door_count),
+            "window_count": str(window_count),
+            "space_count": str(space_count),
+            "parsed_site_area": str(parsed.site_boundary_detected) if parsed.site_boundary_detected else "未推断",
+            "building_type_profile": json.dumps(profile, ensure_ascii=False, indent=2),
+        }
+
+        result = template
+        for key, value in substitutions.items():
+            result = result.replace(f"{{{key}}}", str(value))
+        return result
+
+
+class AIIntentProvider:
+    """基于 LLM 的意图解析器。"""
+
+    provider_name = "ai_structured_v1"
+
+    def __init__(
+        self,
+        llm_client: LLMClient,
+        config_path: Path | None = None,
+        prompts_path: Path | None = None,
+    ) -> None:
+        self.llm_client = llm_client
+        self.config_path = config_path or _INTENT_CONFIG_PATH
+        self.prompt_builder = PromptBuilder(prompts_path)
+        self._heuristic = HeuristicStructuredIntentProvider(config_path)
+
+    def build(self, bundle: SourceBundle, parsed: ParsedDrawingModel) -> StructuredIntentOutput:
+        schema = StructuredIntentOutput.model_json_schema()
+        system_prompt = self.prompt_builder.build_system_prompt(schema)
+        user_prompt = self.prompt_builder.build_user_prompt(bundle, parsed)
+
+        try:
+            raw_output = self.llm_client.structured_output(
+                system_prompt=system_prompt,
+                user_prompt=user_prompt,
+                schema=schema,
+            )
+            result = StructuredIntentOutput.model_validate(raw_output)
+            if not result.metadata.get("intent_provider"):
+                result.metadata["intent_provider"] = self.provider_name
+            return result
+        except (LLMError, Exception):
+            # 回退到正则解析器
+            return self._heuristic.build(bundle, parsed)
+
+
+class IntentProviderSelector:
+    """根据输入复杂度选择解析策略。"""
+
+    def __init__(
+        self,
+        llm_client: LLMClient | None = None,
+        config_path: Path | None = None,
+        prompts_path: Path | None = None,
+    ) -> None:
+        self.llm_client = llm_client
+        self.config_path = config_path or _INTENT_CONFIG_PATH
+        self.prompts_path = prompts_path
+        self._heuristic = HeuristicStructuredIntentProvider(config_path)
+        self._ai_provider: AIIntentProvider | None = None
+
+    def _get_ai_provider(self) -> AIIntentProvider:
+        if self._ai_provider is None:
+            if self.llm_client is None:
+                raise ValueError("LLM client is required for AI provider")
+            self._ai_provider = AIIntentProvider(
+                llm_client=self.llm_client,
+                config_path=self.config_path,
+                prompts_path=self.prompts_path,
+            )
+        return self._ai_provider
+
+    def select(self, bundle: SourceBundle, parsed: ParsedDrawingModel) -> IntentProvider:
+        # 当 LLM 客户端可用时，始终优先使用 AI 解析
+        if self.llm_client is not None:
+            try:
+                return self._get_ai_provider()
+            except (ValueError, LLMError):
+                return self._heuristic
+        return self._heuristic

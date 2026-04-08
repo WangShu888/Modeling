@@ -1,4 +1,5 @@
 import type {
+  AIIntentParseResponse,
   AssetRecord,
   FeedbackPayload,
   ModelingRequestRecord,
@@ -135,4 +136,20 @@ export async function sendFeedback(
       body: JSON.stringify(payload)
     }
   );
+}
+
+export async function parseIntent(
+  projectId: string,
+  input: {
+    prompt: string;
+    building_type?: string | null;
+    region?: string | null;
+    form_fields?: Record<string, unknown>;
+    asset_ids?: string[];
+  }
+): Promise<AIIntentParseResponse> {
+  return request<AIIntentParseResponse>(`/api/projects/${projectId}/intent/parse`, {
+    method: "POST",
+    body: JSON.stringify(input)
+  });
 }

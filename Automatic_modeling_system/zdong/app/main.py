@@ -11,6 +11,8 @@ from fastapi.staticfiles import StaticFiles
 
 from .assets import LocalAssetStorage
 from .models import (
+    AIIntentParseRequest,
+    AIIntentParseResponse,
     AssetRecord,
     FeedbackCreateRequest,
     FeedbackReceipt,
@@ -172,6 +174,15 @@ def create_app(
             return pipeline.run(project_id, payload)
         except KeyError as exc:
             raise HTTPException(status_code=404, detail="Project not found") from exc
+
+    @app.post("/api/projects/{project_id}/intent/parse", response_model=AIIntentParseResponse)
+    def parse_intent(project_id: str, payload: AIIntentParseRequest) -> AIIntentParseResponse:
+        if pipeline.get_project(project_id) is None:
+            raise HTTPException(status_code=404, detail="Project not found")
+        try:
+            return pipeline.parse_intent_only(project_id, payload)
+        except Exception as exc:
+            raise HTTPException(status_code=500, detail=str(exc)) from exc
 
     @app.get("/api/projects/{project_id}/versions", response_model=list[VersionSnapshot])
     def list_versions(project_id: str) -> list[VersionSnapshot]:

@@ -325,6 +325,8 @@ class StructuredIntentOutput(BaseModel):
     element_selector: ElementSelector | None = None
     model_patch: ModelPatch | None = None
     metadata: dict[str, Any] = Field(default_factory=dict)
+    ai_parsed_summary: str = ""
+    modification_commands: list[dict[str, Any]] = Field(default_factory=list)
 
 
 class DesignIntent(BaseModel):
@@ -346,6 +348,39 @@ class DesignIntent(BaseModel):
     model_patch: ModelPatch | None = None
     roof: RoofInfo | None = None
     metadata: dict[str, Any] = Field(default_factory=dict)
+
+
+class ClarificationQuestion(BaseModel):
+    field: str
+    question: str
+    suggested_answers: list[str] = Field(default_factory=list)
+    confidence: float = 0.5
+
+
+class IntentConflict(BaseModel):
+    field: str
+    text_value: Any
+    drawing_value: Any
+    resolution: str
+    reason: str
+
+
+class AIIntentParseRequest(BaseModel):
+    prompt: str
+    building_type: str | None = None
+    region: str | None = None
+    form_fields: dict[str, Any] = Field(default_factory=dict)
+    asset_ids: list[str] = Field(default_factory=list)
+
+
+class AIIntentParseResponse(BaseModel):
+    structured_intent: StructuredIntentOutput
+    parsed_summary: str = ""
+    conflicts: list[IntentConflict] = Field(default_factory=list)
+    clarification_questions: list[ClarificationQuestion] = Field(default_factory=list)
+    ai_model: str = ""
+    parsing_time_ms: int = 0
+    provider_name: str = ""
 
 
 class RuleIssue(BaseModel):

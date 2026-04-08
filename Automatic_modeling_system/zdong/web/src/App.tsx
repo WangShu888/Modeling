@@ -16,6 +16,7 @@ import {
   fetchProjects,
   fetchRequests,
   fetchVersions,
+  parseIntent,
   runSavedRequest,
   sendFeedback,
   uploadAsset
@@ -26,6 +27,7 @@ import {
   formatPipelineStatus
 } from "./issueCopy";
 import type {
+  AIIntentParseResponse,
   AssetRecord,
   FeedbackTopic,
   ModelingFormState,
@@ -223,6 +225,8 @@ export default function App() {
   const [sendingFeedback, setSendingFeedback] = useState(false);
   const [copiedPath, setCopiedPath] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<DetailTab>("parse");
+  const [intentResult, setIntentResult] = useState<AIIntentParseResponse | null>(null);
+  const [intentLoading, setIntentLoading] = useState(false);
 
   const activeProject = useMemo(
     () => projects.find((project) => project.project_id === selectedProjectId) ?? null,
@@ -468,6 +472,32 @@ export default function App() {
       setCopiedPath(path);
     } catch {
       setCopiedPath(null);
+    }
+  }
+
+  async function handleParseIntent() {
+    setIntentLoading(true);
+    setIntentResult(null);
+    try {
+      const projectId = await ensureProject();
+      const result = await parseIntent(projectId, {
+        prompt: form.prompt,
+        building_type: form.buildingType,
+        region: form.region,
+        form_fields: {
+          floors: form.floors ? Number(form.floors) : undefined,
+          standard_floor_height_m: form.standardFloorHeight ? Number(form.standardFloorHeight) : undefined,
+          first_floor_height_m: form.firstFloorHeight ? Number(form.firstFloorHeight) : undefined,
+          site_area_sqm: form.siteArea ? Number(form.siteArea) : undefined,
+          far: form.far ? Number(form.far) : undefined,
+        },
+        asset_ids: assets.map((a) => a.asset_id),
+      });
+      setIntentResult(result);
+    } catch (parseError) {
+      setError(parseError instanceof Error ? parseError.message : "意图解析失败");
+    } finally {
+      setIntentLoading(false);
     }
   }
 
@@ -890,7 +920,7 @@ export default function App() {
                     <p className="eyebrow">Step 04</p>
                     <h3>建模意图</h3>
                   </div>
-                  <p>用自然语言定义目标建筑、立面、户型和导出要求，系统会自动抽取结构化意图。</p>
+                  <p>用自然语言定义目标建筑、立面、户型和导出要求，点击「AI 解析」预览系统对意图的结构化理解。</p>
                 </div>
 
                 <label className="field field-full">
@@ -898,7 +928,10 @@ export default function App() {
                   <textarea
                     rows={6}
                     value={form.prompt}
-                    onChange={(event) => setForm({ ...form, prompt: event.target.value })}
+                    onChange={(event) => {
+                      setForm({ ...form, prompt: event.target.value });
+                      setIntentResult(null);
+                    }}
                   />
                 </label>
 
@@ -909,6 +942,81 @@ export default function App() {
                     </span>
                   ))}
                 </div>
+
+                <div className="action-bar">
+                  <button
+                    type="button"
+                    className="button button-secondary"
+                    onClick={() => void handleParseIntent()}
+                    disabled={intentLoading || !form.prompt.trim()}
+                  >
+                    {intentLoading ? "AI 解析中..." : "AI 解析意图"}
+                  </button>
+                  {intentResult ? (
+                    <span className="status-badge tone-success">
+                      {intentResult.provider_name} · {intentResult.parsing_time_ms}ms
+                    </span>
+                  ) : null}
+                </div>
+
+                {intentResult ? (
+                  <div className="info-grid" style={{ marginTop: "1rem" }}>
+                    <article className="info-card">
+                      <span className="metric-label">解析摘要</span>
+                      <strong>{intentResult.parsed_summary}</strong>
+                      <p>来源：{intentResult.provider_name} · 耗时 {intentResult.parsing_time_ms}ms</p>
+                    </article>
+
+                    <article className="info-card">
+                      <span className="metric-label">建筑类型 / 模式</span>
+                      <strong>{intentResult.structured_intent.building_type} / {intentResult.structured_intent.source_mode}</strong>
+                      <p>
+                        {intentResult.structured_intent.constraints.floors} 层 ·
+                        层高 {intentResult.structured_intent.constraints.standard_floor_height_m}m ·
+                        用地 {intentResult.structured_intent.site.area_sqm ?? "--"} ㎡
+                      </p>
+                    </article>
+
+                    {intentResult.structured_intent.assumptions.length > 0 ? (
+                      <article className="info-card info-card-warning">
+                        <span className="metric-label">系统假设 ({intentResult.structured_intent.assumptions.length})</span>
+                        <div className="token-row">
+                          {intentResult.structured_intent.assumptions.slice(0, 6).map((a) => (
+                            <span key={a.field} className="token token-warning">
+                              {a.field}: {String(a.value)} ({formatConfidence(a.confidence)})
+                            </span>
+                          ))}
+                        </div>
+                      </article>
+                    ) : null}
+
+                    {intentResult.conflicts.length > 0 ? (
+                      <article className="info-card info-card-warning">
+                        <span className="metric-label">冲突检测</span>
+                        {intentResult.conflicts.map((c) => (
+                          <strong key={c.field}>{c.field}: {String(c.text_value)} vs {String(c.drawing_value)} → {c.resolution}</strong>
+                        ))}
+                      </article>
+                    ) : null}
+
+                    {intentResult.clarification_questions.length > 0 ? (
+                      <article className="info-card">
+                        <span className="metric-label">待确认 ({intentResult.clarification_questions.length})</span>
+                        {intentResult.clarification_questions.map((q) => (
+                          <p key={q.field}>{q.question}</p>
+                        ))}
+                      </article>
+                    ) : null}
+
+                    {intentResult.structured_intent.model_patch ? (
+                      <article className="info-card">
+                        <span className="metric-label">修改指令</span>
+                        <strong>{intentResult.structured_intent.model_patch.action_type} → {intentResult.structured_intent.model_patch.target_family}</strong>
+                        <p>目标：{intentResult.structured_intent.element_selector?.ifc_type ?? "未知"}</p>
+                      </article>
+                    ) : null}
+                  </div>
+                ) : null}
               </section>
 
               <div className="action-bar">

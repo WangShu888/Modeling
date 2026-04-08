@@ -184,3 +184,87 @@ export interface ModelingFormState {
   siteArea: string;
   far: string;
 }
+
+export interface ClarificationQuestion {
+  field: string;
+  question: string;
+  suggested_answers: string[];
+  confidence: number;
+}
+
+export interface IntentConflict {
+  field: string;
+  text_value: unknown;
+  drawing_value: unknown;
+  resolution: string;
+  reason: string;
+}
+
+export interface AIIntentParseResponse {
+  structured_intent: {
+    schema_version: string;
+    source_mode: string;
+    building_type: string;
+    site: {
+      boundary_source: string;
+      area_sqm?: number | null;
+      north_angle: number;
+    };
+    constraints: {
+      floors: number;
+      standard_floor_height_m: number;
+      first_floor_height_m: number;
+      ruleset: string;
+      far?: number | null;
+    };
+    program: {
+      spaces_from_drawings: boolean;
+      units_per_floor?: number | null;
+      core_type?: string | null;
+      first_floor_spaces: string[];
+      typical_floor_spaces: string[];
+    };
+    style: {
+      facade: string;
+      material_palette: string[];
+    };
+    deliverables: string[];
+    final_use: string;
+    missing_fields: Array<{
+      field: string;
+      reason: string;
+      critical: boolean;
+    }>;
+    assumptions: Array<{
+      field: string;
+      value: unknown;
+      source: string;
+      confidence: number;
+    }>;
+    completion_trace: Array<{
+      field: string;
+      value: unknown;
+      source: string;
+      source_type?: string | null;
+      source_ref?: string | null;
+      confidence?: number | null;
+    }>;
+    element_selector?: {
+      ifc_type: string;
+      properties: Record<string, unknown>;
+    } | null;
+    model_patch?: {
+      action_type: string;
+      target_family: string;
+      preserve: string[];
+      scope?: Record<string, unknown>;
+    } | null;
+    metadata?: Record<string, unknown>;
+  };
+  parsed_summary: string;
+  conflicts: IntentConflict[];
+  clarification_questions: ClarificationQuestion[];
+  ai_model: string;
+  parsing_time_ms: number;
+  provider_name: string;
+}
