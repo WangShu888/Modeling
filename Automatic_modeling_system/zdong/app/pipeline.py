@@ -2720,24 +2720,31 @@ class ExportService:
             dx, dy = 0.0, thickness
 
         # 四边形截面顶点（Profile 2D 空间：X=深度, Y=高度）
+        # 外表面（顶边）在屋脊处(x=0)汇合，消除两坡面之间的缝隙
+        # 厚度从檐口处的满厚(0.15m)向屋脊处逐渐收窄至零
         if is_left:
-            # 左坡面：从屋脊线向 +Y 方向延伸
+            # 左坡面：从屋脊线向 +X 方向延伸
             p1 = writer.add(f"IFCCARTESIANPOINT((0.,0.))")
             p2 = writer.add(f"IFCCARTESIANPOINT(({_format_ifc_float(slope_depth)},0.))")
             p3 = writer.add(f"IFCCARTESIANPOINT(({_format_ifc_float(slope_depth + dx)},{_format_ifc_float(dy)}))")
-            p4 = writer.add(f"IFCCARTESIANPOINT(({_format_ifc_float(dx)},{_format_ifc_float(ridge_height + dy)}))")
+            p4 = writer.add(f"IFCCARTESIANPOINT((0.,{_format_ifc_float(ridge_height)}))")
         else:
-            # 右坡面：从屋脊线向 -Y 方向延伸
+            # 右坡面：从屋脊线向 -X 方向延伸
             p1 = writer.add(f"IFCCARTESIANPOINT((0.,0.))")
             p2 = writer.add(f"IFCCARTESIANPOINT(({_format_ifc_float(-slope_depth)},0.))")
             p3 = writer.add(f"IFCCARTESIANPOINT(({_format_ifc_float(-slope_depth - dx)},{_format_ifc_float(dy)}))")
-            p4 = writer.add(f"IFCCARTESIANPOINT(({_format_ifc_float(-dx)},{_format_ifc_float(ridge_height + dy)}))")
+            p4 = writer.add(f"IFCCARTESIANPOINT((0.,{_format_ifc_float(ridge_height)}))")
 
         polyline = writer.add(f"IFCPOLYLINE((#{p1},#{p2},#{p3},#{p4},#{p1}))")
         profile = writer.add(f"IFCARBITRARYCLOSEDPROFILEDEF(.AREA.,$,#" + str(polyline) + ")")
 
-        # 自定义坐标轴：Z轴(拉伸方向)=建筑X轴, X轴ref=建筑Y轴
-        extrusion_dir = writer.add("IFCDIRECTION((1.,0.,0.))")
+        # 自定义坐标轴：
+        # Position Z(axis) = (1,0,0) = 建筑X轴 → profile法线方向
+        # Position X(ref) = (0,1,0) = 建筑Y轴 → profile X = 坡面深度
+        # Position Y = Z×X = (0,0,1) = 建筑Z轴 → profile Y = 坡面高度
+        # ExtrudedDirection 必须用 (0,0,1) 才能沿 Position Z = 建筑 X 拉伸
+        axis_dir = writer.add("IFCDIRECTION((1.,0.,0.))")
+        extrusion_dir = writer.add("IFCDIRECTION((0.,0.,1.))")
         x_ref = writer.add("IFCDIRECTION((0.,1.,0.))")
 
         # 拉伸体原点：偏移 -width/2 使拉伸体沿 X 居中
@@ -2745,7 +2752,7 @@ class ExportService:
             f"IFCCARTESIANPOINT(({_format_ifc_float(-building_width / 2)},0.,0.))"
         )
         solid_axis = writer.add(
-            f"IFCAXIS2PLACEMENT3D(#{solid_origin},#{extrusion_dir},#{x_ref})"
+            f"IFCAXIS2PLACEMENT3D(#{solid_origin},#{axis_dir},#{x_ref})"
         )
         solid = writer.add(
             f"IFCEXTRUDEDAREASOLID(#{profile},#{solid_axis},#{extrusion_dir},{_format_ifc_float(building_width)})"

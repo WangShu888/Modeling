@@ -414,3 +414,19 @@ INFO:     192.168.144.32:47142 - "GET /api/projects/proj_0051/assets HTTP/1.1" 2
 INFO:     192.168.144.32:49046 - "GET /api/projects/proj_0051/requests HTTP/1.1" 200 OK
 INFO:     192.168.144.32:49044 - "GET /api/projects/proj_0051/versions HTTP/1.1" 200 OK
 INFO:     192.168.144.32:49182 - "GET /api/projects/proj_0051/versions/ver_0078/artifacts/model.ifc HTTP/1.1" 200 OK
+INFO:     192.168.144.32:54934 - "GET / HTTP/1.1" 200 OK
+INFO:     192.168.144.32:54934 - "GET /assets/index-C6BJT2US.js HTTP/1.1" 304 Not Modified
+INFO:     192.168.144.32:54936 - "GET /assets/index-BTG9ZrO6.css HTTP/1.1" 304 Not Modified
+INFO:     192.168.144.32:54936 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     192.168.144.32:54952 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     192.168.144.32:54936 - "GET /api/projects/proj_0051/assets HTTP/1.1" 200 OK
+INFO:     192.168.144.32:54950 - "GET /api/projects/proj_0051/requests HTTP/1.1" 200 OK
+INFO:     192.168.144.32:54934 - "GET /api/projects/proj_0051/versions HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'app/pipeline.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36452]
+INFO:     Started server process [42519]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.

@@ -1,23 +1,23 @@
 {
-  "project_id": "proj_0001",
-  "request_id": "req_0001",
-  "version_id": "ver_0001",
-  "source_mode": "text_only",
+  "project_id": "proj_0051",
+  "request_id": "req_0074",
+  "version_id": "ver_0079",
+  "source_mode": "cad_to_bim",
   "building_type": "residential",
   "site": {
-    "boundary_source": "unspecified",
-    "area_sqm": null,
+    "boundary_source": "drawing_or_uploaded_polygon",
+    "area_sqm": 53.67,
     "north_angle": 0.0
   },
   "constraints": {
     "floors": 2,
-    "standard_floor_height_m": 3.0,
-    "first_floor_height_m": 3.3,
+    "standard_floor_height_m": 3.6,
+    "first_floor_height_m": 3.6,
     "ruleset": "cn_residential_v1",
-    "far": null
+    "far": 2.5
   },
   "program": {
-    "spaces_from_drawings": false,
+    "spaces_from_drawings": true,
     "units_per_floor": 4,
     "core_type": "double_elevator",
     "first_floor_spaces": [
@@ -29,7 +29,7 @@
     ]
   },
   "style": {
-    "facade": "generated_default",
+    "facade": "follow_drawing",
     "material_palette": [
       "paint",
       "glass",
@@ -42,20 +42,8 @@
     "intent.json"
   ],
   "final_use": "revit_view",
-  "missing_fields": [
-    {
-      "field": "site.area_sqm",
-      "reason": "文本建模未提供用地面积，将生成草案级方案。",
-      "critical": false
-    }
-  ],
+  "missing_fields": [],
   "assumptions": [
-    {
-      "field": "constraints.first_floor_height_m",
-      "value": 3.3,
-      "source": "residential_template_default",
-      "confidence": 0.6
-    },
     {
       "field": "program.units_per_floor",
       "value": 4,
@@ -89,11 +77,11 @@
     },
     {
       "field": "source_mode",
-      "value": "text_only",
-      "source": "system_default",
-      "source_type": "system_default",
+      "value": "cad_to_bim",
+      "source": "parsed_assets",
+      "source_type": "parsed_drawing",
       "source_ref": "parsed_drawing.assets_count",
-      "confidence": 0.6
+      "confidence": 0.95
     },
     {
       "field": "constraints.floors",
@@ -105,7 +93,7 @@
     },
     {
       "field": "constraints.standard_floor_height_m",
-      "value": 3.0,
+      "value": 3.6,
       "source": "form_input",
       "source_type": "form_input",
       "source_ref": "form_fields.constraints.standard_floor_height_m",
@@ -113,11 +101,27 @@
     },
     {
       "field": "constraints.first_floor_height_m",
-      "value": 3.3,
-      "source": "residential_template_default",
-      "source_type": "template_default",
-      "source_ref": "intent_defaults.residential.default_first_floor_height_m",
-      "confidence": 0.6
+      "value": 3.6,
+      "source": "form_input",
+      "source_type": "form_input",
+      "source_ref": "form_fields.constraints.first_floor_height_m",
+      "confidence": 1.0
+    },
+    {
+      "field": "site.area_sqm",
+      "value": 53.67,
+      "source": "form_input",
+      "source_type": "form_input",
+      "source_ref": "form_fields.site.area_sqm",
+      "confidence": 1.0
+    },
+    {
+      "field": "constraints.far",
+      "value": 2.5,
+      "source": "form_input",
+      "source_type": "form_input",
+      "source_ref": "form_fields.constraints.far",
+      "confidence": 1.0
     },
     {
       "field": "program.units_per_floor",
@@ -137,27 +141,27 @@
     },
     {
       "field": "site.boundary_source",
-      "value": "unspecified",
-      "source": "system_default",
-      "source_type": "system_default",
+      "value": "drawing_or_uploaded_polygon",
+      "source": "parsed_drawing",
+      "source_type": "parsed_drawing",
       "source_ref": "parsed_drawing.site_boundary_detected",
-      "confidence": 0.6
+      "confidence": 0.8
     },
     {
       "field": "site.north_angle",
       "value": 0.0,
-      "source": "system_default",
-      "source_type": "system_default",
+      "source": "parsed_drawing",
+      "source_type": "parsed_drawing",
       "source_ref": "parsed_drawing.north_angle",
-      "confidence": 0.4
+      "confidence": 0.75
     },
     {
       "field": "program.spaces_from_drawings",
-      "value": false,
-      "source": "system_default",
-      "source_type": "system_default",
+      "value": true,
+      "source": "parsed_drawing",
+      "source_type": "parsed_drawing",
       "source_ref": "parsed_drawing.space_candidates_detected",
-      "confidence": 0.5
+      "confidence": 0.75
     },
     {
       "field": "deliverables",
@@ -200,7 +204,7 @@
     "intent_provider": "heuristic_structured_v1",
     "config_version": "2026-03-31",
     "schema_version": "jianmo.intent.v1",
-    "region_context": "cn",
-    "asset_count": 0
+    "region_context": "CN-SH",
+    "asset_count": 2
   }
 }
