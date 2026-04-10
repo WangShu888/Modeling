@@ -68,7 +68,7 @@ def test_rule_engine_produces_trace_and_summary() -> None:
     result = engine.evaluate(intent, parsed)
 
     trace = result.metadata["rule_trace"]
-    assert len(trace) == 9
+    assert len(trace) == 8
     assert trace[0]["rule_id"] == "constraints.floors.min"
     assert result.metadata["issue_summary"]["fatal"] >= 1
     assert result.metadata["rule_catalog"]["constraints.floors.min"].startswith("确保楼层数")

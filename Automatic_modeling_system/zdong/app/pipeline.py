@@ -22,7 +22,6 @@ from .models import (
     Assumption,
     BimElement,
     BimSemanticModel,
-    BimSpace,
     BimStorey,
     ClarificationQuestion,
     CompletionTraceItem,
@@ -85,7 +84,6 @@ _RECONCILIATION_TYPE_MAP = {
     "IfcWall": "wall",
     "IfcDoor": "door",
     "IfcWindow": "window",
-    "IfcSpace": "space",
 }
 _SOURCE_ENTITY_CATEGORY_MAP = {
     "wall_line": "wall_line",
@@ -676,16 +674,6 @@ class RuleEngine:
                 )
             )
 
-        if intent.source_mode == "cad_to_bim" and parsed.space_candidates_detected == 0:
-            issues.append(
-                RuleIssue(
-                    code="drawing.space_boundaries_missing",
-                    severity="warning",
-                    message="图纸解析未识别到房间边界，空间生成结果需要人工复核。",
-                    target="parsed_drawing.space_boundaries_detected",
-                )
-            )
-
         if intent.constraints.far and intent.constraints.far > 5.0:
             issues.append(
                 RuleIssue(
@@ -819,7 +807,6 @@ class BimEngine:
         storeys: list[BimStorey] = []
         replacement_count = 0
         source_layouts = self._source_layouts(parsed_drawing)
-        source_space_evidence = sum(len(layout["room_entities"]) for layout in source_layouts) if source_layouts else 0
         target_storey_count = max(len(source_layouts), intent.constraints.floors) if source_layouts else intent.constraints.floors
         source_layout_trace: list[dict[str, object]] = []
 
@@ -840,12 +827,8 @@ class BimEngine:
             )
             elevation = self._storey_elevation(intent, floor_index, storey_key)
             if source_layout is not None:
-                spaces = self._make_spaces_from_source(storey_id, source_layout)
-                if not spaces and source_space_evidence == 0:
-                    spaces = self._make_spaces(intent, storey_id, floor_index)
                 elements = self._make_elements_from_source(intent, storey_id, source_layout)
             else:
-                spaces = self._make_spaces(intent, storey_id, floor_index)
                 elements = self._make_elements(intent, storey_id, floor_index)
 
             if intent.element_selector and intent.model_patch:
@@ -865,7 +848,6 @@ class BimEngine:
                     storey_id=storey_id,
                     name=storey_name,
                     elevation_m=round(elevation, 2),
-                    spaces=spaces,
                     elements=elements,
                 )
             )
@@ -885,13 +867,11 @@ class BimEngine:
             "wall": sum(len(layout["wall_entities"]) for layout in source_layouts) if source_layouts else 0,
             "window": sum(len(layout["window_entities"]) for layout in source_layouts) if source_layouts else 0,
             "door": sum(len(layout["door_entities"]) for layout in source_layouts) if source_layouts else 0,
-            "space": sum(len(layout["room_entities"]) for layout in source_layouts) if source_layouts else 0,
         }
         modeled_entity_totals = {
             "IfcWall": element_index.get("IfcWall", 0),
             "IfcDoor": element_index.get("IfcDoor", 0),
             "IfcWindow": element_index.get("IfcWindow", 0),
-            "IfcSpace": sum(len(storey.spaces) for storey in storeys),
         }
         source_layout_bounds_by_storey = {
             str(layout["storey_key"]): {
@@ -923,11 +903,6 @@ class BimEngine:
                 "source": source_entity_totals["window"],
                 "modeled": modeled_entity_totals["IfcWindow"],
                 "delta": modeled_entity_totals["IfcWindow"] - source_entity_totals["window"],
-            },
-            "IfcSpace": {
-                "source": source_entity_totals["space"],
-                "modeled": modeled_entity_totals["IfcSpace"],
-                "delta": modeled_entity_totals["IfcSpace"] - source_entity_totals["space"],
             },
         }
 
@@ -1152,69 +1127,6 @@ class BimEngine:
         if floor_index == 0:
             return 0.0
         return intent.constraints.first_floor_height_m + (floor_index - 1) * intent.constraints.standard_floor_height_m
-
-    def _make_spaces(self, intent: DesignIntent, storey_id: str, floor_index: int) -> list[BimSpace]:
-        spaces: list[BimSpace] = []
-        if intent.building_type == "residential":
-            units = intent.program.units_per_floor or 4
-            for unit_index in range(units):
-                spaces.append(
-                    BimSpace(
-                        space_id=f"{storey_id}_unit_{unit_index + 1}",
-                        name=f"户型 {unit_index + 1}",
-                        category="apartment",
-                        area_sqm=95.0,
-                    )
-                )
-            spaces.append(
-                BimSpace(
-                    space_id=f"{storey_id}_corridor",
-                    name="公共走道",
-                    category="circulation",
-                    area_sqm=42.0,
-                )
-            )
-            return spaces
-
-        default_spaces = [
-            ("open_office", "开放办公区", 240.0),
-            ("meeting", "会议室", 48.0),
-            ("core", "交通核", 60.0),
-        ]
-        for suffix, name, area in default_spaces:
-            spaces.append(
-                BimSpace(
-                    space_id=f"{storey_id}_{suffix}",
-                    name=name,
-                    category=suffix,
-                    area_sqm=area,
-                )
-            )
-        return spaces
-
-    def _make_spaces_from_source(self, storey_id: str, layout: dict[str, object]) -> list[BimSpace]:
-        room_entities = list(layout["room_entities"])
-        if not room_entities:
-            return []
-
-        scale = float(layout["scale"])
-        spaces: list[BimSpace] = []
-        for index, entity in enumerate(room_entities, start=1):
-            if entity.category == "room_boundary":
-                area = self._polygon_area(entity.points) * (scale**2)
-                name = entity.label or f"图纸空间 {index}"
-            else:
-                area = self._entity_bbox_area(entity, scale)
-                name = entity.label or f"房间标签 {index}"
-            spaces.append(
-                BimSpace(
-                    space_id=f"{storey_id}_room_{index:03d}",
-                    name=name,
-                    category="parsed_room",
-                    area_sqm=max(round(area, 3), 1.0),
-                )
-            )
-        return spaces
 
     def _make_elements(self, intent: DesignIntent, storey_id: str, floor_index: int) -> list[BimElement]:
         elements: list[BimElement] = []
@@ -2162,20 +2074,7 @@ class ValidationService:
     ) -> list[ValidationIssue]:
         issues: list[ValidationIssue] = []
         required_types = {"IfcWall", "IfcSlab", "IfcDoor", "IfcWindow"}
-        if intent.building_type == "residential":
-            required_types.add("IfcSpace")
         for ifc_type in sorted(required_types):
-            if ifc_type == "IfcSpace":
-                space_count = sum(len(storey.spaces) for storey in model.storeys)
-                if space_count == 0:
-                    issues.append(
-                        ValidationIssue(
-                            severity="warning",
-                            message="模型未生成任何空间对象，Revit 查看前建议复核空间识别逻辑。",
-                            target="IfcSpace",
-                        )
-                    )
-                continue
             if model.element_index.get(ifc_type, 0) <= 0:
                 issues.append(
                     ValidationIssue(
@@ -2196,10 +2095,7 @@ class ValidationService:
             expected = int(source_totals.get(source_key, 0))
             if expected <= 0:
                 continue
-            if ifc_type == "IfcSpace":
-                actual = sum(len(storey.spaces) for storey in model.storeys)
-            else:
-                actual = int(model.element_index.get(ifc_type, 0))
+            actual = int(model.element_index.get(ifc_type, 0))
             if actual < expected:
                 issues.append(
                     ValidationIssue(
@@ -2495,24 +2391,6 @@ class ExportService:
             storey_ids.append(storey_id)
 
             related_products: list[int] = []
-            for space_index, space in enumerate(storey.spaces):
-                placement = self._add_local_placement(
-                    writer,
-                    storey_placement,
-                    *self._space_layout(space_index),
-                )
-                width, depth, height = self._space_dimensions(space)
-                shape = self._add_box_shape(writer, body_context, axis_2d, origin_3d, dir_z, width, depth, height)
-                related_products.append(
-                    writer.add(
-                        "IFCSPACE("
-                        f"'{self._ifc_guid(space.space_id)}',"
-                        "$,"
-                        f"'{_escape_ifc_text(space.name)}',"
-                        "$,$,"
-                        f"#{placement},#{shape},$,.ELEMENT.,.INTERNAL.,0.)"
-                    )
-                )
 
             # First pass: create walls and collect them for opening matching
             wall_ids: dict[str, int] = {}
@@ -2761,22 +2639,6 @@ class ExportService:
             f"IFCSHAPEREPRESENTATION(#{body_context},'Body','SweptSolid',(#{solid}))"
         )
         return writer.add(f"IFCPRODUCTDEFINITIONSHAPE($,$,(#{shape}))")
-
-    def _space_layout(self, index: int) -> tuple[float, float, float]:
-        layouts = (
-            (4.0, 4.0, 0.0),
-            (12.0, 4.0, 0.0),
-            (20.0, 4.0, 0.0),
-            (6.0, 10.0, 0.0),
-            (16.0, 10.0, 0.0),
-        )
-        return layouts[index % len(layouts)]
-
-    def _space_dimensions(self, space: BimSpace) -> tuple[float, float, float]:
-        width = max(4.0, math.sqrt(space.area_sqm))
-        depth = max(4.0, space.area_sqm / width)
-        height = 2.8
-        return round(width, 3), round(depth, 3), height
 
     def _element_layout(
         self,

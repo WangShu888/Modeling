@@ -270,7 +270,7 @@ def test_bim_engine_prefers_fragment_storey_trace_from_entity_metadata() -> None
     assert wall.properties["source_fragment_id"] == "frag-2f-a"
 
 
-def test_bim_engine_uses_room_labels_as_source_spaces_without_template_fallback() -> None:
+def test_bim_engine_uses_room_labels_without_generating_spaces() -> None:
     parsed = ParsedDrawingModel(
         assets_count=1,
         asset_kinds=["cad"],
@@ -301,8 +301,8 @@ def test_bim_engine_uses_room_labels_as_source_spaces_without_template_fallback(
     model = BimEngine().build(intent, _plan(), parsed)
 
     assert [storey.name for storey in model.storeys] == ["1F", "2F"]
-    assert [space.name for space in model.storeys[0].spaces] == ["宿舍"]
-    assert [space.name for space in model.storeys[1].spaces] == ["宿舍"]
-    assert model.metadata["count_reconciliation"]["IfcSpace"]["source"] == 1
-    assert model.metadata["count_reconciliation"]["IfcSpace"]["modeled"] == 2
+    # Spaces are no longer generated from room labels
+    for storey in model.storeys:
+        assert len(storey.elements) > 0
+    assert "IfcSpace" not in model.metadata.get("count_reconciliation", {})
     assert model.metadata["storey_layout_trace"][1]["replicated"] is True

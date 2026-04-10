@@ -12,7 +12,6 @@ from app.ifc_runtime import IfcRuntimeInfo
 from app.models import (
     BimElement,
     BimSemanticModel,
-    BimSpace,
     BimStorey,
     Constraints,
     DesignIntent,
@@ -97,14 +96,6 @@ def _make_model(intent: DesignIntent, storey_count: int) -> BimSemanticModel:
                 storey_id=storey_id,
                 name=f"{index + 1}F",
                 elevation_m=index * intent.constraints.standard_floor_height_m,
-                spaces=[
-                    BimSpace(
-                        space_id=f"{storey_id}_space",
-                        name="audit_space",
-                        category="apartment",
-                        area_sqm=45.0,
-                    )
-                ],
                 elements=elements,
             )
         )
@@ -204,11 +195,11 @@ def test_export_gate_trace_records_successful_export(tmp_path) -> None:
     assert "IFCSLAB(" in ifc_text
     assert "IFCDOOR(" in ifc_text
     assert "IFCWINDOW(" in ifc_text
-    assert "IFCSPACE(" in ifc_text
+    assert "IFCSPACE(" not in ifc_text
     assert "IFCPROXY(" not in ifc_text
 
     guids = re.findall(
-        r"IFC(?:PROJECT|SITE|BUILDING|BUILDINGSTOREY|SPACE|WALL|SLAB|DOOR|WINDOW)\('([^']+)'",
+        r"IFC(?:PROJECT|SITE|BUILDING|BUILDINGSTOREY|WALL|SLAB|DOOR|WINDOW)\('([^']+)'",
         ifc_text,
     )
     assert guids

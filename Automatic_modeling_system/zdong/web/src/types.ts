@@ -155,7 +155,6 @@ export interface VersionSnapshot {
     storeys: Array<{
       name: string;
       elevation_m: number;
-      spaces: Array<{ name: string; category: string; area_sqm: number }>;
     }>;
   };
   validation: {

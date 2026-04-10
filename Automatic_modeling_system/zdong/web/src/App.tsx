@@ -250,14 +250,6 @@ export default function App() {
     () => elementEntries.reduce((sum, [, value]) => sum + value, 0),
     [elementEntries]
   );
-  const totalSpaces = useMemo(
-    () =>
-      selectedVersion?.bim_model.storeys.reduce(
-        (sum, storey) => sum + storey.spaces.length,
-        0
-      ) ?? 0,
-    [selectedVersion]
-  );
   const shownLayers = (selectedVersion?.parsed_drawing.recognized_layers ?? []).slice(0, 10);
   const hiddenLayerCount =
     (selectedVersion?.parsed_drawing.recognized_layers.length ?? 0) - shownLayers.length;
@@ -1116,7 +1108,7 @@ export default function App() {
                   <article className="metric-card">
                     <span className="metric-label">BIM 元素</span>
                     <strong>{formatNumber(totalElements)}</strong>
-                    <p>{selectedVersion.bim_model.storeys.length} 个楼层 / {totalSpaces} 个空间</p>
+                    <p>{selectedVersion.bim_model.storeys.length} 个楼层</p>
                   </article>
                   <article className="metric-card">
                     <span className="metric-label">导出产物</span>
@@ -1374,14 +1366,6 @@ export default function App() {
                               <div className="storey-head">
                                 <strong>{storey.name}</strong>
                                 <span>{storey.elevation_m} m</span>
-                              </div>
-                              <p>{storey.spaces.length} 个空间</p>
-                              <div className="token-row">
-                                {storey.spaces.slice(0, 4).map((space) => (
-                                  <span key={space.name} className="token token-quiet">
-                                    {space.name} · {space.area_sqm}㎡
-                                  </span>
-                                ))}
                               </div>
                             </article>
                           ))}

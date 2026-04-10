@@ -421,13 +421,6 @@ class ModelingPlan(BaseModel):
     metadata: dict[str, Any] = Field(default_factory=dict)
 
 
-class BimSpace(BaseModel):
-    space_id: str
-    name: str
-    category: str
-    area_sqm: float
-
-
 class BimElement(BaseModel):
     element_id: str
     guid: str
@@ -442,7 +435,6 @@ class BimStorey(BaseModel):
     storey_id: str
     name: str
     elevation_m: float
-    spaces: list[BimSpace] = Field(default_factory=list)
     elements: list[BimElement] = Field(default_factory=list)
 
 

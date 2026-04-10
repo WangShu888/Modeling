@@ -98,7 +98,6 @@ const failedVersion = {
       {
         name: "1F",
         elevation_m: 0,
-        spaces: []
       }
     ]
   },

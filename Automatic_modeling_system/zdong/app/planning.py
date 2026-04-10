@@ -21,7 +21,6 @@ _FORMAL_BLOCKING_PENDING_REVIEW = {"entity_detection_truncated", "multi_storey_a
 class SharedRuleConfig(BaseModel):
     max_far_warning: float = 5.0
     cad_requires_assets: bool = True
-    cad_missing_space_boundaries_severity: str = "warning"
     site_area_missing_severity: str = "warning"
 
 
@@ -137,17 +136,6 @@ class ConfigurableRuleEngine:
                     )
                 )
 
-        def _space_boundaries_rule() -> None:
-            if intent.source_mode == "cad_to_bim" and parsed.space_candidates_detected == 0:
-                issues.append(
-                    RuleIssue(
-                        code="drawing.space_boundaries_missing",
-                        severity=shared.cad_missing_space_boundaries_severity,
-                        message="图纸解析未识别到房间边界，空间生成结果需要人工复核。",
-                        target="parsed_drawing.space_candidates_detected",
-                    )
-                )
-
         def _far_rule() -> None:
             if intent.constraints.far and intent.constraints.far > shared.max_far_warning:
                 issues.append(
@@ -193,7 +181,6 @@ class ConfigurableRuleEngine:
         )
         _record_rule("source.assets.required_for_cad", _assets_rule)
         _record_rule("drawing.pending_review.forward", _pending_review_rule)
-        _record_rule("drawing.space_boundaries.required_for_cad", _space_boundaries_rule)
         _record_rule("constraints.far.warning_threshold", _far_rule)
         _record_rule("site.area.required_for_delivery", _site_area_rule)
         _record_rule("intent.missing_fields.forward", _missing_fields_rule)
